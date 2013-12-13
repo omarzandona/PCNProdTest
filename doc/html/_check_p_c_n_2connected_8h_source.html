@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente connected.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>connected.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_check_p_c_n_2connected_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _CONNECTED_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _CONNECTED_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, T V&gt;
+<a name="l00009"></a><a class="code" href="structconstant.html">00009</a> <span class="keyword">struct </span><a class="code" href="structconstant.html">constant</a>
+<a name="l00010"></a>00010 {
+<a name="l00011"></a><a class="code" href="structconstant.html#a6e5a1cefa3a0a47f8dce5767eb6cff45">00011</a>     <a class="code" href="structconstant.html#a6e5a1cefa3a0a47f8dce5767eb6cff45">operator T</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> V; }
+<a name="l00012"></a>00012 };
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="class_connected_components.html">00015</a> <span class="keyword">class </span><a class="code" href="class_connected_components.html">ConnectedComponents</a>
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00018"></a><a class="code" href="class_connected_components.html#a15718b1951e5ba90be52a0823be37161">00018</a>     <a class="code" href="class_connected_components.html#a15718b1951e5ba90be52a0823be37161">ConnectedComponents</a>(<span class="keywordtype">int</span> soft_maxlabels) : <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>(soft_maxlabels) {
+<a name="l00019"></a>00019   <a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">clear</a>();
+<a name="l00020"></a>00020     }
+<a name="l00021"></a><a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">00021</a>     <span class="keywordtype">void</span> <a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">clear</a>() {
+<a name="l00022"></a>00022   std::fill(<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.begin(), <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.end(), <a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a>());
+<a name="l00023"></a>00023   <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a> = 0;
+<a name="l00024"></a>00024     }
+<a name="l00025"></a>00025     <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
+<a name="l00026"></a>00026     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a29ce51a520056adb04445ee539ed5c32">connected</a>(<span class="keyword">const</span> Tin *img, Tlabel *out,
+<a name="l00027"></a>00027          <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, Comparator,
+<a name="l00028"></a>00028       Boolean K8_connectivity);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">private</span>:
+<a name="l00033"></a><a class="code" href="struct_connected_components_1_1_similarity.html">00033</a>     <span class="keyword">struct </span><a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a> {
+<a name="l00034"></a><a class="code" href="struct_connected_components_1_1_similarity.html#a8a33686eed60df407cf81ce6a3ed324a">00034</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#a8a33686eed60df407cf81ce6a3ed324a">Similarity</a>() : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(0), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(0) {}
+<a name="l00035"></a><a class="code" href="struct_connected_components_1_1_similarity.html#a84bc76d9b11a054fdf95f241d858753c">00035</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#a84bc76d9b11a054fdf95f241d858753c">Similarity</a>(<span class="keywordtype">int</span> _id, <span class="keywordtype">int</span> _sameas) : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(_id), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(_sameas) {}
+<a name="l00036"></a><a class="code" href="struct_connected_components_1_1_similarity.html#aaa44a99c371633a4df12e12e75f7efd8">00036</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#aaa44a99c371633a4df12e12e75f7efd8">Similarity</a>(<span class="keywordtype">int</span> _id) : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(_id), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(_id) {}
+<a name="l00037"></a><a class="code" href="struct_connected_components_1_1_similarity.html#af1224d223ec0bd86f81bde50ac219cfd">00037</a>   <span class="keywordtype">int</span> <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>, <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>, <a class="code" href="struct_connected_components_1_1_similarity.html#af1224d223ec0bd86f81bde50ac219cfd">tag</a>;
+<a name="l00038"></a>00038     };
+<a name="l00039"></a>00039 
+<a name="l00040"></a><a class="code" href="class_connected_components.html#a72ac404b0f1677a06e1c11d57b8b33f9">00040</a>     <span class="keywordtype">bool</span> <a class="code" href="class_connected_components.html#a72ac404b0f1677a06e1c11d57b8b33f9">is_root_label</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) {
+<a name="l00041"></a>00041   <span class="keywordflow">return</span> (<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<span class="keywordtype">id</span>].sameas == <span class="keywordtype">id</span>);
+<a name="l00042"></a>00042     }
+<a name="l00043"></a><a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">00043</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) {
+<a name="l00044"></a>00044   <span class="keywordflow">while</span> (!<a class="code" href="class_connected_components.html#a72ac404b0f1677a06e1c11d57b8b33f9">is_root_label</a>(<span class="keywordtype">id</span>)) {
+<a name="l00045"></a>00045       <span class="comment">// link this node to its parent&#39;s parent, just to shorten</span>
+<a name="l00046"></a>00046       <span class="comment">// the tree.</span>
+<a name="l00047"></a>00047       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[id].sameas = <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[id].sameas].sameas;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049       <span class="keywordtype">id</span> = <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[id].sameas;
+<a name="l00050"></a>00050   }
+<a name="l00051"></a>00051   <span class="keywordflow">return</span> id;
+<a name="l00052"></a>00052     }
+<a name="l00053"></a><a class="code" href="class_connected_components.html#a5547fb6f69705aaeaa69f58c0294ceb7">00053</a>     <span class="keywordtype">bool</span> <a class="code" href="class_connected_components.html#a5547fb6f69705aaeaa69f58c0294ceb7">is_equivalent</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> as) {
+<a name="l00054"></a>00054   <span class="keywordflow">return</span> (<a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(<span class="keywordtype">id</span>) == <a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(as));
+<a name="l00055"></a>00055     }
+<a name="l00056"></a><a class="code" href="class_connected_components.html#a11201561cdbd1c0ca4538470b370b1bf">00056</a>     <span class="keywordtype">bool</span> <a class="code" href="class_connected_components.html#a11201561cdbd1c0ca4538470b370b1bf">merge</a>(<span class="keywordtype">int</span> id1, <span class="keywordtype">int</span> id2) {
+<a name="l00057"></a>00057   <span class="keywordflow">if</span>(!<a class="code" href="class_connected_components.html#a5547fb6f69705aaeaa69f58c0294ceb7">is_equivalent</a>(id1, id2)) {
+<a name="l00058"></a>00058       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(id1)].sameas = <a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(id2);
+<a name="l00059"></a>00059       <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00060"></a>00060   }
+<a name="l00061"></a>00061   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00062"></a>00062     }
+<a name="l00063"></a><a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">00063</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>() {
+<a name="l00064"></a>00064     <span class="keywordflow">if</span>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>+1 &gt; (<span class="keywordtype">int</span>) <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.size())
+<a name="l00065"></a>00065       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.reserve(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>*2);
+<a name="l00066"></a>00066   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.resize(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>+1);
+<a name="l00067"></a>00067   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>] = <a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>);
+<a name="l00068"></a>00068   <span class="keywordflow">return</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>++;
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="class_connected_components.html#a4a3a07663f0eeab58ed16a063572af33">label_image</a>(<span class="keyword">const</span> Tin *img, Tlabel *out,
+<a name="l00074"></a>00074          <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, Comparator,
+<a name="l00075"></a>00075          Boolean K8_connectivity);
+<a name="l00076"></a>00076     <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tlabel&gt;
+<a name="l00077"></a>00077     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a78ecd7a83516c40056542632fe3cfc32">relabel_image</a>(Tlabel *out, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00080"></a><a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">00080</a>     std::vector&lt;Similarity&gt; <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>;
+<a name="l00081"></a><a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">00081</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>;
+<a name="l00082"></a>00082 };
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
+<a name="l00085"></a>00085 <span class="keywordtype">int</span>
+<a name="l00086"></a><a class="code" href="class_connected_components.html#a29ce51a520056adb04445ee539ed5c32">00086</a> <a class="code" href="class_connected_components.html#a29ce51a520056adb04445ee539ed5c32">ConnectedComponents::connected</a>(<span class="keyword">const</span> Tin *img, Tlabel *labelimg,
+<a name="l00087"></a>00087              <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, Comparator SAME,
+<a name="l00088"></a>00088              Boolean K8_connectivity)
+<a name="l00089"></a>00089 {
+<a name="l00090"></a>00090     <a class="code" href="class_connected_components.html#a4a3a07663f0eeab58ed16a063572af33">label_image</a>(img,labelimg, width,height, SAME, K8_connectivity);
+<a name="l00091"></a>00091     <span class="keywordflow">return</span> <a class="code" href="class_connected_components.html#a78ecd7a83516c40056542632fe3cfc32">relabel_image</a>(labelimg, width,height);
+<a name="l00092"></a>00092 }
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
+<a name="l00098"></a>00098 <span class="keywordtype">void</span>
+<a name="l00099"></a><a class="code" href="class_connected_components.html#a4a3a07663f0eeab58ed16a063572af33">00099</a> <a class="code" href="class_connected_components.html#a4a3a07663f0eeab58ed16a063572af33">ConnectedComponents::label_image</a>(<span class="keyword">const</span> Tin *img, Tlabel *labelimg,
+<a name="l00100"></a>00100          <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, Comparator SAME,
+<a name="l00101"></a>00101          <span class="keyword">const</span> Boolean K8_CONNECTIVITY)
+<a name="l00102"></a>00102 {
+<a name="l00103"></a>00103     <span class="keyword">const</span> Tin *row = img;
+<a name="l00104"></a>00104     <span class="keyword">const</span> Tin *last_row = 0;
+<a name="l00105"></a>00105     <span class="keyword">struct </span>Label_handler {
+<a name="l00106"></a>00106   Label_handler(<span class="keyword">const</span> Tin *img, Tlabel *limg) :
+<a name="l00107"></a>00107       piximg(img), labelimg(limg) {}
+<a name="l00108"></a>00108   Tlabel &amp;operator()(<span class="keyword">const</span> Tin *pixp) { <span class="keywordflow">return</span> labelimg[pixp-piximg]; }
+<a name="l00109"></a>00109   <span class="keyword">const</span> Tin *piximg;
+<a name="l00110"></a>00110   Tlabel *labelimg;
+<a name="l00111"></a>00111     } label(img, labelimg);
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113     <a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">clear</a>();
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115     label(&amp;row[0]) = <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>();
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     <span class="comment">// label the first row.</span>
+<a name="l00118"></a>00118     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> c=1, r=0; c&lt;width; ++c) {
+<a name="l00119"></a>00119   <span class="keywordflow">if</span>(SAME(row[c], row[c-1]))
+<a name="l00120"></a>00120     {
+<a name="l00121"></a>00121     label(&amp;row[c]) = label(&amp;row[c-1]);
+<a name="l00122"></a>00122     }<span class="keywordflow">else</span>{
+<a name="l00123"></a>00123       label(&amp;row[c]) = <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>();
+<a name="l00124"></a>00124     }
+<a name="l00125"></a>00125     }
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127     <span class="comment">// label subsequent rows.</span>
+<a name="l00128"></a>00128     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> r=1; r&lt;height; ++r)    {
+<a name="l00129"></a>00129   <span class="comment">// label the first pixel on this row.</span>
+<a name="l00130"></a>00130   last_row = row;
+<a name="l00131"></a>00131   row = &amp;img[width*r];
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133   <span class="keywordflow">if</span>(SAME(row[0], last_row[0]))
+<a name="l00134"></a>00134       label(&amp;row[0]) = label(&amp;last_row[0]);
+<a name="l00135"></a>00135   <span class="keywordflow">else</span>
+<a name="l00136"></a>00136       label(&amp;row[0]) = <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>();
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138   <span class="comment">// label subsequent pixels on this row.</span>
+<a name="l00139"></a>00139   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> c=1; c&lt;width; ++c)  {
+<a name="l00140"></a>00140       <span class="keywordtype">int</span> mylab = -1;
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142       <span class="comment">// inherit label from pixel on the left if we&#39;re in the same blob.</span>
+<a name="l00143"></a>00143       <span class="keywordflow">if</span>(SAME(row[c],row[c-1]))
+<a name="l00144"></a>00144     mylab = label(&amp;row[c-1]);
+<a name="l00145"></a>00145       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> d=(K8_CONNECTIVITY?-1:0); d&lt;1; ++d) {
+<a name="l00146"></a>00146     <span class="comment">// if we&#39;re in the same blob, inherit value from above pixel.</span>
+<a name="l00147"></a>00147     <span class="comment">// if we&#39;ve already been assigned, merge its label with ours.</span>
+<a name="l00148"></a>00148     <span class="keywordflow">if</span>(SAME(row[c], last_row[c+d])) {
+<a name="l00149"></a>00149         <span class="keywordflow">if</span>(mylab&gt;=0) <a class="code" href="class_connected_components.html#a11201561cdbd1c0ca4538470b370b1bf">merge</a>(mylab, label(&amp;last_row[c+d]));
+<a name="l00150"></a>00150         <span class="keywordflow">else</span> mylab = label(&amp;last_row[c+d]);
+<a name="l00151"></a>00151     }
+<a name="l00152"></a>00152       }
+<a name="l00153"></a>00153       <span class="keywordflow">if</span>(mylab&gt;=0) label(&amp;row[c]) = <span class="keyword">static_cast&lt;</span>Tlabel<span class="keyword">&gt;</span>(mylab);
+<a name="l00154"></a>00154       <span class="keywordflow">else</span> label(&amp;row[c]) = <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>();
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156       <span class="keywordflow">if</span>(K8_CONNECTIVITY &amp;&amp; SAME(row[c-1], last_row[c]))
+<a name="l00157"></a>00157     <a class="code" href="class_connected_components.html#a11201561cdbd1c0ca4538470b370b1bf">merge</a>(label(&amp;row[c-1]), label(&amp;last_row[c]));
+<a name="l00158"></a>00158   }
+<a name="l00159"></a>00159     }
+<a name="l00160"></a>00160 }
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tlabel&gt;
+<a name="l00163"></a>00163 <span class="keywordtype">int</span>
+<a name="l00164"></a><a class="code" href="class_connected_components.html#a78ecd7a83516c40056542632fe3cfc32">00164</a> <a class="code" href="class_connected_components.html#a78ecd7a83516c40056542632fe3cfc32">ConnectedComponents::relabel_image</a>(Tlabel *labelimg, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height)
+<a name="l00165"></a>00165 {
+<a name="l00166"></a>00166     <span class="keywordtype">int</span> newtag = 0;
+<a name="l00167"></a>00167     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>=0; <span class="keywordtype">id</span>&lt;<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.size(); ++id)
+<a name="l00168"></a>00168   <span class="keywordflow">if</span>(<a class="code" href="class_connected_components.html#a72ac404b0f1677a06e1c11d57b8b33f9">is_root_label</a>(<span class="keywordtype">id</span>))
+<a name="l00169"></a>00169       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<span class="keywordtype">id</span>].tag = newtag++;
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;width*height; ++i)
+<a name="l00172"></a>00172   labelimg[i] = <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#a6e7bb2283fc281323209e44318ab19ec">root_of</a>(labelimg[i])].tag;
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174     <span class="keywordflow">return</span> newtag;
+<a name="l00175"></a>00175 }
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178 <span class="preprocessor">#endif // _CONNECTED_H</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Fri Dec 13 2013 13:26:14 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>
