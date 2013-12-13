@@ -1,0 +1,46 @@
+IDI_ICON1               ICON    DISCARDABLE     "oxygen/WindowIcon/Eurotech.ico"
+
+# if defined(UNDER_CE)
+#  include <winbase.h>
+# else
+#  include <winver.h>
+# endif
+
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0
+ PRODUCTVERSION 1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS VS_FF_DEBUG
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS VOS__WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE 0x0L
+ BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+   BLOCK "040904B0"
+   BEGIN
+    VALUE "CompanyName", "eVS embedded Vision Systems Srl\0"
+    VALUE "FileDescription", "PCNProdTest\0"
+    VALUE "FileVersion", "1.0\0"
+    VALUE "LegalCopyright", "eVS 2013 All rights reserved\0"
+    VALUE "OriginalFilename", "PCNProdTest.exe\0"
+    VALUE "ProductName", "PCNProdTest\0"
+   END
+  END
+  BLOCK "VarFileInfo"
+ BEGIN
+  /* The following line should only be modified for localized versions.     */
+  /* It consists of any number of WORD,WORD pairs, with each pair           */
+  /* describing a language,codepage combination supported by the file.      */
+  /*                                                                        */
+  /* For example, a file might have values "0x409,1252" indicating that it  */
+  /* supports English language (0x409) in the Windows ANSI codepage (1252). */
+  VALUE "Translation", 0x409, 1252
+ END
+ END
+/* End of Version info */
