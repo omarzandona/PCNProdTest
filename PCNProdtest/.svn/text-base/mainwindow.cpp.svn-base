@@ -1,3 +1,60 @@
+/*!
+ *\file mainwindow.cpp
+ *\brief Sorgente principale dell'applicazione PCNProdTest.
+ *
+ * Contiene la definizione delle funzioni, delle variabile, dei segnali e delle socket per la gestione del test in produzione.
+ * In particolare, è presenta la gestione della comunicazione via socket con lo scheduler e la comunicazione socket con il PCN.
+ * Si tratta del file principale del progetto dove risiede il main all'interno del quale viene fatto quanto segue:
+ * - Inizializzazione interfaccia e variabili per la comunicazioni socket.
+ * - Caricamento parametri di setting, per il salvataggio del report
+ * - Gestione degli eventi:
+ *    - Visualizzazione informazioni sul Log e cattura degli errori
+ *    - Visualizzazione delle immagini provenienti dal PCN
+ *    - Modifica/Salvataggio dei parametri di setting dell'applicativo
+ *    - Salvataggio del report
+ * - Gestione dei comandi socket Scheduler to PCNProdTest e PCNProdTest to PCN
+ *
+ *Per ulteriori dettagli vedere la doumentazione delle singole funzioni
+ *
+ *\author Alessio Montagnini, Omar Zandonà (eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+ *
+ *\mainpage
+ *Questo documento ipertestuale descrive il codice del software PCNProdTest.
+ *
+ * Questo applicativo nasce dall'esigenza di Eurotech di adottare in fase di produzione del PCN
+ * un protocollo di test adeguato.
+ * Per fare ciò si è deciso di non adottare più il precedente strumento di collaudo ( un antico Win_Client ad hoc)
+ * di creare un nuovo strumento che permetta, interfacciandosi sia con il PCN e con uno scheduler(fornito da Eurotech) che ne
+ * lancia i comandi ad collaudare il dispositivo.
+ * L'applicativo quindi gestisce tre comunicazioni socket, una svolgendo il ruolo di lato server con lo scheduler,
+ * e le altre due svolgendo il ruolo di  client con il PCN (si comporta come un client comandi e immmagini)
+ *
+ * Per quanto riguarda il lato server qui descritto, possiamo riassumerne
+ * le caratteristiche andando ad illustrare brevemente il contenuto dei vari file:
+ * - mainwindow.cpp : Sorgente principale, contiene  e le funzioni per la gestione delle comunicazione socket e dell'interfaccia
+ * - acq_thread.cpp : Definizione della classe per la gestione del thread di acquisione delle immagini proveniente dal PCN
+ * - main.cpp : Lancia il mainwindow
+ * - parameters_panel.cpp : Gestisce la configurazione dei parametri per il test
+ * - socket_utils.cpp : contiene la definizioni delle funzioni per la comunicazione socket
+ * - utils.cpp : Contiene funzioni di utilità di tipo generale
+ * - check_pcn.cpp : Contiene le definizione delle funzioni per il check della mappa di disparità e del fuoco delle immagini ottiche
+ *                 più altre funzioni non utilizzate ma create in fase di studio di fattibilità
+ * - GraphDisparity.cpp : Contiene la definizione della classe per il check della disparità
+ *
+ *  <b>Note per la consultazione</b><br>
+ *   Per meglio consultare questa documentazione si tenga presente che:
+ *    - Si puo' sfruttare il motore di ricerca in alto a destra.
+ *    - I commenti dei singoli sottoprogrammi sono completati da due voci "Riferimenti/References" e "Referenziato
+ *      da/Referenced by": la prima corrisponde a un elenco di tutte le variabili, funzioni e costanti usate
+ *      all'interno della funzione in esame; la seconda corrisponde a un elenco di altri sottoprogrammi
+ *      che richiamano al loro interno il sottoprogramma in esame. Data la grande quantita' di
+ *      variabili globali e la scarsa modularita' del codice, questi due elenchi risultano
+ *      molto comodi per poter, per esempio, "ricostruire la storia" di una variabile o capire l'uso di
+ *      un particolare sottoprogramma in base a dove viene chiamato.
+ *
+\author Alessio Montagnini, Omar Zandonà(eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+\note Per info e dettagli contattare Omar Zandonà (omar.zandona@evsys.it)
+*/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -169,7 +226,7 @@ bool MainWindow::createSocketScheduler(){
                       FD_SET(newfd, &master); // add to master set
 
                       if (newfd > fdmax)
-                         fdmax = newfd;
+                        fdmax = newfd;
 
 
                       emit messageInfo("", Qt::black, true);
@@ -536,7 +593,7 @@ void MainWindow::closeEvent( QCloseEvent * ){
 }
 /*!
  * \brief MainWindow::LoadDat
- * Caricamento dei file di calibrazione del PCN contenuti in un file in formato .dat il cui nome &egrave specificato come parametro.
+ * Caricamento dei file di calibrazione del PCN contenuti in un file in formato .dat il cui nome è specificato come parametro.
  * Le operazioni compiuti dalla funzione sono i seguenti:
  * 1)- Erase Flash
  * 2)- Write FPN
@@ -821,8 +878,8 @@ void MainWindow::startViewSlot( const bool& choose, int fd ){
       this->ui->label_imgDSP->clear();
     }
 
-  if ( choose  && isConnect)
-    if(startView == choose )
+  if ( choose  )
+    if(startView == choose && isConnect )
       {
         emit this->messageInfo("Start view");
         SocketUtils::SendString(fd,"PASSED: start view\0");
@@ -868,17 +925,34 @@ void MainWindow::showResponseComputation(std::vector<std::pair<QString, bool> > 
         emit messageInfo(response.at(i).first + "<FONT COLOR=red> FAILED </FONT>");
     }
 }
-
+/*!
+ * \brief MainWindow::CheckFocus
+ *
+ * Effettua il check del focus sulle immagini di ottiche \see check_pcn.cpp
+ * \return true se il focus è corretto, false altrimenti
+ */
 bool MainWindow::CheckFocus(){
   if ( this->imagesMode.imgSx == 0 || this->imagesMode.imgDx == 0 )
     return false;
   return check_focus(this->imagesMode.imgDx,this->imagesMode.imgSx, NX, NY);
 }
-
+/*!
+ * \brief MainWindow::saveParameters
+ *
+ * Salva i parametri del test in un file xml richiamando la funzione \see saveParameters
+ * \param param [in] Struttura dei parametri del test
+ */
 void MainWindow::saveParameters(tParameters param){
   this->saveParameters(param, QCoreApplication::applicationDirPath() + "/settings.xml");
 }
 
+/*!
+ * \brief MainWindow::saveParameters
+ *
+ * Salva i parametri del test in un file xml estraendo i valori e i nomi dalla struttura che li contiene
+ * \param param    [in] Struttura dei parametri del test
+ * \param fileName [in] Nome del file xml su cui salvare i parametri
+ */
 void MainWindow::saveParameters(const tParameters& param, QString fileName){
 
   QSettings::SettingsMap parameters;
@@ -896,7 +970,12 @@ void MainWindow::saveParameters(const tParameters& param, QString fileName){
   if (file.open(QIODevice::WriteOnly))
     Utils::writeXmlFile(file, parameters);
 }
-
+/*!
+ * \brief MainWindow::loadParameters
+ *
+ * Caricamento dei parametri del test dal file setting.xml
+ * \return  param Struttura contenente i parametri per il test
+ */
 tParameters MainWindow::loadParameters(){
 
   tParameters param;
@@ -928,66 +1007,114 @@ tParameters MainWindow::loadParameters(){
   return param;
 }
 
+/*!
+ * \brief MainWindow::startParametersPanel
+ * Inizializza il pannello per il setting dei parametri
+ */
 void MainWindow::startParametersPanel(){
   this->_parametersPanel->setParameters( this->_param );
   this->_parametersPanel->exec();
 }
 
+/*!
+ * \brief MainWindow::receiverParameters
+ * Modifica la struttura dei parametri se sono stati modificati
+ *
+ * \param param [in] Struttura contenente i parametri del test
+ */
 void MainWindow::receiverParameters(tParameters param){
   setParameters( param.paramCheck );
   this->_param = param;
   this->saveParameters( _param );
 }
 
+/*!
+ * \brief MainWindow::Communication
+ *
+ * Viene richiamata ogni qualvolta che lo scheduler invia dei comandi all'applicativo.
+ * La funzione effettua il parsing del comando e lo interpreta inviando a sua volta il comandi (via Socket o seriale) al PCN collegato (.
+ * E' possibile che oltre al comando la stringa contiene anche il valore dei parametri da settare.
+ *
+ * Dopo aver letto il comando, se esiste, viene inviato il corrispondente comando al PCN.
+ * Se il comando è andato a buon fine, cioè non si sono registrati problemi tra PCN e PCNProdTest, quest'ultimo invia allo scheduler tramite la stessa socket con cui ha ricevuto il comando
+ * l'esito. Tranne che per il caso del test sul Digital I/O (vedi dopo) la risposta del PCNProdTest allo scheduler avrà questo formato :
+ *
+ * PASSED : nome_comando in caso di esito positivo
+ * FAILED : nome_comando in caso di esito negativo
+ *
+ * Nel caso del test del Digital I/O avrò a disposizione una funzione Get che restituirà i valori letti nel dispositivo.
+ * Se tutto è andato a buon fine il programma invierà allo scheduler i valori (convertiti in formato stringa).
+ * Se qualcosa è andato storto invierà il codice di errore "-1" sempre in formato stringa.
+ *
+ * I comandi tra Scheduler e PCN sono:
+ * - ConnectTo  : Effettua la connessione tra PCN e il programma
+ * - Disconnect : Disconnette il PCNProdTest dal PCN
+ * - StartView  : Inizia la visualizzazione a video delle immagini
+ * - Stopview   : Ferma la visualizzazione a video
+ * - LoadDat    : Carica il file di calibrazione .dat
+ * - CalcMode   : Calcola la moda delle immagini acquisite
+ * - CheckDisparity : Effettua il check sulla disparità
+ * - CheckFocus : Effettua il check sul focus
+ * - SaveReport : Salva il report del test su un file di testo
+ * - Set_IN1/2  : Setta il valore del digital IN1/2
+ * - Set_OUT2/2 : Setta il valore del digital OUT1/2
+ * - Get_IN1/2  : Restituisce il valore del digital IN1/2
+ * - Get_OUT1/2  : Restituisce il valore del digital OUT1/2
+ * - TestSerialLoop : Effettua il check della seriale ( nel caso di PCN USB con due seriali)
+ * - TestSerial  : Testa la seriale tramite protocollo SNP tra PCN e PCNProdTest
+ * - Restore    : Effettua il restore dei parametri del PCn ai valori di fabbrica
+ * - Test       : Comando usato per debug
+ *
+ * \param fd        [in] File descriptor della socket
+ * \param buffer    [in] Stringa contenente il comando e l'eventuale parametro inviato dallo scheduler
+ * \return true se l'esecuzione del comando è andato a buon fine, false altrimenti
+ */
 bool MainWindow::Communication(int fd,char *buffer)
 {
-
-
   bool ret = false;
   u_long iMode = 0;   //0 bloccante, 1 non bloccante
   ioctlsocket(fd,FIONBIO,&iMode);
 
-  /** Connessione  if(Utils::strcasecmp(buffer,"ConnectTo",9)==0)  if(strcmp(buffer,"ConnectTo")==0)*/
+  /* Connessione  if(Utils::strcasecmp(buffer,"ConnectTo",9)==0)  if(strcmp(buffer,"ConnectTo")==0)*/
   if(Utils::strcasecmp(buffer,"ConnectTo",9)==0)
     {
 
       char address[16];
       memcpy(address,&buffer[10],16*sizeof(char));
-      //SocketUtils::RecvString(fd, address, 50);
       QString ip_address = QString(address);
       ret = MainWindow::setConnect(ip_address);
 
       if(ret)
-        SocketUtils::SendString(fd,"PASSED: connection\0");
+        SocketUtils::SendString(fd,"PASSED: Connection\0");
       else
-        SocketUtils::SendString(fd,"FAILED: connection\0");
+        SocketUtils::SendString(fd,"FAILED: Connection\0");
 
       //if(!ret)
-      // closesocket(fd); eVS modifica 12/12/2013
+      // closesocket(fd); eVS modifica 12/12/2013 : Non devo chiudere la socket, lo scheduler potrebbe riprovarci ...
     }
 
-  /** Disconnessione */
+  // Disconnessione
   if(strcmp(buffer,"Disconnect\0")==0)
     {
       if(isConnect)
         ret = setDisconnect();
 
       if(ret)
-        SocketUtils::SendString(fd,"PASSED: disconnection\0");
+        SocketUtils::SendString(fd,"PASSED: Disconnection\0");
       else
-        SocketUtils::SendString(fd,"FAILED: disconnection\0");
+        SocketUtils::SendString(fd,"FAILED: Disconnection\0");
 
     }
 
-  /** StartView */
+  // StartView
   if(strcmp(buffer,"StartView\0") == 0)
     emit startViewSignal(true, fd);
 
-  /** StopView */
+  // StopView
   if(strcmp(buffer,"StopView\0") == 0)
     emit startViewSignal(false, fd);
 
-  /** Load Dat */
+  // Load Dat
   if(Utils::strcasecmp(buffer,"LoadDat",7)==0)
     {
 
@@ -995,7 +1122,6 @@ bool MainWindow::Communication(int fd,char *buffer)
       const int size_namefile = 50;
       char* namefile = (char*) calloc(size_namefile, sizeof(char));
       memcpy(namefile,&buffer[8],size_namefile*sizeof(char));
-      //SocketUtils::RecvString(fd, (char *)namefile, sizeof(char)*size_namefile);
 
       QString dat_filename(namefile);
 
@@ -1003,17 +1129,17 @@ bool MainWindow::Communication(int fd,char *buffer)
         ret = LoadDat(dat_filename);
 
       if(ret)
-        SocketUtils::SendString(fd,"PASSED: load file dat\0");
+        SocketUtils::SendString(fd,"PASSED: Load file dat\0");
       else
-        SocketUtils::SendString(fd,"FAILED: load file dat\0");
+        SocketUtils::SendString(fd,"FAILED: Load file dat\0");
     }
 
-  /** CalcMode */
+  // CalcMode
   if(strcmp(buffer,"CalcMode\0")==0)
     {
       if ( !isConnect )
         {
-          SocketUtils::SendString(fd,"FAILED: calc mode\0");
+          SocketUtils::SendString(fd,"FAILED: Calc mode\0");
           emit messageInfo("Image acquisition failure: no connection!", Qt::red );
         }else{
           fd_copy = fd;
@@ -1021,46 +1147,46 @@ bool MainWindow::Communication(int fd,char *buffer)
         }
     }
 
-  /** CheckDisparity */
+  // CheckDisparity
   if(strcmp(buffer,"CheckDisparity\0")==0)
     {
       if ( !isConnect )
         {
-          SocketUtils::SendString(fd,"FAILED: calc mode\0");
+          SocketUtils::SendString(fd,"FAILED: Calc mode\0");
           emit messageInfo("Check disparity failure: no connection!", Qt::red );
         }else{
           ret = CheckDisparity();
 
           if(ret){
               emit messageInfo("Check Disparity: <FONT COLOR=green> PASSED </FONT>");
-              SocketUtils::SendString(fd,"PASSED: check disparity\0");
+              SocketUtils::SendString(fd,"PASSED: Check disparity\0");
             }else{
               emit messageInfo("Check Disparity: <FONT COLOR=red> FAILED </FONT>");
-              SocketUtils::SendString(fd,"FAILED: check disparity\0");
+              SocketUtils::SendString(fd,"FAILED: Check disparity\0");
             }
         }
     }
 
-  /** CheckFocus */
+  // CheckFocus
   if(strcmp(buffer,"CheckFocus\0")==0)
     {
       if ( !isConnect )
         {
-          SocketUtils::SendString(fd,"FAILED: calc mode\0");
+          SocketUtils::SendString(fd,"FAILED: Calc mode\0");
           emit messageInfo("Check focus failure: no connection!", Qt::red );
         }else{
           ret = CheckFocus();
           if(ret){
               emit messageInfo("Check Focus: <FONT COLOR=green> PASSED </FONT>");
-              SocketUtils::SendString(fd,"PASSED: check focus\0");
+              SocketUtils::SendString(fd,"PASSED: Check focus\0");
             }else{
               emit messageInfo("Check Focus: <FONT COLOR=red> FAILED </FONT>");
-              SocketUtils::SendString(fd,"FAILED: check focus\0");
+              SocketUtils::SendString(fd,"FAILED: Check focus\0");
             }
         }
     }
 
-  /** SaveReport */
+  // SaveReport
   if(strcmp(buffer,"SaveReport\0")==0)
     {
 
@@ -1069,154 +1195,96 @@ bool MainWindow::Communication(int fd,char *buffer)
     }
 
 
-  if(Utils::strcasecmp(buffer,"Set_IN_1\0",8)==0)
+  // Get Digital In 0
+  if(strcmp(buffer,"Get_IN_0\0")==0)
     {
-      unsigned short val_test = BuildValueToSet(buffer,9);
-      in1_current_val = val_test;
-
       if(isConnect)
-        ret =  this->setIN1(val_test);
-
-      if(ret)
         {
-          emit messageInfo("Check set port IN 1: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: set IN_1\0");
+          QString str = this->getIN0();
+          emit messageInfo("Get port IN 0...");
+          SocketUtils::SendString(fd,(char*)str.toStdString().c_str());
+          ret = true;
         }else{
-          emit messageInfo("Check set port IN 1: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: set IN_1\0");
-        }
+          emit messageInfo("Get port IN 0...");
+          SocketUtils::SendString(fd,"-1");}
     }
-
-
-
-  if(Utils::strcasecmp(buffer,"Set_IN_2\0",8)==0)
-    {
-      unsigned short val_test = BuildValueToSet(buffer,9);
-      in2_current_val = val_test;
-
-      if(isConnect)
-        ret =  this->setIN2(val_test);
-
-      if(ret){
-          emit messageInfo("Check set port IN 2: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: set IN_2\0");
-        }else{
-          emit messageInfo("Check set port IN 2: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: set IN_2\0");}
-    }
-
-  if(Utils::strcasecmp(buffer,"Set_OUT_1\0",9)==0)
-    {
-      unsigned short val_test = BuildValueToSet(buffer,10);
-      out1_current_val = val_test;
-
-      if(isConnect)
-        ret =  this->setOUT1(val_test);
-
-      if(ret){
-          emit messageInfo("Check set port OUT 1: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: set OUT_1\0");
-        }else{
-          emit messageInfo("Check set port OUT 1: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: set OUT_1\0");}
-    }
-
-  if(Utils::strcasecmp(buffer,"Set_OUT_2\0",9)==0)
-    {
-      unsigned short val_test = BuildValueToSet(buffer,10);
-      out2_current_val = val_test;
-
-      if(isConnect)
-        ret =  this->setOUT2(val_test);
-
-      if(ret ){
-          emit messageInfo("Check set port OUT 2: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: set OUT_2\0");
-        }else{
-          emit messageInfo("Check set port OUT 2: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: set OUT_2\0");}
-    }
-
-
+  // Get Digital In 1
   if(strcmp(buffer,"Get_IN_1\0")==0)
     {
       if(isConnect)
-        ret =  this->getIN1();
-
-      if(ret){
-          emit messageInfo("Check get port IN 1: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: get IN_1\0");
+        {
+          QString str = this->getIN1();
+          emit messageInfo("Get port IN 1...");
+          SocketUtils::SendString(fd,(char*)str.toStdString().c_str());
+          ret = true;
         }else{
-          emit messageInfo("Check get port IN 1: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: get IN_1\0");}
+          emit messageInfo("Get port IN 1...");
+          SocketUtils::SendString(fd,"-1");}
     }
 
-  if(strcmp(buffer,"Get_IN_2\0")==0)
+  // Set opto full control
+  if(Utils::strcasecmp(buffer,"SetOptoFullControl",18)==0)
     {
       if(isConnect)
-        ret =  this->getIN2();
-
-      if(ret ){
-          emit messageInfo("Check get port IN 2: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: get IN_2\0");
+        {
+          unsigned char val = buffer[19];
+          //qDebug() << "valore SetOptoFullControl" <<  buffer[19];
+          ret =  this->setOptoFullControl(val);
+        }
+      if(ret){
+          emit messageInfo("Set Opto Full Control: <FONT COLOR=green> DONE </FONT>");
+          SocketUtils::SendString(fd,"PASSED: SetOptoFullControl\0");
         }else{
-          emit messageInfo("Check get port IN 2: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: get IN_2\0");}
+          emit messageInfo("Set Opto Full Control: <FONT COLOR=red> FAILED </FONT>");
+          SocketUtils::SendString(fd,"FAILED: SetOptoFullControl\0");}
     }
-
-  if(strcmp(buffer,"Get_OUT_1\0")==0)
+  // Set Opto
+  if(Utils::strcasecmp(buffer,"SetOpto ",8)==0)
     {
       if(isConnect)
-        ret =  this->getOUT1();
-
+        {
+          unsigned char val = buffer[8];
+          //qDebug() << "valore SetOpto" << buffer[8];
+          ret =  this->setOpto(val);
+        }
       if(ret){
-          emit messageInfo("Check get port OUT 1: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: get OUT_1\0");
+          emit messageInfo("Set Opto: <FONT COLOR=green> DONE </FONT>");
+          SocketUtils::SendString(fd,"PASSED: SetOpto\0");
         }else{
-          emit messageInfo("Check get port OUT 1: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: get OUT_1\0");}
+          emit messageInfo("Set Opto: <FONT COLOR=red> FAILED </FONT>");
+          SocketUtils::SendString(fd,"FAILED: SetOpto\0");}
     }
 
-  if(strcmp(buffer,"Get_OUT_2\0")==0)
-    {
-      if(isConnect)
-        ret =  this->getOUT2();
 
-      if(ret){
-          emit messageInfo("Check get port OUT 2: <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: get OUT_2\0");
-        }else{
-          emit messageInfo("Check get port OUT 2: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: get OUT_2\0");}
-    }
+  // Test serial Loop
   if(strcmp(buffer,"TestSerialLoop\0")==0)
     {
       if(isConnect)
         ret =  this->TestSerialLoop();
 
       if(ret ){
-          emit messageInfo("Check TestSerialLoop: <FONT COLOR=green> PASSED </FONT>");
+          emit messageInfo("Test two serial : <FONT COLOR=green> PASSED </FONT>");
           SocketUtils::SendString(fd,"PASSED: TestSerialLoop\0");
         }else{
-          emit messageInfo("Check TestSerialLoop: <FONT COLOR=red> FAILED </FONT>");
+          emit messageInfo("Test two serial: <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: TestSerialLoop\0");}
     }
-
+  // Test Serial
   if(Utils::strcasecmp(buffer,"TestSerial ",11)==0)
     {
       char* serial_port = BuildSerialPortAddress(buffer,11);
       ret =  this->TestSerial(serial_port);
       if(ret ){
-          emit messageInfo("Check TestSerial port : <FONT COLOR=green> PASSED </FONT>");
-          SocketUtils::SendString(fd,"PASSED: test serial\0");
+          emit messageInfo("Test serial : <FONT COLOR=green> PASSED </FONT>");
+          SocketUtils::SendString(fd,"PASSED: Test serial\0");
         }else{
-          emit messageInfo("Check TestSerial port : <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: test serial\0");
+          emit messageInfo("Test serial : <FONT COLOR=red> FAILED </FONT>");
+          SocketUtils::SendString(fd,"FAILED: Test serial\0");
 
           free(serial_port);
         }
     }
-
+  // Restore
   if(strcmp(buffer,"Restore\0")==0)
     {
       if(isConnect)
@@ -1231,7 +1299,7 @@ bool MainWindow::Communication(int fd,char *buffer)
         }
     }
 
-  /** Test */
+  // Test
   if(strcmp(buffer,"Test\0")==0)
     {
       emit messageInfo("Test ricezione comando");
@@ -1242,13 +1310,18 @@ bool MainWindow::Communication(int fd,char *buffer)
   return ret;
 }
 
+/*!
+ * \brief MainWindow::SaveReport
+ * Crea una cartella in cui saranno salvati un breve report con il log del test, il file xml contenente i parametri usati, le immagini usate per il test (quindi il risultato dell'operazione di moda)
+ * \return  true se il report si è salvato in modo corretto, false altrimenti
+ */
 bool MainWindow::SaveReport(){
 
-//  if(!isConnect)
-//    {
-//      emit messageInfo( "Error: connection are missing or lost! No report has been created", Qt::red );
-//      return false;
-//  }
+  //  if(!isConnect)
+  //    {
+  //      emit messageInfo( "Error: connection are missing or lost! No report has been created", Qt::red );
+  //      return false;
+  //  }
 
   QString dir = this->_param.paramGeneral.pathReport;
   if (!QFile(dir).exists())
@@ -1281,6 +1354,7 @@ bool MainWindow::SaveReport(){
         }
     }
 
+  // Salvataggio delle immagini
   if ( this->imagesMode.imgSx != 0 ){
       QFile fileSx(dir + "/imgSx.png");
       fileSx.open(QIODevice::WriteOnly);
@@ -1297,7 +1371,7 @@ bool MainWindow::SaveReport(){
       QPixmap::fromImage( Utils::pixeltype2qimage(this->imagesMode.imgDsp) ).save(&fileDsp, "PNG");
     }
 
-
+  // Scrittua report
   QFile file(dir + "/report.txt");
   file.open(QIODevice::WriteOnly | QIODevice::Text);
   QTextStream out(&file);
@@ -1309,13 +1383,7 @@ bool MainWindow::SaveReport(){
   mutex.lock();
   out << MemLog;
   mutex.unlock();
-  /*for ( uint i=0; i<response.size(); ++i ){
-        out << response.at(i).first;
-        if ( response.at(i).second == 1 )
-            out << "TRUE\n";
-        else
-            out << "FALSE\n";
-    }*/
+
   file.close();
 
   saveParameters(_param, dir + "/settings.xml");
@@ -1325,84 +1393,79 @@ bool MainWindow::SaveReport(){
 
 }
 
+/*!
+ * \brief MainWindow::SaveReportSlot
+ * Slot per la gestione del salvataggio del report. Invia allo scheduler la notifica dell'avvenuto o meno salvataggio del report
+ */
 void MainWindow::SaveReportSlot(){
   bool ret = SaveReport();
   if(ret)
-    SocketUtils::SendString(fd_copy,"PASSED: save report");
+    SocketUtils::SendString(fd_copy,"PASSED: Save report");
   else
-    SocketUtils::SendString(fd_copy,"FAILED: save report");
+    SocketUtils::SendString(fd_copy,"FAILED: Save report");
 }
 
 
-bool MainWindow::setIN1( unsigned short val_test){
-  SocketUtils::SendString(sock,"input0");
-  SocketUtils::Send(sock,&val_test,sizeof(val_test));
-  return true;
-}
-bool MainWindow::setIN2( unsigned short val_test){
-  SocketUtils::SendString(sock,"input1");
-  SocketUtils::Send(sock,&val_test,sizeof(val_test));
-  return true;
-}
-bool MainWindow::setOUT1(unsigned short val_test){
-
-  //unsigned short val_test = 200;
-  SocketUtils::SendString(sock,"outtime0");
-  SocketUtils::Send(sock,&val_test,sizeof(val_test));
-  return true;
-}
-bool MainWindow::setOUT2( unsigned short val_test){
-  //unsigned short val_test = 200;
-  SocketUtils::SendString(sock,"outtime1");
-  SocketUtils::Send(sock,&val_test,sizeof(val_test));
-  return true;
-}
-
-
-bool MainWindow::getIN1(){
-  unsigned char val = 0;
+/*!
+ * \brief MainWindow::getIN0
+ * Restituisce  il valore del digital IN 0 in formato QString
+ * \return str, valore del digital IN 0
+ */
+QString  MainWindow::getIN0(){
+  unsigned char val;
   SocketUtils::SendString(sock,"testin0");
   SocketUtils::Recv(sock,&val,sizeof(val));
-
-  if(val ==  in1_current_val)
-    return true;
-  else
-    return false;
-
+  QString str = QString::number((int)val,10);
+  return str;
 }
-bool MainWindow::getIN2(){
-  unsigned char val = 0;
+
+/*!
+ * \brief MainWindow::getIN1
+ * Restituisce  il valore del digital IN 1 in formato QString
+ * \return str, valore del digital IN 1
+ */
+QString MainWindow::getIN1(){
+  unsigned char val;
   SocketUtils::SendString(sock,"testin1");
   SocketUtils::Recv(sock,&val,sizeof(val));
 
-  if(val ==  in2_current_val)
-    return true;
-  else
-    return false;
-
-}
-bool MainWindow::getOUT1(){
-  unsigned short parameters[256];
-  SocketUtils::SendString(sock,"gparms");
-  SocketUtils::Recv(sock,parameters,sizeof(parameters));
-  if ( parameters[0] == out1_current_val )
-    return true;
-  else
-    return false;
-
-}
-bool MainWindow::getOUT2(){
-  unsigned short parameters[256];
-  SocketUtils::SendString(sock,"gparms");
-  SocketUtils::Recv(sock,parameters,sizeof(parameters));
-  if ( parameters[1] == out2_current_val )
-    return true;
-  else
-    return false;
-
+  QString str = QString::number((int)val,10);
+  return str;
 }
 
+/*!
+ * \brief MainWindow::setOpto
+ * Invia il comando set_opto al PCN , che setter&grave; a livello hardware il digital input.
+ * Se value vale 0 :setta  "GPSR3_091" a 1 se value vale 1:"GPCR3_091" a 1.
+ *
+ * \param value [in] valore possibili, 0 o 1
+ * \return true
+ */
+bool MainWindow::setOpto(unsigned char value){
 
+  SocketUtils::SendString(sock,"set_opto");
+  SocketUtils::Send(sock,(char*)value,sizeof(value));
+  return true;
+}
+
+/*!
+ * \brief MainWindow::setOptoFullControl
+ * Setta il parametro 200 ( periodo in ms del treno d'impulsi) se value vale 1, 4 (disabilita FPGA)  se value vale 0
+ * \param value [in] valore possibili, 0 o 1
+ * \return true
+ */
+bool MainWindow::setOptoFullControl(unsigned char value){
+
+  SocketUtils::SendString(sock,"set_opto_full_control");
+  SocketUtils::Send(sock,(char*)value,sizeof(value));
+  return true;
+}
+
+/*!
+ * \brief MainWindow::TestSerialLoop
+ * Effettua il test delle porte seriali tramite comando socket test_serial_port con il PCN, nel caso di un dispostivo USB con 2 porte seriali
+ * \return true se il check è andato a buon fine, false altrimenti
+ */
 bool MainWindow::TestSerialLoop(){
 
   unsigned char val;
@@ -1413,26 +1476,32 @@ bool MainWindow::TestSerialLoop(){
     return true;
   else
     return false;
-
 }
 
+/*!
+ * \brief MainWindow::TestSerial
+ *  Viene creata una comunicazione seriale tramite protocollo SNP tra Il PCNProdTest e il PCN.
+ *  Viene successivamente richiesto al PCN il valore della versione corrente del Kernel. Se ho ricevuto qualcosa allora la seriale funziona correttamente.
+ * \param serial_port [in] Stringa che definisce il valore della porta seriale del PCN a cui il PCN è collegato.
+ * \return  true se è il test è andato a buon fine, false altrimenti
+ */
 bool MainWindow::TestSerial(char* serial_port){
 
   char serial_buffer[BUFFER_SIZE];
   char serial_port_1[BUFFER_SIZE];
   bool ret;
   strcpy(serial_port_1,serial_port);
-  //qDebug() <<serial_port;
+  // TODO : verificare la corretta versione del kernel
   /* Inizializza la comunicazione (controllare che i parametri siano corretti */
   serial_buffer[0] = '\0';
   QString tmp(serial_port);
-
   if (SNP_initCommunication(serial_port, 115200, 8, NOPARITY, ONESTOPBIT) >= 0)
     {
       if (SNP_getKernelVersion(2, serial_buffer, BUFFER_SIZE) >= 0)
         ret =  true;
       else
         ret = false;
+
       /* chiudi la comunicazione */
       SNP_endCommunication();
     }
@@ -1442,42 +1511,52 @@ bool MainWindow::TestSerial(char* serial_port){
   return ret;
 }
 
-
+/*!
+ * \brief MainWindow::restore
+ * Setta il PCN alle condizioni di fabbrica
+ * \return true
+ */
 bool MainWindow::restore(){
   SocketUtils::SendString(sock,"restore");
   return true;
 }
 
+/*!
+ * \brief MainWindow::slotAddPermanentWidgets
+ * Slot per la gestione dei i widget dell'applicazione. \see setPermanentWidget()
+ */
 void MainWindow::slotAddPermanentWidgets(){
   setPermanentWidget();
 }
 
+/*!
+ * \brief MainWindow::setPermanentWidget
+ * Visualizza nell'interfaccia la versione del kernel, del sistema del firmware e del software attualmente presenti nel PCN
+ */
 void MainWindow::setPermanentWidget(){
-  /*fps.setText("fps: ---");
-    this->ui->statusBar->addPermanentWidget(&fps);
-    fps.show();*/
 
   char version[32];
-
+  // Riceve la versione del kernel
   SocketUtils::SendString(sock,"ker_version");
   SocketUtils::RecvString(sock,version);
   kernel.setText(" kernel v. " + QString(version));
   this->ui->statusBar->addPermanentWidget(&kernel);
   kernel.show();
-
+  // Riceve la versione del sistema
   SocketUtils::SendString(sock,"sys_version");
   SocketUtils::RecvString(sock,version);
   system.setText(" system v. " + QString(version));
   system.show();
   this->ui->statusBar->addPermanentWidget(&system);
 
+  // Riceve la versione del firmware
   SocketUtils::SendString(sock,"fw_version");
-
   SocketUtils::RecvString(sock,version);
   firmware.setText(" firmware v. " + QString(version));
   firmware.show();
   this->ui->statusBar->addPermanentWidget(&firmware);
 
+  // Riceve la versione dell'imgserver
   SocketUtils::SendString(sock,"version");
   SocketUtils::RecvString(sock,version);
   imgserver.setText(" imgserver v. " + QString(version));
@@ -1485,6 +1564,10 @@ void MainWindow::setPermanentWidget(){
   this->ui->statusBar->addPermanentWidget(&imgserver);
 }
 
+/*!
+ * \brief MainWindow::resizeEvent
+ *
+ */
 void MainWindow::resizeEvent(QResizeEvent *){
   /*this->ACQL->disconnect();
     connect(this->ACQL, SIGNAL(imageSx(const QImage&)), this, SLOT(displayImageLeft(const QImage&)));
@@ -1493,6 +1576,10 @@ void MainWindow::resizeEvent(QResizeEvent *){
     connect(this->ACQL, SIGNAL(imagesMode(tModeImages)), this, SLOT(ImgsModeReceiver(tModeImages)));*/
 }
 
+/*!
+ * \brief MainWindow::clearPermanentWidget
+ * Rimuove le informazioni di sistemi alla sconnessione con il PCN
+ */
 void MainWindow::clearPermanentWidget(){
   this->ui->statusBar->removeWidget(&kernel);
   this->ui->statusBar->removeWidget(&system);
@@ -1500,24 +1587,43 @@ void MainWindow::clearPermanentWidget(){
   this->ui->statusBar->removeWidget(&imgserver);
 }
 
+/*!
+ * \brief MainWindow::BuildValueToSet
+ *
+ * Traduce una stringa in unsigned short. E' usata quando oltre al comando è specificato un'eventuale parametro che indica il valore da settare ad una variabile del PCN.
+ * Viene prima calcolata la lunghezza del parametro, successivamente grazie alla classe QString delle Qt viene convertita in unsigned short
+ * \param buffer [in] buffer contenente : comando + parametro
+ * \param start_index [in] indice di partenza del parametro nella stringa buffer
+ * \return val_test, valore da settare di tipo unsigned short
+ */
 unsigned short MainWindow::BuildValueToSet(char* buffer,int start_index)
 {
-
   unsigned short val_test = 0;
   // build the value to test
   QString q_buffer(buffer);
-
   const int size_val_str = q_buffer.length() - start_index; // devo considerare anche lo spazio
-  char* val_str = (char*) calloc(size_val_str, sizeof(char));
-  memcpy(val_str,&buffer[start_index],size_val_str*sizeof(char));
+  char* val_str = (char*)malloc(size_val_str*sizeof(char));
+  int indx = start_index;
+  int i;
+  for ( i = 0; i<size_val_str;++i,++indx)
+    val_str[i] = buffer[indx];
+
+  val_str[i] = '\0';
   QString q_val_str(val_str);
   val_test = (unsigned short) q_val_str.toShort(0,10);
   free(val_str);
 
   return   val_test;
-
 }
 
+/*!
+ * \brief MainWindow::BuildSerialPortAddress
+ *  Costruisce una stringa che rappresenta il nome della porta seriale del computer a cui è collegato il PCN
+ *
+ * \param buffer [in] buffer contenente : comando + nome_porta_seriale
+ * \param start_index [in] indice di partenza della nome_porta_seriale nella stringa buffer
+ * \return serial_port, stringa contente il valore della porta seriale
+ */
 char* MainWindow::BuildSerialPortAddress(char* buffer,int start_index)
 {
   QString buf_str(buffer);
@@ -1527,9 +1633,7 @@ char* MainWindow::BuildSerialPortAddress(char* buffer,int start_index)
   for (; i < dim_serial_port;++i )
     serial_port[i] = buffer[start_index + 2 + i];
 
-  serial_port[i] = '\0';
-
-  qDebug() << dim_serial_port << buf_str << serial_port;
+  serial_port[i] = '\0';  // fine stringa
 
   return  serial_port;
 

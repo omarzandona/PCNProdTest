@@ -1,23 +1,16 @@
-/*------------------------------------------------------------------------
-  Eurotech SpA 
-  http://www.eurotech.com
-  email:  support-it@eurotech.com
---------------------------------------------------------------------------
-  Filename:      apc_defines.cpp
---------------------------------------------------------------------------
-  Project:       <PCN-1001>
-  Description:   <socket image client>
---------------------------------------------------------------------------
-  Compiler:      Borland C++ Builder 6 Pro
--------------------------------------------------------------------------*/
+/*!
+ *\file apc_defines.h
+ * File header per le define necessarie alla comunicazione tra il PCN e un client (il PCNProdTest in questo caso)
+ *\author Alessio Montagnini, Omar Zandonà(eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+*/
 #define NOMINMAX
-#define PORT 5400
-#define UDP_PORT 5402
-#define MAX_STR_LENGTH 256
-#define SCAN_ATTEMPTS  10000
-#define NX      160
-#define NY      120
-#define NN      NX*NY
+#define PORT 5400  //!< Porta della socket
+#define UDP_PORT 5402  //!< Porta UDP della socket
+#define MAX_STR_LENGTH 256  //!< Massima lunghezza della stringa
+#define SCAN_ATTEMPTS  10000 //!< Massimo numero di tentativi per la connessione
+#define NX      160  //!< Dimensione orizzontale dell'immagine
+#define NY      120  //!< Dimensione verticale dell'immagine
+#define NN      NX*NY //!< Numero di pixel dell'immagine
 
 #define MODE_START                      0x0000
 #define MODE_STOP                       0x1000
@@ -54,6 +47,6 @@
 #define CS7     0x20
 #define CS8     0x30
 
-#define NUM_STEP 16
+#define NUM_STEP 16   //!< Numero di disparità
 #define STEP0_225 12
 #define STEP0_240 29

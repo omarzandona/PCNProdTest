@@ -1,7 +1,7 @@
 10
 
 dir
-2
+7
 file:///C:/Documents%20and%20Settings/eVS/Desktop/PCNProdTest/oxygen/32x32/actions
 file:///C:/Documents%20and%20Settings/eVS/Desktop/PCNProdTest
 
@@ -536,40 +536,6 @@ has-props
 
 1176
 
-folder_open.png
-file
-
-
-
-
-2013-12-12T15:39:57.859375Z
-f95a0476469280e66332efb1185bc2ed
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-815
-
 games_config_options.png
 file
 
@@ -603,6 +569,40 @@ has-props
 
 
 2144
+
+folder_open.png
+file
+
+
+
+
+2013-12-12T15:39:57.859375Z
+f95a0476469280e66332efb1185bc2ed
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+815
 
 text_sub.png
 file
@@ -706,40 +706,6 @@ has-props
 
 2007
 
-love.png
-file
-
-
-
-
-2013-12-12T15:39:57.875000Z
-9b0272a60a7793826a4781e07a2417b0
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1861
-
 format_justify_center.png
 file
 
@@ -774,14 +740,14 @@ has-props
 
 680
 
-player_rew.png
+love.png
 file
 
 
 
 
-2013-12-12T15:39:57.890625Z
-15440b6119731cc9a5388816f2a2de5b
+2013-12-12T15:39:57.875000Z
+9b0272a60a7793826a4781e07a2417b0
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -806,7 +772,41 @@ has-props
 
 
 
-2117
+1861
+
+exit.png
+file
+
+
+
+
+2013-12-12T15:39:57.875000Z
+4c74c9051acd9f7a9ed42d02710a4910
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2548
 
 ok.png
 file
@@ -842,14 +842,14 @@ has-props
 
 811
 
-exit.png
+player_rew.png
 file
 
 
 
 
-2013-12-12T15:39:57.875000Z
-4c74c9051acd9f7a9ed42d02710a4910
+2013-12-12T15:39:57.890625Z
+15440b6119731cc9a5388816f2a2de5b
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -874,7 +874,7 @@ has-props
 
 
 
-2548
+2117
 
 launch.png
 file
@@ -944,40 +944,6 @@ has-props
 
 793
 
-tools_wizard.png
-file
-
-
-
-
-2013-12-12T15:39:57.890625Z
-452840c4eb01de17c5c1ba6910302119
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1912
-
 view_top_bottom.png
 file
 
@@ -1012,14 +978,14 @@ has-props
 
 760
 
-tab_remove.png
+tools_wizard.png
 file
 
 
 
 
-2013-12-12T15:39:57.906250Z
-3fd0e7208e203c82d9184e08d74be854
+2013-12-12T15:39:57.890625Z
+452840c4eb01de17c5c1ba6910302119
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -1044,7 +1010,7 @@ has-props
 
 
 
-1383
+1912
 
 decrypted.png
 file
@@ -1079,6 +1045,40 @@ has-props
 
 
 1163
+
+tab_remove.png
+file
+
+
+
+
+2013-12-12T15:39:57.906250Z
+3fd0e7208e203c82d9184e08d74be854
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1383
 
 mail_queue.png
 file
@@ -2202,14 +2202,14 @@ has-props
 
 2046
 
-kgpg_key4_kgpg.png
+window_close.png
 file
 
 
 
 
 2013-12-12T15:39:57.968750Z
-7f652a62161e52aa95cd29f01a45fe55
+626c9667eaecfe02205e95d8b2d92b81
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -2234,7 +2234,7 @@ has-props
 
 
 
-1705
+2085
 
 datashowchart.png
 file
@@ -2270,14 +2270,14 @@ has-props
 
 984
 
-window_close.png
+kgpg_key4_kgpg.png
 file
 
 
 
 
 2013-12-12T15:39:57.968750Z
-626c9667eaecfe02205e95d8b2d92b81
+7f652a62161e52aa95cd29f01a45fe55
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -2302,7 +2302,7 @@ has-props
 
 
 
-2085
+1705
 
 view_media_artist.png
 file
@@ -2406,14 +2406,14 @@ has-props
 
 910
 
-rss_tag.png
+favorites.png
 file
 
 
 
 
 2013-12-12T15:39:57.968750Z
-07567ba979e69002a53bf50e7518767d
+b0cb6a79d3305b6e4fc406c771b46e51
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -2438,7 +2438,7 @@ has-props
 
 
 
-1784
+1870
 
 media_playback_start.png
 file
@@ -2474,14 +2474,14 @@ has-props
 
 1177
 
-favorites.png
+rss_tag.png
 file
 
 
 
 
 2013-12-12T15:39:57.968750Z
-b0cb6a79d3305b6e4fc406c771b46e51
+07567ba979e69002a53bf50e7518767d
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -2506,7 +2506,7 @@ has-props
 
 
 
-1870
+1784
 
 battery_charging_080.png
 file
@@ -2814,40 +2814,6 @@ has-props
 
 1336
 
-system_suspend.png
-file
-
-
-
-
-2013-12-12T15:39:57.984375Z
-aeb2bc27d308bfe9949dd9976661c63e
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1749
-
 edit_find.png
 file
 
@@ -2881,6 +2847,40 @@ has-props
 
 
 1512
+
+system_suspend.png
+file
+
+
+
+
+2013-12-12T15:39:57.984375Z
+aeb2bc27d308bfe9949dd9976661c63e
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1749
 
 mail_replyall.png
 file
@@ -2984,40 +2984,6 @@ has-props
 
 1161
 
-view_media_playlist.png
-file
-
-
-
-
-2013-12-12T15:39:58.000000Z
-bbaa2a59e11b93247e3915bcfcc0950e
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-908
-
 kdeprint_enableprinter_kdeprint.png
 file
 
@@ -3051,6 +3017,40 @@ has-props
 
 
 1689
+
+view_media_playlist.png
+file
+
+
+
+
+2013-12-12T15:39:58.000000Z
+bbaa2a59e11b93247e3915bcfcc0950e
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+908
 
 battery_discharging_000.png
 file
@@ -3120,14 +3120,14 @@ has-props
 
 1129
 
-text_left.png
+object_rotate_left.png
 file
 
 
 
 
-2013-12-12T15:39:58.015625Z
-1098558a9afd2ca2d6be738e26846220
+2013-12-12T15:39:58.000000Z
+f520f0ccebe41615ce71b52be7061be9
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -3152,7 +3152,7 @@ has-props
 
 
 
-731
+1182
 
 text_block.png
 file
@@ -3188,14 +3188,14 @@ has-props
 
 725
 
-object_rotate_left.png
+text_left.png
 file
 
 
 
 
-2013-12-12T15:39:58.000000Z
-f520f0ccebe41615ce71b52be7061be9
+2013-12-12T15:39:58.015625Z
+1098558a9afd2ca2d6be738e26846220
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -3220,7 +3220,7 @@ has-props
 
 
 
-1182
+731
 
 go_jump.png
 file
@@ -3324,40 +3324,6 @@ has-props
 
 1607
 
-note.png
-file
-
-
-
-
-2013-12-12T15:39:58.015625Z
-1b080598f44b6a60edcd5585a170833a
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1229
-
 document_revert.png
 file
 
@@ -3391,6 +3357,40 @@ has-props
 
 
 1703
+
+note.png
+file
+
+
+
+
+2013-12-12T15:39:58.015625Z
+1b080598f44b6a60edcd5585a170833a
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1229
 
 rss.png
 file
@@ -3630,40 +3630,6 @@ has-props
 
 2150
 
-spacesimple_koffice.png
-file
-
-
-
-
-2013-12-12T15:39:58.031250Z
-280d5a04304a5ee8f9a7c7e61360a9e6
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-589
-
 view_process_own.png
 file
 
@@ -3697,6 +3663,40 @@ has-props
 
 
 1650
+
+spacesimple_koffice.png
+file
+
+
+
+
+2013-12-12T15:39:58.031250Z
+280d5a04304a5ee8f9a7c7e61360a9e6
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+589
 
 kdeprint_addprinter.png
 file
@@ -3766,40 +3766,6 @@ has-props
 
 1972
 
-view_calendar_list.png
-file
-
-
-
-
-2013-12-12T15:39:58.046875Z
-70dbb0eb03755f6710b98dfd2fe3d46a
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1089
-
 help_contextual.png
 file
 
@@ -3833,6 +3799,40 @@ has-props
 
 
 2931
+
+view_calendar_list.png
+file
+
+
+
+
+2013-12-12T15:39:58.046875Z
+70dbb0eb03755f6710b98dfd2fe3d46a
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1089
 
 users.png
 file
@@ -3970,40 +3970,6 @@ has-props
 
 1884
 
-ark_extract.png
-file
-
-
-
-
-2013-12-12T15:39:58.046875Z
-e5aa4489dc6e5d7162b75dd638be4a43
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1557
-
 history_clear.png
 file
 
@@ -4038,14 +4004,14 @@ has-props
 
 2157
 
-rectangle_add_black.png
+ark_extract.png
 file
 
 
 
 
 2013-12-12T15:39:58.046875Z
-6545758f0ecdc72552da982e46cec166
+e5aa4489dc6e5d7162b75dd638be4a43
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -4070,7 +4036,7 @@ has-props
 
 
 
-3393
+1557
 
 document_import.png
 file
@@ -4106,14 +4072,14 @@ has-props
 
 1281
 
-player_time.png
+rectangle_add_black.png
 file
 
 
 
 
-2013-12-12T15:39:58.062500Z
-08b7342f18fbbf1ea622d27b00a728f5
+2013-12-12T15:39:58.046875Z
+6545758f0ecdc72552da982e46cec166
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -4138,7 +4104,7 @@ has-props
 
 
 
-2425
+3393
 
 edit_undo.png
 file
@@ -4174,6 +4140,40 @@ has-props
 
 2020
 
+player_time.png
+file
+
+
+
+
+2013-12-12T15:39:58.062500Z
+08b7342f18fbbf1ea622d27b00a728f5
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2425
+
 edit_rename.png
 file
 
@@ -4207,40 +4207,6 @@ has-props
 
 
 496
-
-newfont.png
-file
-
-
-
-
-2013-12-12T15:39:58.062500Z
-127c9876744cbc9d87b4ab9fb22bab39
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1724
 
 find.png
 file
@@ -4276,14 +4242,14 @@ has-props
 
 1824
 
-plus_alt.png
+newfont.png
 file
 
 
 
 
 2013-12-12T15:39:58.062500Z
-f6603633678cb68a9a7baeaceddae03c
+127c9876744cbc9d87b4ab9fb22bab39
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -4308,7 +4274,7 @@ has-props
 
 
 
-3221
+1724
 
 checkmark_korganizer.png
 file
@@ -4343,6 +4309,40 @@ has-props
 
 
 828
+
+plus_alt.png
+file
+
+
+
+
+2013-12-12T15:39:58.062500Z
+f6603633678cb68a9a7baeaceddae03c
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3221
 
 mail_mark_read.png
 file
@@ -8696,40 +8696,6 @@ has-props
 
 1866
 
-previous.png
-file
-
-
-
-
-2013-12-12T15:39:58.265625Z
-b39b98f5c0d23d9417548eafd41efb93
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1325
-
 colorpicker.png
 file
 
@@ -8764,14 +8730,14 @@ has-props
 
 1651
 
-eraser.png
+previous.png
 file
 
 
 
 
-2013-12-12T15:39:58.281250Z
-9fd55d25d72eb5ed059b1108f6bf1b25
+2013-12-12T15:39:58.265625Z
+b39b98f5c0d23d9417548eafd41efb93
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -8796,7 +8762,7 @@ has-props
 
 
 
-1716
+1325
 
 java.png
 file
@@ -8832,6 +8798,40 @@ has-props
 
 2369
 
+eraser.png
+file
+
+
+
+
+2013-12-12T15:39:58.281250Z
+9fd55d25d72eb5ed059b1108f6bf1b25
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1716
+
 document_save_all.png
 file
 
@@ -8866,40 +8866,6 @@ has-props
 
 1425
 
-mail_reply_all.png
-file
-
-
-
-
-2013-12-12T15:39:58.281250Z
-458eca93b7e51d2992470fe634454ba5
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1477
-
 chronometer.png
 file
 
@@ -8933,6 +8899,40 @@ has-props
 
 
 7133
+
+mail_reply_all.png
+file
+
+
+
+
+2013-12-12T15:39:58.281250Z
+458eca93b7e51d2992470fe634454ba5
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1477
 
 games_config_board.png
 file
@@ -9138,40 +9138,6 @@ has-props
 
 2033
 
-messagebox_critical.png
-file
-
-
-
-
-2013-12-12T15:39:58.296875Z
-02f0efe43555b722b42f2659e239f1e2
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1907
-
 frameprint.png
 file
 
@@ -9205,6 +9171,40 @@ has-props
 
 
 1668
+
+messagebox_critical.png
+file
+
+
+
+
+2013-12-12T15:39:58.296875Z
+02f0efe43555b722b42f2659e239f1e2
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1907
 
 messagebox_info.png
 file
@@ -9410,14 +9410,14 @@ has-props
 
 1339
 
-text_under.png
+view_pim_mail.png
 file
 
 
 
 
-2013-12-12T15:39:58.312500Z
-dca7ef683eee1da761a046aa4d1b9a61
+2013-12-12T15:39:58.296875Z
+c8b37d57631ce1ad678e8b64c6ad3774
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -9442,7 +9442,7 @@ has-props
 
 
 
-980
+1451
 
 format_text_italic.png
 file
@@ -9478,14 +9478,14 @@ has-props
 
 869
 
-view_pim_mail.png
+text_under.png
 file
 
 
 
 
-2013-12-12T15:39:58.296875Z
-c8b37d57631ce1ad678e8b64c6ad3774
+2013-12-12T15:39:58.312500Z
+dca7ef683eee1da761a046aa4d1b9a61
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -9510,7 +9510,7 @@ has-props
 
 
 
-1451
+980
 
 view_calendar_upcoming_days.png
 file
@@ -9614,14 +9614,14 @@ has-props
 
 1270
 
-media_playback_stop.png
+book.png
 file
 
 
 
 
 2013-12-12T15:39:58.312500Z
-9c4ad2bb29041582bd259b095f271f87
+17a97d049b4d24b2317729f810b028ab
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -9646,7 +9646,7 @@ has-props
 
 
 
-1165
+1835
 
 document_properties.png
 file
@@ -9682,14 +9682,14 @@ has-props
 
 1328
 
-book.png
+media_playback_stop.png
 file
 
 
 
 
 2013-12-12T15:39:58.312500Z
-17a97d049b4d24b2317729f810b028ab
+9c4ad2bb29041582bd259b095f271f87
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -9714,7 +9714,7 @@ has-props
 
 
 
-1835
+1165
 
 edit_add.png
 file
@@ -9784,40 +9784,6 @@ has-props
 
 1231
 
-document_open.png
-file
-
-
-
-
-2013-12-12T15:39:58.328125Z
-ff313a4839202034568c14f4ec802b51
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1088
-
 battery_charging_040.png
 file
 
@@ -9851,6 +9817,40 @@ has-props
 
 
 2004
+
+document_open.png
+file
+
+
+
+
+2013-12-12T15:39:58.328125Z
+ff313a4839202034568c14f4ec802b51
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1088
 
 editcut.png
 file
@@ -9886,40 +9886,6 @@ has-props
 
 892
 
-2plus.png
-file
-
-
-
-
-2013-12-12T15:39:58.328125Z
-06a13f9e269ef7a6dff7e2429a6280f7
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-168
-
 bookmark.png
 file
 
@@ -9953,6 +9919,40 @@ has-props
 
 
 1864
+
+2plus.png
+file
+
+
+
+
+2013-12-12T15:39:58.328125Z
+06a13f9e269ef7a6dff7e2429a6280f7
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+168
 
 make_kdevelop.png
 file
@@ -10022,40 +10022,6 @@ has-props
 
 1783
 
-system_log_out.png
-file
-
-
-
-
-2013-12-12T15:39:58.328125Z
-e13ff7c8d52f91d8664088855f450e13
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1753
-
 view_process_system.png
 file
 
@@ -10090,14 +10056,14 @@ has-props
 
 1733
 
-cdburn.png
+system_log_out.png
 file
 
 
 
 
 2013-12-12T15:39:58.328125Z
-e22562063c3bfc2b4b735ea46a096a56
+e13ff7c8d52f91d8664088855f450e13
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -10122,7 +10088,7 @@ has-props
 
 
 
-2592
+1753
 
 format_text_direction_rtl.png
 file
@@ -10157,6 +10123,40 @@ has-props
 
 
 1041
+
+cdburn.png
+file
+
+
+
+
+2013-12-12T15:39:58.328125Z
+e22562063c3bfc2b4b735ea46a096a56
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2592
 
 view_calendar_week.png
 file
@@ -10498,40 +10498,6 @@ has-props
 
 1547
 
-user_group_new.png
-file
-
-
-
-
-2013-12-12T15:39:58.359375Z
-30f2eb1a007cf389f31460f6a03e8c71
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2108
-
 games_config_theme.png
 file
 
@@ -10565,6 +10531,40 @@ has-props
 
 
 2247
+
+user_group_new.png
+file
+
+
+
+
+2013-12-12T15:39:58.359375Z
+30f2eb1a007cf389f31460f6a03e8c71
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2108
 
 feed_subscribe.png
 file
@@ -10668,40 +10668,6 @@ has-props
 
 965
 
-insert_table.png
-file
-
-
-
-
-2013-12-12T15:39:58.359375Z
-cb55d8fc77293eb6af5a1ca5c0e45d1a
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1131
-
 view_pim_news.png
 file
 
@@ -10735,6 +10701,40 @@ has-props
 
 
 1109
+
+insert_table.png
+file
+
+
+
+
+2013-12-12T15:39:58.359375Z
+cb55d8fc77293eb6af5a1ca5c0e45d1a
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1131
 
 editcopy.png
 file
@@ -10804,40 +10804,6 @@ has-props
 
 3355
 
-paperclipreal.png
-file
-
-
-
-
-2013-12-12T15:39:58.359375Z
-f50c354a5c5483a84a2f3648d1e85106
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1073
-
 edit_find_user.png
 file
 
@@ -10872,14 +10838,14 @@ has-props
 
 1933
 
-text_center.png
+paperclipreal.png
 file
 
 
 
 
-2013-12-12T15:39:58.375000Z
-8609eedaa4a7225996b753474a9199e4
+2013-12-12T15:39:58.359375Z
+f50c354a5c5483a84a2f3648d1e85106
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -10904,7 +10870,7 @@ has-props
 
 
 
-736
+1073
 
 folder_new.png
 file
@@ -10939,6 +10905,40 @@ has-props
 
 
 1369
+
+text_center.png
+file
+
+
+
+
+2013-12-12T15:39:58.375000Z
+8609eedaa4a7225996b753474a9199e4
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+736
 
 save_all.png
 file
@@ -11042,40 +11042,6 @@ has-props
 
 1922
 
-bookmark_folder.png
-file
-
-
-
-
-2013-12-12T15:39:58.375000Z
-018ffaa538cf4872bfb550438ef92e57
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1622
-
 view_process_all.png
 file
 
@@ -11109,6 +11075,40 @@ has-props
 
 
 1452
+
+bookmark_folder.png
+file
+
+
+
+
+2013-12-12T15:39:58.375000Z
+018ffaa538cf4872bfb550438ef92e57
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1622
 
 window_duplicate.png
 file
@@ -11348,40 +11348,6 @@ has-props
 
 1303
 
-laptop_charge_klaptopdaemon.png
-file
-
-
-
-
-2013-12-12T15:39:58.390625Z
-a25950963a39bc6a78167b7c3bf5ceeb
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2135
-
 add_user.png
 file
 
@@ -11416,14 +11382,14 @@ has-props
 
 1633
 
-tools_check_spelling.png
+laptop_charge_klaptopdaemon.png
 file
 
 
 
 
 2013-12-12T15:39:58.390625Z
-1d7897bd15b860955162b43fdc1d6f3b
+a25950963a39bc6a78167b7c3bf5ceeb
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -11448,7 +11414,7 @@ has-props
 
 
 
-1270
+2135
 
 mail_mark_unread.png
 file
@@ -11483,6 +11449,40 @@ has-props
 
 
 794
+
+tools_check_spelling.png
+file
+
+
+
+
+2013-12-12T15:39:58.390625Z
+1d7897bd15b860955162b43fdc1d6f3b
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1270
 
 view_split_left_right.png
 file
@@ -11654,14 +11654,14 @@ has-props
 
 2174
 
-view_pim_journal.png
+go_last_rtl.png
 file
 
 
 
 
 2013-12-12T15:39:58.484375Z
-c5a544cb6012d2f9f3848e619aa5cde6
+f70eba95adec41e790802ba10faed2eb
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -11686,41 +11686,7 @@ has-props
 
 
 
-1933
-
-player_start.png
-file
-
-
-
-
-2013-12-12T15:39:58.484375Z
-3079f0580fa9fb12f7fa995073bb1447
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2130
+551
 
 edit_delete_mail.png
 file
@@ -11756,14 +11722,14 @@ has-props
 
 768
 
-go_last_rtl.png
+player_start.png
 file
 
 
 
 
 2013-12-12T15:39:58.484375Z
-f70eba95adec41e790802ba10faed2eb
+3079f0580fa9fb12f7fa995073bb1447
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -11788,16 +11754,16 @@ has-props
 
 
 
-551
+2130
 
-spread.png
+view_pim_journal.png
 file
 
 
 
 
-2013-12-12T15:39:58.546875Z
-8351d0cb367fe3c06adc61eeb4ff079a
+2013-12-12T15:39:58.484375Z
+c5a544cb6012d2f9f3848e619aa5cde6
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -11822,7 +11788,41 @@ has-props
 
 
 
-1714
+1933
+
+games_hint.png
+file
+
+
+
+
+2013-12-12T15:39:58.484375Z
+d6d88834398c9f3114e27ebc30aa7f92
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2468
 
 mail_mark_task.png
 file
@@ -11858,14 +11858,14 @@ has-props
 
 1652
 
-games_hint.png
+spread.png
 file
 
 
 
 
-2013-12-12T15:39:58.484375Z
-d6d88834398c9f3114e27ebc30aa7f92
+2013-12-12T15:39:58.546875Z
+8351d0cb367fe3c06adc61eeb4ff079a
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -11890,7 +11890,7 @@ has-props
 
 
 
-2468
+1714
 
 1uparrow.png
 file
@@ -11994,40 +11994,6 @@ has-props
 
 2117
 
-player_volume.png
-file
-
-
-
-
-2013-12-12T15:39:58.609375Z
-7e9de2975607246a27e7564bdb44d0ff
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1563
-
 edit_find_next.png
 file
 
@@ -12061,6 +12027,40 @@ has-props
 
 
 1322
+
+player_volume.png
+file
+
+
+
+
+2013-12-12T15:39:58.609375Z
+7e9de2975607246a27e7564bdb44d0ff
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1563
 
 up.png
 file
@@ -12300,40 +12300,6 @@ has-props
 
 1439
 
-run_build_file.png
-file
-
-
-
-
-2013-12-12T15:39:58.671875Z
-42a663a6a60a20ec54952d7006965e7a
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1816
-
 rectangle_delete_black.png
 file
 
@@ -12367,6 +12333,40 @@ has-props
 
 
 3372
+
+run_build_file.png
+file
+
+
+
+
+2013-12-12T15:39:58.671875Z
+42a663a6a60a20ec54952d7006965e7a
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1816
 
 format_list_ordered.png
 file
@@ -12470,40 +12470,6 @@ has-props
 
 933
 
-edit_delete_shred.png
-file
-
-
-
-
-2013-12-12T15:39:58.750000Z
-98d4c6c28f1d2f7936d90514a11688f7
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1870
-
 fileview_close_right.png
 file
 
@@ -12537,6 +12503,40 @@ has-props
 
 
 517
+
+edit_delete_shred.png
+file
+
+
+
+
+2013-12-12T15:39:58.750000Z
+98d4c6c28f1d2f7936d90514a11688f7
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1870
 
 kontact_contacts.png
 file
@@ -12606,40 +12606,6 @@ has-props
 
 2207
 
-update.ico
-file
-
-
-
-
-2013-12-12T15:39:58.765625Z
-c7361054ef5ef86a9777d199637760f1
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-119920
-
 roll.png
 file
 
@@ -12673,6 +12639,40 @@ has-props
 
 
 1059
+
+update.ico
+file
+
+
+
+
+2013-12-12T15:39:58.765625Z
+c7361054ef5ef86a9777d199637760f1
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+119920
 
 1rightarrow.png
 file
@@ -12708,40 +12708,6 @@ has-props
 
 1039
 
-format_text_strikethrough.png
-file
-
-
-
-
-2013-12-12T15:39:58.781250Z
-dd8715ad005804b1020c243cc762f377
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1273
-
 gohome.png
 file
 
@@ -12776,14 +12742,14 @@ has-props
 
 1405
 
-news_unsubscribe.png
+format_text_strikethrough.png
 file
 
 
 
 
 2013-12-12T15:39:58.781250Z
-ea46aa979e1612646d21140b15c69b52
+dd8715ad005804b1020c243cc762f377
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -12808,7 +12774,7 @@ has-props
 
 
 
-1651
+1273
 
 viewmag1.png
 file
@@ -12843,6 +12809,40 @@ has-props
 
 
 2331
+
+news_unsubscribe.png
+file
+
+
+
+
+2013-12-12T15:39:58.781250Z
+ea46aa979e1612646d21140b15c69b52
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1651
 
 cdcopy.png
 file
@@ -13014,40 +13014,6 @@ has-props
 
 2622
 
-contexthelp.png
-file
-
-
-
-
-2013-12-12T15:39:58.812500Z
-5874b4c8bb17792c1883c8c2b6f36470
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2930
-
 format_line_spacing_double.png
 file
 
@@ -13081,6 +13047,40 @@ has-props
 
 
 749
+
+contexthelp.png
+file
+
+
+
+
+2013-12-12T15:39:58.812500Z
+5874b4c8bb17792c1883c8c2b6f36470
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2930
 
 clear_left.png
 file
@@ -13150,40 +13150,6 @@ has-props
 
 1867
 
-alarmclock.png
-file
-
-
-
-
-2013-12-12T15:39:58.859375Z
-537595b73cc42ba3bf11d0a49f61760e
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2463
-
 editdelete.png
 file
 
@@ -13218,14 +13184,14 @@ has-props
 
 1584
 
-document_encrypt.png
+alarmclock.png
 file
 
 
 
 
-2013-12-12T15:39:58.906250Z
-3cfb22f345ec98c21158b919aac2c9e7
+2013-12-12T15:39:58.859375Z
+537595b73cc42ba3bf11d0a49f61760e
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -13250,7 +13216,7 @@ has-props
 
 
 
-1129
+2463
 
 fileview_icon.png
 file
@@ -13285,6 +13251,40 @@ has-props
 
 
 541
+
+document_encrypt.png
+file
+
+
+
+
+2013-12-12T15:39:58.906250Z
+3cfb22f345ec98c21158b919aac2c9e7
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1129
 
 view_statistics.png
 file
@@ -13490,14 +13490,14 @@ has-props
 
 992
 
-view_list_icons.png
+kontact_date.png
 file
 
 
 
 
 2013-12-12T15:39:58.937500Z
-254602dfbf1d5b302425c86a1420dc94
+bb2a7a8171f690884296b3e18a161d74
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -13522,7 +13522,7 @@ has-props
 
 
 
-468
+1637
 
 view_calendar_day.png
 file
@@ -13558,14 +13558,14 @@ has-props
 
 1229
 
-kontact_date.png
+view_list_icons.png
 file
 
 
 
 
 2013-12-12T15:39:58.937500Z
-bb2a7a8171f690884296b3e18a161d74
+254602dfbf1d5b302425c86a1420dc94
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -13590,7 +13590,7 @@ has-props
 
 
 
-1637
+468
 
 document_print_frame.png
 file
@@ -13626,40 +13626,6 @@ has-props
 
 1668
 
-media_record.png
-file
-
-
-
-
-2013-12-12T15:39:58.953125Z
-9eae1120580888893298eb435f1f88de
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1843
-
 bookmark_add.png
 file
 
@@ -13693,6 +13659,40 @@ has-props
 
 
 2103
+
+media_record.png
+file
+
+
+
+
+2013-12-12T15:39:58.953125Z
+9eae1120580888893298eb435f1f88de
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1843
 
 user.png
 file
@@ -13762,40 +13762,6 @@ has-props
 
 1364
 
-view_calendar_workweek.png
-file
-
-
-
-
-2013-12-12T15:39:58.968750Z
-0e6898544f5402ae5d1f447524b47bbb
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1218
-
 trash.png
 file
 
@@ -13829,6 +13795,40 @@ has-props
 
 
 3250
+
+view_calendar_workweek.png
+file
+
+
+
+
+2013-12-12T15:39:58.968750Z
+0e6898544f5402ae5d1f447524b47bbb
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1218
 
 color_line.png
 file
@@ -13864,40 +13864,6 @@ has-props
 
 1934
 
-show_offliners.png
-file
-
-
-
-
-2013-12-12T15:39:58.968750Z
-091104c8f54e33acb28e98fac2d7e997
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1524
-
 rotate_cw.png
 file
 
@@ -13931,6 +13897,40 @@ has-props
 
 
 1252
+
+show_offliners.png
+file
+
+
+
+
+2013-12-12T15:39:58.968750Z
+091104c8f54e33acb28e98fac2d7e997
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1524
 
 view_calendar_upcoming_events.png
 file
@@ -14000,40 +14000,6 @@ has-props
 
 1905
 
-format_list_unordered.png
-file
-
-
-
-
-2013-12-12T15:39:58.984375Z
-ec089a435ab690827b8f4f0c766388ec
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-871
-
 images_display.png
 file
 
@@ -14067,6 +14033,40 @@ has-props
 
 
 2387
+
+format_list_unordered.png
+file
+
+
+
+
+2013-12-12T15:39:58.984375Z
+ec089a435ab690827b8f4f0c766388ec
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+871
 
 system_lock_screen.png
 file
@@ -14204,40 +14204,6 @@ has-props
 
 1539
 
-view_list_details.png
-file
-
-
-
-
-2013-12-12T15:39:59.000000Z
-ee732ab5c098cd800129b85347a6d852
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-443
-
 zoom_in.png
 file
 
@@ -14271,6 +14237,40 @@ has-props
 
 
 1871
+
+view_list_details.png
+file
+
+
+
+
+2013-12-12T15:39:59.000000Z
+ee732ab5c098cd800129b85347a6d852
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+443
 
 mail_flag.png
 file
@@ -14374,40 +14374,6 @@ has-props
 
 1114
 
-list_remove_user.png
-file
-
-
-
-
-2013-12-12T15:39:59.015625Z
-a4c5c0fed7c5c8b96583354fcb4225e9
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1701
-
 document_start_presentation.png
 file
 
@@ -14442,14 +14408,14 @@ has-props
 
 1571
 
-openterm.png
+list_remove_user.png
 file
 
 
 
 
-2013-12-12T15:39:59.031250Z
-54eb4df9e6ec868a20044d9c6018bb6c
+2013-12-12T15:39:59.015625Z
+a4c5c0fed7c5c8b96583354fcb4225e9
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -14474,7 +14440,7 @@ has-props
 
 
 
-1336
+1701
 
 archive_insert_directory.png
 file
@@ -14510,6 +14476,40 @@ has-props
 
 1843
 
+openterm.png
+file
+
+
+
+
+2013-12-12T15:39:59.031250Z
+54eb4df9e6ec868a20044d9c6018bb6c
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1336
+
 document_print_preview.png
 file
 
@@ -14544,40 +14544,6 @@ has-props
 
 1515
 
-remove.png
-file
-
-
-
-
-2013-12-12T15:39:59.031250Z
-41413c263814d623a9b488d4b0615240
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1820
-
 about_kde.png
 file
 
@@ -14611,6 +14577,40 @@ has-props
 
 
 2660
+
+remove.png
+file
+
+
+
+
+2013-12-12T15:39:59.031250Z
+41413c263814d623a9b488d4b0615240
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1820
 
 battery_discharging_040.png
 file
@@ -15054,40 +15054,6 @@ has-props
 
 2118
 
-trash_empty.png
-file
-
-
-
-
-2013-12-12T15:39:59.078125Z
-706c22565b2325346275f6e0c82e57ec
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5643
-
 tool2.png
 file
 
@@ -15121,6 +15087,40 @@ has-props
 
 
 1453
+
+trash_empty.png
+file
+
+
+
+
+2013-12-12T15:39:59.078125Z
+706c22565b2325346275f6e0c82e57ec
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5643
 
 battery_charging_060.png
 file
@@ -15530,40 +15530,6 @@ has-props
 
 1890
 
-speaker.png
-file
-
-
-
-
-2013-12-12T15:39:59.125000Z
-b6e6c8ea17393eeb66c61ad3c3a080b1
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1980
-
 rotate_ccw.png
 file
 
@@ -15597,6 +15563,40 @@ has-props
 
 
 1249
+
+speaker.png
+file
+
+
+
+
+2013-12-12T15:39:59.125000Z
+b6e6c8ea17393eeb66c61ad3c3a080b1
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1980
 
 kgpg_key3_kgpg.png
 file
@@ -15632,14 +15632,14 @@ has-props
 
 2124
 
-kontact_journal.png
+java_kjava.png
 file
 
 
 
 
 2013-12-12T15:39:59.140625Z
-a1d3f61f94ca015b814a926c48f684f5
+6f4a9c9d8685472c4a29fc9685d845ba
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -15664,7 +15664,7 @@ has-props
 
 
 
-1978
+2369
 
 contents.png
 file
@@ -15700,14 +15700,14 @@ has-props
 
 1643
 
-java_kjava.png
+kontact_journal.png
 file
 
 
 
 
 2013-12-12T15:39:59.140625Z
-6f4a9c9d8685472c4a29fc9685d845ba
+a1d3f61f94ca015b814a926c48f684f5
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -15732,41 +15732,7 @@ has-props
 
 
 
-2369
-
-edit_redo.png
-file
-
-
-
-
-2013-12-12T15:39:59.156250Z
-da44fcb46ffd95ec76dd6d0c82c57fce
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1998
+1978
 
 filesave.png
 file
@@ -15802,6 +15768,40 @@ has-props
 
 1318
 
+edit_redo.png
+file
+
+
+
+
+2013-12-12T15:39:59.156250Z
+da44fcb46ffd95ec76dd6d0c82c57fce
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1998
+
 delete_user.png
 file
 
@@ -15836,40 +15836,6 @@ has-props
 
 1715
 
-draw_text.png
-file
-
-
-
-
-2013-12-12T15:39:59.156250Z
-0f4305fced77dcb6152ad0bfa0ef8e00
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-648
-
 fork.png
 file
 
@@ -15903,6 +15869,40 @@ has-props
 
 
 1624
+
+draw_text.png
+file
+
+
+
+
+2013-12-12T15:39:59.156250Z
+0f4305fced77dcb6152ad0bfa0ef8e00
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+648
 
 viewmagfit.png
 file
@@ -15972,40 +15972,6 @@ has-props
 
 2523
 
-kontact_mail.png
-file
-
-
-
-
-2013-12-12T15:39:59.171875Z
-186f9d113663cd9f4163a08ce1e52f38
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1504
-
 editinput.png
 file
 
@@ -16039,6 +16005,40 @@ has-props
 
 
 722
+
+kontact_mail.png
+file
+
+
+
+
+2013-12-12T15:39:59.171875Z
+186f9d113663cd9f4163a08ce1e52f38
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1504
 
 document_decrypt.png
 file
@@ -16346,40 +16346,6 @@ has-props
 
 1455
 
-view_history.png
-file
-
-
-
-
-2013-12-12T15:39:59.218750Z
-4dd9278402bc0fb91ae8ec24a47ddbd4
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1451
-
 battery_charging_000.png
 file
 
@@ -16414,14 +16380,14 @@ has-props
 
 1977
 
-fileprint.png
+view_history.png
 file
 
 
 
 
 2013-12-12T15:39:59.218750Z
-ed963d218685cf00fb80b16e52f561b7
+4dd9278402bc0fb91ae8ec24a47ddbd4
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -16446,7 +16412,7 @@ has-props
 
 
 
-1415
+1451
 
 view_pim_summary.png
 file
@@ -16481,6 +16447,40 @@ has-props
 
 
 2401
+
+fileprint.png
+file
+
+
+
+
+2013-12-12T15:39:59.218750Z
+ed963d218685cf00fb80b16e52f561b7
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1415
 
 mail_reply_sender.png
 file
@@ -16652,40 +16652,6 @@ has-props
 
 1908
 
-edit_clear_locationbar.png
-file
-
-
-
-
-2013-12-12T15:39:59.234375Z
-112fdc990a403101e873b51437e6bc5e
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1434
-
 goto.png
 file
 
@@ -16720,14 +16686,14 @@ has-props
 
 764
 
-3right_arrow.png
+edit_clear_locationbar.png
 file
 
 
 
 
-2013-12-12T15:39:59.250000Z
-45cbf9d3df3436c7848ec4d7ca876efd
+2013-12-12T15:39:59.234375Z
+112fdc990a403101e873b51437e6bc5e
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -16752,7 +16718,7 @@ has-props
 
 
 
-438
+1434
 
 help_hint.png
 file
@@ -16787,6 +16753,40 @@ has-props
 
 
 1641
+
+3right_arrow.png
+file
+
+
+
+
+2013-12-12T15:39:59.250000Z
+45cbf9d3df3436c7848ec4d7ca876efd
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+438
 
 editshred.png
 file
@@ -16890,40 +16890,6 @@ has-props
 
 1325
 
-dialog_close.png
-file
-
-
-
-
-2013-12-12T15:39:59.265625Z
-626c9667eaecfe02205e95d8b2d92b81
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2085
-
 window_suppressed.png
 file
 
@@ -16957,6 +16923,40 @@ has-props
 
 
 1178
+
+dialog_close.png
+file
+
+
+
+
+2013-12-12T15:39:59.265625Z
+626c9667eaecfe02205e95d8b2d92b81
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2085
 
 fill.png
 file
@@ -17026,14 +17026,14 @@ has-props
 
 1065
 
-view_calendar_timeline.png
+media_eject.png
 file
 
 
 
 
-2013-12-12T15:39:59.281250Z
-9b6d39929dc5033608f045924fd11aef
+2013-12-12T15:39:59.265625Z
+252b432a226fa5bb3e74fea6121373ab
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -17058,7 +17058,7 @@ has-props
 
 
 
-1369
+1197
 
 redo.png
 file
@@ -17094,14 +17094,14 @@ has-props
 
 2047
 
-media_eject.png
+view_calendar_timeline.png
 file
 
 
 
 
-2013-12-12T15:39:59.265625Z
-252b432a226fa5bb3e74fea6121373ab
+2013-12-12T15:39:59.281250Z
+9b6d39929dc5033608f045924fd11aef
 2013-12-12T15:35:57.187500Z
 1
 eVS
@@ -17126,7 +17126,7 @@ has-props
 
 
 
-1197
+1369
 
 view_media_equalizer.png
 file
@@ -17162,40 +17162,6 @@ has-props
 
 1866
 
-dialog_ok_apply.png
-file
-
-
-
-
-2013-12-12T15:39:59.296875Z
-ed278e2a29109971db098ac34c8a721e
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1260
-
 go_first_rtl.png
 file
 
@@ -17229,6 +17195,40 @@ has-props
 
 
 539
+
+dialog_ok_apply.png
+file
+
+
+
+
+2013-12-12T15:39:59.296875Z
+ed278e2a29109971db098ac34c8a721e
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1260
 
 view_media_lyrics.png
 file
@@ -17298,40 +17298,6 @@ has-props
 
 1228
 
-switchuser.png
-file
-
-
-
-
-2013-12-12T15:39:59.296875Z
-bd53c11d7151b8abdd4354fb86ef9134
-2013-12-12T15:35:57.187500Z
-1
-eVS
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2538
-
 connect_established.png
 file
 
@@ -17365,6 +17331,40 @@ has-props
 
 
 2194
+
+switchuser.png
+file
+
+
+
+
+2013-12-12T15:39:59.296875Z
+bd53c11d7151b8abdd4354fb86ef9134
+2013-12-12T15:35:57.187500Z
+1
+eVS
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2538
 
 ark_view.png
 file

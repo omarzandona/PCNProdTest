@@ -1,3 +1,10 @@
+/*!
+ *\file mainwindow.h
+ * File din header della classe MainWindow.+
+ * Contiene la dichiarazione delle classe, delle relative funzioni
+ *
+ *
+*/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #define NOMINMAX
@@ -92,27 +99,11 @@ public slots:
   bool SaveReport();  //!< Salva il report relativo al check del PCN con le immagini usate per il test
   void SaveReportSlot();  //!< Slot per la gestione del salvataggio del report
 
-#ifdef SET_DIGITAL_IO_WITH_PARMS
-  /** Set e Get Digital I/O **/
-  bool setIN1(unsigned short val_test);   //!< Set il digital IN1  al valore passato come parametro
-  bool setIN2(unsigned short val_test);   //!< Set il digital IN2 al valore passato come parametro
-  bool setOUT1(unsigned short val_test);  //!< Set il digital OUT1 al valore passato come parametro
-  bool setOUT2(unsigned short val_test);  //!< Set il digital OUT2  al valore passato come parametro
-  bool getIN1();   //!< Restituisce il valore del digital IN1
-  bool getIN2();   //!< Restituisce il valore del digital IN2
-  bool getOUT1();  //!< Restituisce il valore del digital OUT1
-  bool getOUT2();  //!< Restituisce il valore del digital OUT2
-#else
-  /** Set e Get Digital I/O **/
-  bool setIN1();   //!< Set il digital IN1  al valore passato come parametro
-  bool setIN2();   //!< Set il digital IN2 al valore passato come parametro
-  bool setOUT1();  //!< Set il digital OUT1 al valore passato come parametro
-  bool setOUT2();  //!< Set il digital OUT2  al valore passato come parametro
-  bool getIN1();   //!< Restituisce il valore del digital IN1
-  bool getIN2();   //!< Restituisce il valore del digital IN2
-  bool getOUT1();  //!< Restituisce il valore del digital OUT1
-  bool getOUT2();  //!< Restituisce il valore del digital OUT2
-#endif
+  /** Test Digital I/O **/
+  QString getIN0();   //!< Restituisce il valore del digital IN0
+  QString getIN1();   //!< Restituisce il valore del digital IN1
+  bool setOpto(unsigned char value);  //!< Setta un determinato valore al digital OUT0/1 in base al valore value
+  bool setOptoFullControl(unsigned char value);  //!< Setta un determinato valore a OUTTIME0/1 in base al valore value
 
   /** Test Seriale **/ // modifica 11/12/2013
   bool TestSerial(char* serial_port);  //!< Test della porta seriale in caso di PCN ethernet (una sola seriale)
@@ -208,9 +199,9 @@ private:
   QTime time_fps;
 
   unsigned short in1_current_val;
-  unsigned short in2_current_val;
+  unsigned short in0_current_val;
   unsigned short out1_current_val;
-  unsigned short out2_current_val;
+  unsigned short out0_current_val;
 
 };
 

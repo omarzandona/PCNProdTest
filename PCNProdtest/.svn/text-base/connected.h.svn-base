@@ -1,3 +1,11 @@
+/*!
+ *\file connected.h
+ * File header contenente la definizione delle classe ConnectedComponents e le relative funzioni, variabili e strutture
+ * dati
+ *
+ *\author Alessio Montagnini, Omar Zandonà(eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+*/
+
 #ifndef _CONNECTED_H
 #define _CONNECTED_H
 
@@ -11,18 +19,41 @@ struct constant
     operator T() const { return V; }
 };
 
-
+/*!
+ * \brief The ConnectedComponents class
+ */
 class ConnectedComponents
 {
 public:
+  /*!
+     * \brief ConnectedComponents
+     * Costruttore della classe
+     * \param soft_maxlabels [in] intero che specifica il numero max di etichette delle componenti connesse
+     */
     ConnectedComponents(int soft_maxlabels) : labels(soft_maxlabels) {
 	clear();
     }
+    /*!
+     * \brief clear
+     * Pulisce tutte le etichette delle classe
+     */
     void clear() {
 	std::fill(labels.begin(), labels.end(), Similarity());
 	highest_label = 0;
     }
+    /*!
+     *
+     */
     template<class Tin, class Tlabel, class Comparator, class Boolean>
+    /*!
+     * \brief connected
+     * \param img
+     * \param out
+     * \param width
+     * \param height
+     * \param K8_connectivity
+     * \return
+     */
     int connected(const Tin *img, Tlabel *out,
 		     int width, int height, Comparator,
 		  Boolean K8_connectivity);
@@ -30,6 +61,10 @@ public:
 
 
 private:
+
+    /*!
+     * \brief The Similarity struct
+     */
     struct Similarity {
 	Similarity() : id(0), sameas(0) {}
 	Similarity(int _id, int _sameas) : id(_id), sameas(_sameas) {}
@@ -37,9 +72,22 @@ private:
 	int id, sameas, tag;
     };
 
+    /*!
+     * \brief is_root_label
+     * Indica se il nodo ha l'etichetta specificata come parametro
+     * \param id [in] Etichetta da testare
+     * \return true in caso affermativo, else altrimenti
+     */
     bool is_root_label(int id) {
 	return (labels[id].sameas == id);
     }
+
+    /*!
+     * \brief root_of
+     * Trova l'etichetta del padre del nodo &grave;  specificato come parametro
+     * \param id [in] Etichetta del nodo
+     * \return Etichetta del nodo padre
+     */
     int root_of(int id) {
 	while (!is_root_label(id)) {
 	    // link this node to its parent's parent, just to shorten
@@ -50,9 +98,24 @@ private:
 	}
 	return id;
     }
+
+    /*!
+     * \brief is_equivalent
+     * Indica se i due nodi le cui etichette sono passate come parametro sono equivalenti, cioè hanno lo stesso padre
+     * \param id [in] etichetta di un nodo da confrontare
+     * \param as [in] etichetta di un nodo da confrontare
+     * \return true in caso affermativo, else altrimenti
+     */
     bool is_equivalent(int id, int as) {
 	return (root_of(id) == root_of(as));
     }
+
+    /*!
+     * \brief merge
+     * \param id1 [in] etichetta di un nodo da unire
+     * \param id2 [in] etichetta di un nodo da unire
+     * \return true in caso affermativo, else altrimenti
+     */
     bool merge(int id1, int id2) {
 	if(!is_equivalent(id1, id2)) {
 	    labels[root_of(id1)].sameas = root_of(id2);
@@ -60,6 +123,12 @@ private:
 	}
 	return true;
     }
+
+    /*!
+     * \brief new_label
+     * Crea una nuova etichetta
+     * \return Nuova etichetta
+     */
     int new_label() {
 	if(highest_label+1 > labels.size())
 	    labels.reserve(highest_label*2);
@@ -68,7 +137,9 @@ private:
 	return highest_label++;
     }
 
-
+    /*!
+     *
+     */
     template<class Tin, class Tlabel, class Comparator, class Boolean>
     void label_image(const Tin *img, Tlabel *out,
 		     int width, int height, Comparator,
@@ -78,7 +149,7 @@ private:
 
 
     std::vector<Similarity> labels;
-    int highest_label;
+    int highest_label;  //!< Etichetta corrente più alta
 };
 
 template<class Tin, class Tlabel, class Comparator, class Boolean>

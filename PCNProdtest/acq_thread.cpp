@@ -1,5 +1,19 @@
+/*!
+\file acq_thread.cpp
+\brief Crea e gestisce il thread di acquisizione delle immagini provenienti dal PCN
+
+Questa funzione gestisce il thread di acquisizione delle immagini. Inoltre alloca e dealloca le strutture ncessarie all'acquisizione del
+dataset e alla creazione delle immagine "modate" cioè ottenute come risultato dell'operazione di moda delle 50  immagini salvate
+
+\author Alessio Montagnini, Omar Zandon&agrave (eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+*/
+
 #include "acq_thread.h"
 
+/*!
+ * \brief AcqThread::AcqThread
+ * Costruttore della  classe AcqThread: Inizializza la struttura dati e le variabili per la socket e per l'allocazione dei dataset
+ */
 AcqThread::AcqThread()
 {
     qRegisterMetaType<tModeImages>("tModeImages");
@@ -21,6 +35,11 @@ AcqThread::AcqThread()
 
 }
 
+/*!
+ * \brief AcqThread::setParameters
+ * Setta i parametri della socket per l'acquisizione delle immagini
+ * \param param [in] Struttura contenente i parametri di configurazione della socket
+ */
 void AcqThread::setParameters( tAcqThreadParam param ){
     this->imgfd = param.imgfd;
     this->my_addr_data = param.my_addr_data;
@@ -31,7 +50,12 @@ void AcqThread::setParameters( tAcqThreadParam param ){
     stop = false;
     mutex.unlock();
 }
-
+/*!
+ * \brief AcqThread::run
+ *  Attivata in caso di richiesta di visualizzazione delle immagini da parte dello scheduler fino al comando di stop dello stesso.
+ *  Se riceve dati dalla socket alloca il dataset per l'acquisione e richiama la funzione
+ *  \see update() per l'aggiornamento delle strutture dati che contengo le immagini
+ */
 void AcqThread::run(){
 
     int bytes;
@@ -42,12 +66,10 @@ void AcqThread::run(){
     {
         mutex.unlock();
         memset(buffer,0,BUFFERSIZE);
-
         bytes = recvfrom(*imgfd,(char *)buffer,BUFFERSIZE,0,(struct sockaddr *) serv_addr_data,&addr_len);
 
         if((serv_addr_data->sin_addr.s_addr == serv_addr->sin_addr.s_addr) && (bytes > 0))
         {
-
             this->allocationDatasets();
             this->update();
         }
@@ -57,8 +79,14 @@ void AcqThread::run(){
     mutex.unlock();
 }
 
-
-
+/*!
+ * \brief AcqThread::update
+ * Decodifica il buffer ricevuto dal PCN e aggiorna le strutture dati delle immagini ImageSX, ImageDX e ImageDSP.
+ * Visualizza successivamente le immagini nella GUI.
+ * Se il processing è partito salva nella struttura dati allocato le immagini e al raggiungimento di  #NUM_FRAME_TO_PROCESS
+ * inizia il processing (calcolo della moda).
+ *
+ */
 void AcqThread::update(){
 
 
@@ -68,7 +96,7 @@ void AcqThread::update(){
     ptr = buffer;
     header = *ptr;
     ptr += 4;
-
+    // Immagine di sinistra
     memset(ImageSX,0,NN);
     if(header & 0x01)
     {
@@ -80,7 +108,7 @@ void AcqThread::update(){
 
         ptr += NN;
     }
-
+    // Immagine di destra
     memset(ImageDX,0,NN);
     if(header & 0x02)
     {
@@ -92,8 +120,7 @@ void AcqThread::update(){
 
         ptr += NN;
     }
-
-
+    // Immagine di disparità
     memset(ImageDSP,0,NN);
     if(header & 0x04)
     {
@@ -104,16 +131,15 @@ void AcqThread::update(){
 
         ptr += NN;
     }
-    mutex.lock();
 
+    // Salvo le immagini se è arrivato il comando
+    mutex.lock();
     if ( startProc && datasetAllocated ){
         test_all( memcpy( datasetSx[n_imgs], ImageSX, NN ) );
         test_all( memcpy( datasetDx[n_imgs], ImageDX, NN ) );
         test_all( memcpy( datasetDsp[n_imgs], ImageDSP, NN ) );
         n_imgs++;
-        //qDebug() << " immagine: " << n_imgs;
         emit imageNumberProgress( n_imgs );
-        //qDebug() << n_imgs;
         if ( n_imgs == NUM_FRAME_TO_PROCESS ){
 
             //futureThread = QtConcurrent::run( this, &AcqThread::calcModeThread);
@@ -123,19 +149,22 @@ void AcqThread::update(){
             mutex.unlock();
             this->deallocationDatasets();
             mutex.lock();
-            //qDebug() << " ho terminato l'acquisizione";
             startProc = false;
         }
     }
     mutex.unlock();
 
+    // Visualizzza le immagini nella GUI con il segnale imageSX
     emit imageSx( Utils::pixeltype2qimage(ImageSX) );
     emit imageDx( Utils::pixeltype2qimage(ImageDX) );
     emit imageDsp( Utils::pixeltype2qimage(ImageDSP), false );
-
-
 }
-
+/*!
+ * \brief AcqThread::allocationDatasets
+ * Alloca il dataset per le immagini di sinistra, destra e di disparità.
+ * Le immagini salvate verrano utilizzate per il calcolo della moda.
+ *
+ */
 void AcqThread::allocationDatasets(){
     // Inizializzazione variabili per processing
     mutex.lock();
@@ -181,7 +210,6 @@ void AcqThread::deallocationDatasets(){
 void AcqThread::startProcessing(){
 
     mutex.lock();
-    //qDebug() << " Start del processing ";
     startProc = true;
     mutex.unlock();
 }
