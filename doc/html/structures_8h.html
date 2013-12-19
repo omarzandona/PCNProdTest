@@ -54,6 +54,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <h1>Riferimenti per il file structures.h</h1>  </div>
 </div>
 <div class="contents">
+
+<p>File header contenente la definizione di alcune strutture utilizzate nel programma.  
+<a href="#_details">Continua...</a></p>
 <code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;Windows.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="define__file_8h_source.html">define_file.h</a>&quot;</code><br/>
@@ -82,6 +85,12 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structt_node__.html">tNode_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8h.html#a653fbe575f8c7356b1c0e53918df4c5d">tNode</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structt_results_check_graph__.html">tResultsCheckGraph_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structures_8h.html#a0a69da001e74fb3548fdc6a6f02c759b">tResultsCheckGraph</a></td></tr>
 </table>
+<hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
+<p>File header contenente la definizione di alcune strutture utilizzate nel programma. </p>
+<p>Sono definite le strutture per la socket per il thread di acquisizione, per il salvataggio delle immagini moda, dei parametri dell'applicativo e del test. Inoltre ? definita la struttura necessaria per l'analisi della disparit&agrave;</p>
+<dl class="author"><dt><b>Autore:</b></dt><dd>Alessio Montagnini, Omar Zandon&agrave; (eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it) </dd></dl>
+
+<p>Definizione nel file <a class="el" href="structures_8h_source.html">structures.h</a>.</p>
 <hr/><h2>Documentazione delle definizioni</h2>
 <a class="anchor" id="a9f918755b601cf4bffca775992e6fb90"></a><!-- doxytag: member="structures.h::NOMINMAX" ref="a9f918755b601cf4bffca775992e6fb90" args="" -->
 <div class="memitem">
@@ -94,7 +103,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definizione alla linea <a class="el" href="structures_8h_source.html#l00003">3</a> del file <a class="el" href="structures_8h_source.html">structures.h</a>.</p>
+<p>Definizione alla linea <a class="el" href="structures_8h_source.html#l00014">14</a> del file <a class="el" href="structures_8h_source.html">structures.h</a>.</p>
 
 </div>
 </div>
@@ -109,6 +118,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Struttura per descrivere i parametri della socket per l'acquisizione delle immagini </p>
 
 </div>
 </div>
@@ -122,6 +132,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Struttura per il salvataggio delle immagini "moda" ottenute dopo l'acquisizione di 50 immagini di sinistra, destra e di disparit&agrave; </p>
 
 </div>
 </div>
@@ -135,7 +146,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Struttura per il calcolo del grafo delle disparit√ </p>
+<p>Struttura per il calcolo del grafo delle disparit&agrave; </p>
 
 </div>
 </div>
@@ -162,6 +173,8 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Struttura per il settaggio dei parametri di check delle immagini </p>
+<dl class="see"><dt><b>Vedi anche:</b></dt><dd><a class="el" href="_graph_disparity_8cpp.html">GraphDisparity.cpp</a> </dd></dl>
 
 </div>
 </div>
@@ -175,6 +188,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Struttura per il settaggio dei parametri generali dell'applicazione </p>
 
 </div>
 </div>
@@ -188,6 +202,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Struttura per contenere il risultato del test </p>
 
 </div>
 </div>
@@ -206,7 +221,7 @@ Ridefinizioni di tipo (typedef)</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generato il Fri Dec 13 2013 13:26:14 per PCNProdTest da&#160;
+<hr class="footer"/><address class="footer"><small>Generato il Thu Dec 19 2013 10:56:56 per PCNProdTest da&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

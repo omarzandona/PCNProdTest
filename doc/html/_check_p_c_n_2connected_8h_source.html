@@ -63,15 +63,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00012"></a>00012 };
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="class_connected_components.html">00015</a> <span class="keyword">class </span><a class="code" href="class_connected_components.html">ConnectedComponents</a>
+<a name="l00015"></a><a class="code" href="class_connected_components.html">00015</a> <span class="keyword">class </span><a class="code" href="class_connected_components.html" title="The ConnectedComponents class.">ConnectedComponents</a>
 <a name="l00016"></a>00016 {
 <a name="l00017"></a>00017 <span class="keyword">public</span>:
 <a name="l00018"></a><a class="code" href="class_connected_components.html#a15718b1951e5ba90be52a0823be37161">00018</a>     <a class="code" href="class_connected_components.html#a15718b1951e5ba90be52a0823be37161">ConnectedComponents</a>(<span class="keywordtype">int</span> soft_maxlabels) : <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>(soft_maxlabels) {
 <a name="l00019"></a>00019   <a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">clear</a>();
 <a name="l00020"></a>00020     }
 <a name="l00021"></a><a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">00021</a>     <span class="keywordtype">void</span> <a class="code" href="class_connected_components.html#a87f770f0d74fbdf27d79b79b92b655b0">clear</a>() {
-<a name="l00022"></a>00022   std::fill(<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.begin(), <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.end(), <a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a>());
-<a name="l00023"></a>00023   <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a> = 0;
+<a name="l00022"></a>00022   std::fill(<a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.begin(), <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.end(), <a class="code" href="struct_connected_components_1_1_similarity.html" title="The Similarity struct.">Similarity</a>());
+<a name="l00023"></a>00023   <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a> = 0;
 <a name="l00024"></a>00024     }
 <a name="l00025"></a>00025     <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
 <a name="l00026"></a>00026     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a29ce51a520056adb04445ee539ed5c32">connected</a>(<span class="keyword">const</span> Tin *img, Tlabel *out,
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032 <span class="keyword">private</span>:
-<a name="l00033"></a><a class="code" href="struct_connected_components_1_1_similarity.html">00033</a>     <span class="keyword">struct </span><a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a> {
+<a name="l00033"></a><a class="code" href="struct_connected_components_1_1_similarity.html">00033</a>     <span class="keyword">struct </span><a class="code" href="struct_connected_components_1_1_similarity.html" title="The Similarity struct.">Similarity</a> {
 <a name="l00034"></a><a class="code" href="struct_connected_components_1_1_similarity.html#a8a33686eed60df407cf81ce6a3ed324a">00034</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#a8a33686eed60df407cf81ce6a3ed324a">Similarity</a>() : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(0), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(0) {}
 <a name="l00035"></a><a class="code" href="struct_connected_components_1_1_similarity.html#a84bc76d9b11a054fdf95f241d858753c">00035</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#a84bc76d9b11a054fdf95f241d858753c">Similarity</a>(<span class="keywordtype">int</span> _id, <span class="keywordtype">int</span> _sameas) : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(_id), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(_sameas) {}
 <a name="l00036"></a><a class="code" href="struct_connected_components_1_1_similarity.html#aaa44a99c371633a4df12e12e75f7efd8">00036</a>   <a class="code" href="struct_connected_components_1_1_similarity.html#aaa44a99c371633a4df12e12e75f7efd8">Similarity</a>(<span class="keywordtype">int</span> _id) : <a class="code" href="struct_connected_components_1_1_similarity.html#a63f965ba621219bfb1c9b848c1391bcd">id</a>(_id), <a class="code" href="struct_connected_components_1_1_similarity.html#a60f76f3735b4004fabbbfa43f6a8f040">sameas</a>(_id) {}
@@ -112,11 +112,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00061"></a>00061   <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00062"></a>00062     }
 <a name="l00063"></a><a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">00063</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#a1a288875aa35455af858f2244cb119af">new_label</a>() {
-<a name="l00064"></a>00064     <span class="keywordflow">if</span>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>+1 &gt; (<span class="keywordtype">int</span>) <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.size())
-<a name="l00065"></a>00065       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.reserve(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>*2);
-<a name="l00066"></a>00066   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.resize(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>+1);
-<a name="l00067"></a>00067   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>] = <a class="code" href="struct_connected_components_1_1_similarity.html">Similarity</a>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>);
-<a name="l00068"></a>00068   <span class="keywordflow">return</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>++;
+<a name="l00064"></a>00064     <span class="keywordflow">if</span>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>+1 &gt; (<span class="keywordtype">int</span>) <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.size())
+<a name="l00065"></a>00065       <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.reserve(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>*2);
+<a name="l00066"></a>00066   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>.resize(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>+1);
+<a name="l00067"></a>00067   <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>[<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>] = <a class="code" href="struct_connected_components_1_1_similarity.html" title="The Similarity struct.">Similarity</a>(<a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>);
+<a name="l00068"></a>00068   <span class="keywordflow">return</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>++;
 <a name="l00069"></a>00069     }
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00078"></a>00078 
 <a name="l00079"></a>00079 
 <a name="l00080"></a><a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">00080</a>     std::vector&lt;Similarity&gt; <a class="code" href="class_connected_components.html#ad5609d8940e3e2fda23a8a3bab8a0fa3">labels</a>;
-<a name="l00081"></a><a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">00081</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">highest_label</a>;
+<a name="l00081"></a><a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d">00081</a>     <span class="keywordtype">int</span> <a class="code" href="class_connected_components.html#ac68339536a3ab7c0e02394852c41f44d" title="Etichetta corrente più alta.">highest_label</a>;
 <a name="l00082"></a>00082 };
 <a name="l00083"></a>00083 
 <a name="l00084"></a>00084 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tin, <span class="keyword">class</span> Tlabel, <span class="keyword">class</span> Comparator, <span class="keyword">class</span> Boolean&gt;
@@ -243,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generato il Fri Dec 13 2013 13:26:14 per PCNProdTest da&#160;
+<hr class="footer"/><address class="footer"><small>Generato il Thu Dec 19 2013 10:56:56 per PCNProdTest da&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

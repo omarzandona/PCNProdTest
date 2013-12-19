@@ -59,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00008"></a>00008 {
 <a name="l00009"></a>00009 }
 <a name="l00010"></a>00010 
-<a name="l00011"></a><a class="code" href="class_graph_disparity.html#a5671ca6e2d6e6425eb03998feb57d378">00011</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>* <a class="code" href="class_graph_disparity.html#a5671ca6e2d6e6425eb03998feb57d378">GraphDisparity::printNodes</a>(){
+<a name="l00011"></a><a class="code" href="class_graph_disparity.html#a5671ca6e2d6e6425eb03998feb57d378">00011</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* <a class="code" href="class_graph_disparity.html#a5671ca6e2d6e6425eb03998feb57d378">GraphDisparity::printNodes</a>(){
 <a name="l00012"></a>00012 <span class="comment">/*</span>
 <a name="l00013"></a>00013 <span class="comment">  for ( int i=0; i&lt;this-&gt;nodes.size(); ++i ){</span>
 <a name="l00014"></a>00014 <span class="comment">  printf(&quot;*****************\nNode %d\n&quot;, i);</span>
@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00023"></a>00023 <span class="comment">  printf(&quot;\n&quot;);</span>
 <a name="l00024"></a>00024 <span class="comment">  }    </span>
 <a name="l00025"></a>00025 <span class="comment">*/</span>
-<a name="l00026"></a>00026   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> *img_out = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> *) calloc(<a class="code" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>));
+<a name="l00026"></a>00026   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *img_out = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *) calloc(<a class="code" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
 <a name="l00027"></a>00027   <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size(); ++i ){
 <a name="l00028"></a>00028     <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j=0; j&lt;this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(i).positions.size(); ++j ){
 <a name="l00029"></a>00029       <span class="comment">//if ( i != 2 )</span>
@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00038"></a>00038   <span class="keywordflow">return</span> img_out;
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
-<a name="l00041"></a><a class="code" href="class_graph_disparity.html#a2b8756667fbaf0e37a4da49e21aef723">00041</a> <span class="keywordtype">void</span> <a class="code" href="class_graph_disparity.html#a2b8756667fbaf0e37a4da49e21aef723">GraphDisparity::addPixel</a>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> value, <span class="keywordtype">int</span> label, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; pos){
+<a name="l00041"></a><a class="code" href="class_graph_disparity.html#a2b8756667fbaf0e37a4da49e21aef723">00041</a> <span class="keywordtype">void</span> <a class="code" href="class_graph_disparity.html#a2b8756667fbaf0e37a4da49e21aef723">GraphDisparity::addPixel</a>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> value, <span class="keywordtype">int</span> label, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; pos){
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043   assert( pos&gt;=0 &amp;&amp; pos&lt;<a class="code" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a> );
 <a name="l00044"></a>00044   <span class="keywordtype">int</span> index = this-&gt;<a class="code" href="class_graph_disparity.html#a0ebb0a91f6b15617292c527f9c46b86c">indexNode</a>( label );
@@ -106,10 +106,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00055"></a>00055   <span class="keywordflow">return</span> -1;
 <a name="l00056"></a>00056 }
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="class_graph_disparity.html#abd4191f28b802e61b5814a8b62dfb74c">00058</a> <span class="keywordtype">void</span> <a class="code" href="class_graph_disparity.html#abd4191f28b802e61b5814a8b62dfb74c">GraphDisparity::addNode</a>( <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> value, <span class="keywordtype">int</span> label, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; pos ){
+<a name="l00058"></a><a class="code" href="class_graph_disparity.html#abd4191f28b802e61b5814a8b62dfb74c">00058</a> <span class="keywordtype">void</span> <a class="code" href="class_graph_disparity.html#abd4191f28b802e61b5814a8b62dfb74c">GraphDisparity::addNode</a>( <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> value, <span class="keywordtype">int</span> label, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; pos ){
 <a name="l00059"></a>00059   <a class="code" href="structt_node__.html">tNode</a> newNode;
-<a name="l00060"></a>00060   newNode.<a class="code" href="structt_node__.html#a2968dfa189dbd12f7709d2ae0ea425f6">value</a> = value;
-<a name="l00061"></a>00061   newNode.<a class="code" href="structt_node__.html#a0551a7bbe6ab4cf7862a2a99505e36a8">label</a> = label;
+<a name="l00060"></a>00060   newNode.<a class="code" href="structt_node__.html#a2968dfa189dbd12f7709d2ae0ea425f6" title="Valore del nodo (livello di grigio)">value</a> = value;
+<a name="l00061"></a>00061   newNode.<a class="code" href="structt_node__.html#a0551a7bbe6ab4cf7862a2a99505e36a8" title="Etichetta del nodo.">label</a> = label;
 <a name="l00062"></a>00062   newNode.<a class="code" href="structt_node__.html#a2d29ed2e15606ac204ea1faea3b85c95" title="Posizioni nelle immagini.">positions</a>.push_back( pos );
 <a name="l00063"></a>00063   <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.push_back( newNode );
 <a name="l00064"></a>00064 }
@@ -280,7 +280,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00229"></a>00229 
 <a name="l00230"></a><a class="code" href="class_graph_disparity.html#aca59159a275deaeb8d8bcab4eb0b5129">00230</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#aca59159a275deaeb8d8bcab4eb0b5129">GraphDisparity::checkBorderDisparity</a>(){
 <a name="l00231"></a>00231   <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00232"></a>00232   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check border disparity&quot;</span>;
+<a name="l00232"></a>00232   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check border disparity&quot;</span>;
 <a name="l00233"></a>00233   <span class="comment">//if ( this-&gt;bordersEnd.size() == 0 || this-&gt;bordersFirst.size() == 0)</span>
 <a name="l00234"></a>00234    <span class="comment">// return false;</span>
 <a name="l00235"></a>00235   <span class="keywordtype">int</span> disparity = 0;
@@ -291,7 +291,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00240"></a>00240     <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph_disparity.html#a8d7b42a001b551af3299ad99163bb17c">bordersFirst</a>.size(); ++i )
 <a name="l00241"></a>00241       <span class="keywordflow">if</span> ( disparity != <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a8d7b42a001b551af3299ad99163bb17c">bordersFirst</a>.at(i)].value )
 <a name="l00242"></a>00242         {
-<a name="l00243"></a>00243         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a8d7b42a001b551af3299ad99163bb17c">bordersFirst</a>.at(i)].positions);
+<a name="l00243"></a>00243         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a8d7b42a001b551af3299ad99163bb17c">bordersFirst</a>.at(i)].positions);
 <a name="l00244"></a>00244         response = <span class="keyword">false</span>;
 <a name="l00245"></a>00245         }
 <a name="l00246"></a>00246   }
@@ -301,17 +301,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00250"></a>00250     <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.size(); ++i )
 <a name="l00251"></a>00251       <span class="keywordflow">if</span> ( disparity != <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.at(i)].value )
 <a name="l00252"></a>00252         {
-<a name="l00253"></a>00253         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.at(i)].positions);
+<a name="l00253"></a>00253         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>[<a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.at(i)].positions);
 <a name="l00254"></a>00254         response = <span class="keyword">false</span>;
 <a name="l00255"></a>00255         }
 <a name="l00256"></a>00256   }
-<a name="l00257"></a>00257   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = response;
+<a name="l00257"></a>00257   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = response;
 <a name="l00258"></a>00258   <span class="keywordflow">return</span> out;
 <a name="l00259"></a>00259 }
 <a name="l00260"></a>00260 
 <a name="l00261"></a><a class="code" href="class_graph_disparity.html#a03695cf9929314dc920f501ff6f1a2c0">00261</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#a03695cf9929314dc920f501ff6f1a2c0">GraphDisparity::checkInternalBlob</a>(){
 <a name="l00262"></a>00262   <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00263"></a>00263   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check internal blob&quot;</span>;
+<a name="l00263"></a>00263   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check internal blob&quot;</span>;
 <a name="l00264"></a>00264   <a class="code" href="class_graph_disparity.html#a8d7b42a001b551af3299ad99163bb17c">bordersFirst</a>.clear();
 <a name="l00265"></a>00265   <a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.clear();
 <a name="l00266"></a>00266   <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size(); ++i )
@@ -334,12 +334,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00283"></a>00283       }
 <a name="l00284"></a>00284       <span class="keywordflow">if</span> ( internalBlob )
 <a name="l00285"></a>00285         {
-<a name="l00286"></a>00286         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(i).positions);
-<a name="l00287"></a>00287         out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = <span class="keyword">false</span>;
+<a name="l00286"></a>00286         <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(i).positions);
+<a name="l00287"></a>00287         out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = <span class="keyword">false</span>;
 <a name="l00288"></a>00288         <span class="keywordflow">return</span> out;
 <a name="l00289"></a>00289         }
 <a name="l00290"></a>00290     }
-<a name="l00291"></a>00291     out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = <span class="keyword">true</span>;
+<a name="l00291"></a>00291     out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = <span class="keyword">true</span>;
 <a name="l00292"></a>00292     <span class="keywordflow">return</span> out;
 <a name="l00293"></a>00293 }
 <a name="l00294"></a>00294 
@@ -422,14 +422,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00371"></a>00371         temp_ret = <span class="keyword">true</span>;
 <a name="l00372"></a>00372         }<span class="keywordflow">else</span>{
 <a name="l00373"></a>00373           temp_ret = <span class="keyword">false</span>;
-<a name="l00374"></a>00374           <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(i).positions);
-<a name="l00375"></a>00375           <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(tmp.first).positions);
+<a name="l00374"></a>00374           <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(i).positions);
+<a name="l00375"></a>00375           <a class="code" href="class_graph_disparity.html#ab40b04e63578043ee66acd8d5c1d6c7e">addPosToVect</a>(out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>, <a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.at(tmp.first).positions);
 <a name="l00376"></a>00376         }
 <a name="l00377"></a>00377       ret = ret &amp;&amp; temp_ret;
 <a name="l00378"></a>00378     }
 <a name="l00379"></a>00379   }
-<a name="l00380"></a>00380   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = ret;
-<a name="l00381"></a>00381   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check weight edges&quot;</span>;
+<a name="l00380"></a>00380   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = ret;
+<a name="l00381"></a>00381   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check weight edges&quot;</span>;
 <a name="l00382"></a>00382   <span class="keywordflow">return</span> out;
 <a name="l00383"></a>00383 }
 <a name="l00384"></a>00384 
@@ -452,7 +452,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00401"></a><a class="code" href="class_graph_disparity.html#a8b12ad43edd389d529d60b4f5516d2f7">00401</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#a8b12ad43edd389d529d60b4f5516d2f7">GraphDisparity::checkCentroid</a>()
 <a name="l00402"></a>00402 {
 <a name="l00403"></a>00403   <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00404"></a>00404   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check centroids alignment&quot;</span>;
+<a name="l00404"></a>00404   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check centroids alignment&quot;</span>;
 <a name="l00405"></a>00405   <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;
 <a name="l00406"></a>00406   <span class="keywordtype">int</span> num_nodes = this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size();
 <a name="l00407"></a>00407   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_nodes; ++i)
@@ -465,14 +465,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00414"></a>00414     
 <a name="l00415"></a>00415     <span class="keywordflow">if</span> (<a class="code" href="class_graph_disparity.html#a712759f6e43b66217dd33dd008005661">isNotBorderNodes</a>(i))<span class="comment">// || nodes.at(i).positions.size() &gt; MIN_NUM_PIXEL_FOR_CENTROID_CHECK)</span>
 <a name="l00416"></a>00416     {
-<a name="l00417"></a>00417       out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd">positions</a>.push_back(y*<a class="code" href="check__pcn_8h.html#adcfa915f4dbb062e4bd872697b90beeb">W_CROP</a> + x);
+<a name="l00417"></a>00417       out.<a class="code" href="structt_results_check_graph__.html#ad153ea31dc7b48f441dc617b9674dedd" title="Vector contenente le poszioni (?)">positions</a>.push_back(y*<a class="code" href="check__pcn_8h.html#adcfa915f4dbb062e4bd872697b90beeb">W_CROP</a> + x);
 <a name="l00418"></a>00418       <span class="comment">//printf(&quot; Nodo: %d, X : %d, Y: %d, num_pixel: %d \n&quot;,i,x,y,nodes.at(i).positions.size());</span>
 <a name="l00419"></a>00419       ret = ret &amp;&amp; ( x &gt; (<a class="code" href="check__pcn_8h.html#adcfa915f4dbb062e4bd872697b90beeb">W_CROP</a>/2)*0.75 &amp;&amp; x &lt; (<a class="code" href="check__pcn_8h.html#adcfa915f4dbb062e4bd872697b90beeb">W_CROP</a>/2)*1.75) ? <span class="keyword">true</span> : <span class="keyword">false</span>;
 <a name="l00420"></a>00420       <span class="comment">//printf(&quot; Nodo: %d, X : %d, Y: %d, num_pixel: %d, res : %d \n&quot;,i,x,y,nodes.at(i).positions.size(),( x &gt; (W_CROP/2)*0.75 &amp;&amp; x &lt; (W_CROP/2)*1.75));</span>
 <a name="l00421"></a>00421     }
 <a name="l00422"></a>00422   }
 <a name="l00423"></a>00423 
-<a name="l00424"></a>00424   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = ret;
+<a name="l00424"></a>00424   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = ret;
 <a name="l00425"></a>00425   <span class="keywordflow">return</span> out;
 <a name="l00426"></a>00426 }
 <a name="l00427"></a>00427 
@@ -496,7 +496,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00445"></a><a class="code" href="class_graph_disparity.html#a180ed4b90eac0076c539b040ac3e6788">00445</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#a180ed4b90eac0076c539b040ac3e6788">GraphDisparity::checkPath</a>()
 <a name="l00446"></a>00446 {
 <a name="l00447"></a>00447 <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00448"></a>00448 out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check path&quot;</span>;
+<a name="l00448"></a>00448 out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check path&quot;</span>;
 <a name="l00449"></a>00449   <span class="keywordtype">bool</span> ret = <span class="keyword">false</span>;
 <a name="l00450"></a>00450   <span class="keywordtype">int</span> num_nodes = this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size();
 <a name="l00451"></a>00451   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_nodes; ++i)
@@ -505,7 +505,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00454"></a>00454       ret = ret || <a class="code" href="class_graph_disparity.html#ae57bee868caa5081934003ebb6a27f71">check_path</a>(i);
 <a name="l00455"></a>00455   }
 <a name="l00456"></a>00456 
-<a name="l00457"></a>00457   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = ret;
+<a name="l00457"></a>00457   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = ret;
 <a name="l00458"></a>00458   <span class="keywordflow">return</span> out;
 <a name="l00459"></a>00459 }
 <a name="l00460"></a>00460 
@@ -547,7 +547,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00496"></a><a class="code" href="class_graph_disparity.html#aec87abaa5277f23e023434d44345746c">00496</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#aec87abaa5277f23e023434d44345746c">GraphDisparity::checkNumDisparity</a>()
 <a name="l00497"></a>00497 {
 <a name="l00498"></a>00498   <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00499"></a>00499   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check number disparity&quot;</span>;
+<a name="l00499"></a>00499   out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check number disparity&quot;</span>;
 <a name="l00500"></a>00500   <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;
 <a name="l00501"></a>00501   <span class="keywordtype">int</span> num_nodes = this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size();
 <a name="l00502"></a>00502   std::vector&lt;int&gt; disparity;
@@ -563,7 +563,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00512"></a>00512   <span class="keywordflow">if</span> ( disparity.size() &lt; 3 || disparity.size() &gt; 8)
 <a name="l00513"></a>00513     ret = <span class="keyword">false</span>;
 <a name="l00514"></a>00514 
-<a name="l00515"></a>00515   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = ret;
+<a name="l00515"></a>00515   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = ret;
 <a name="l00516"></a>00516   <span class="keywordflow">return</span> out;
 <a name="l00517"></a>00517 }
 <a name="l00518"></a>00518 
@@ -591,7 +591,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00540"></a><a class="code" href="class_graph_disparity.html#a35a1924780938551bc46d860a4e79d3f">00540</a> <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> <a class="code" href="class_graph_disparity.html#a35a1924780938551bc46d860a4e79d3f">GraphDisparity::checkShape</a>()
 <a name="l00541"></a>00541 {
 <a name="l00542"></a>00542 <a class="code" href="structt_results_check_graph__.html">tResultsCheckGraph</a> out;
-<a name="l00543"></a>00543 out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925">name</a> = <span class="stringliteral">&quot;Check shape&quot;</span>;
+<a name="l00543"></a>00543 out.<a class="code" href="structt_results_check_graph__.html#a44a51b6ffb4999ac8e32153a16f7e925" title="Nome del test.">name</a> = <span class="stringliteral">&quot;Check shape&quot;</span>;
 <a name="l00544"></a>00544   <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;
 <a name="l00545"></a>00545   <span class="keywordtype">int</span> num_nodes = this-&gt;<a class="code" href="class_graph_disparity.html#a65f70506de6bbbcea26ff7e061a0a6e9">nodes</a>.size();
 <a name="l00546"></a>00546   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_nodes; ++i)
@@ -615,7 +615,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00564"></a>00564     }
 <a name="l00565"></a>00565   }
 <a name="l00566"></a>00566 
-<a name="l00567"></a>00567   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4">response</a> = ret;
+<a name="l00567"></a>00567   out.<a class="code" href="structt_results_check_graph__.html#a1089f0769b9160bbd56beb64078bf3c4" title="Esito del test.">response</a> = ret;
 <a name="l00568"></a>00568   <span class="keywordflow">return</span> out;
 <a name="l00569"></a>00569 }
 <a name="l00570"></a>00570 
@@ -654,13 +654,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00603"></a>00603   <a class="code" href="class_graph_disparity.html#a9e2e4c4794fb8bd9b8bf0e822b203732">bordersEnd</a>.clear();
 <a name="l00604"></a>00604 }
 <a name="l00605"></a>00605 
-<a name="l00606"></a><a class="code" href="class_graph_disparity.html#adb3cc7a5b320460ec523fe2775d90260">00606</a> vector&lt;tResultsCheckGraph&gt; <a class="code" href="class_graph_disparity.html#adb3cc7a5b320460ec523fe2775d90260">GraphDisparity::check</a>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h){
+<a name="l00606"></a><a class="code" href="class_graph_disparity.html#adb3cc7a5b320460ec523fe2775d90260">00606</a> vector&lt;tResultsCheckGraph&gt; <a class="code" href="class_graph_disparity.html#adb3cc7a5b320460ec523fe2775d90260">GraphDisparity::check</a>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h){
 <a name="l00607"></a>00607   this-&gt;<a class="code" href="class_graph_disparity.html#ae009f0833973c328837d47c3ef60ce5f">clearForCheck</a>();
 <a name="l00608"></a>00608 
 <a name="l00609"></a>00609   <span class="keywordtype">int</span> size = h*w;
-<a name="l00610"></a>00610   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> *out_uc = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a> *) malloc(size*<span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>));
+<a name="l00610"></a>00610   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *out_uc = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *) malloc(size*<span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
 <a name="l00611"></a>00611 
-<a name="l00612"></a>00612   <a class="code" href="class_connected_components.html">ConnectedComponents</a> cc(50);
+<a name="l00612"></a>00612   <a class="code" href="class_connected_components.html" title="The ConnectedComponents class.">ConnectedComponents</a> cc(50);
 <a name="l00613"></a>00613   cc.<a class="code" href="class_connected_components.html#a29ce51a520056adb04445ee539ed5c32">connected</a>(img, out_uc, w, h, std::equal_to&lt;unsigned char&gt;(), <span class="keyword">true</span>);
 <a name="l00614"></a>00614 
 <a name="l00615"></a>00615   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;size; ++i )
@@ -669,9 +669,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00618"></a>00618   <span class="keywordflow">return</span> <a class="code" href="class_graph_disparity.html#a4e013fa6c821d0507a8b0ac705cb6b2a">checkGraph</a>();
 <a name="l00619"></a>00619 }
 <a name="l00620"></a>00620 
-<a name="l00621"></a><a class="code" href="class_graph_disparity.html#a062883569c4999e0f248cab98f5669b6">00621</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>* <a class="code" href="class_graph_disparity.html#a062883569c4999e0f248cab98f5669b6">GraphDisparity::printResults</a>(vector&lt;tResultsCheckGraph&gt; res){
+<a name="l00621"></a><a class="code" href="class_graph_disparity.html#a062883569c4999e0f248cab98f5669b6">00621</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* <a class="code" href="class_graph_disparity.html#a062883569c4999e0f248cab98f5669b6">GraphDisparity::printResults</a>(vector&lt;tResultsCheckGraph&gt; res){
 <a name="l00622"></a>00622 
-<a name="l00623"></a>00623   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>* image = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>*) calloc(<a class="code" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>));
+<a name="l00623"></a>00623   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* image = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc(<a class="code" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
 <a name="l00624"></a>00624 
 <a name="l00625"></a>00625   <span class="keywordtype">int</span> count_failure = 0;
 <a name="l00626"></a>00626   <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;res.size(); ++i )
@@ -731,10 +731,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00680"></a>00680 }
 <a name="l00681"></a>00681 
 <a name="l00682"></a><a class="code" href="class_graph_disparity.html#ad98bf44729d4ea4ebac90b72027d685d">00682</a> <span class="keywordtype">void</span> <a class="code" href="class_graph_disparity.html#ad98bf44729d4ea4ebac90b72027d685d">GraphDisparity::setParameters</a>(<a class="code" href="structt_parameters_check__.html">tParametersCheck</a> param){
-<a name="l00683"></a>00683     <a class="code" href="_graph_disparity_8h.html#aa10312a1c20e7d79d233fc3595397522">MIN_NUM_PIXEL_PER_NODE_BORDER</a> = param.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61">min_num_pixel_for_node</a>;
-<a name="l00684"></a>00684     <a class="code" href="_graph_disparity_8h.html#ab13ff583240bba21a314cbe93c9c6054">MIN_NUM_PIXEL_PER_NODE</a> = param.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61">min_num_pixel_for_node</a>;
-<a name="l00685"></a>00685     <a class="code" href="_graph_disparity_8h.html#a38409888a9e55abdbbfbe94c36fea9f9">MIN_NUM_PIXEL_FOR_CENTROID_CHECK</a> = param.<a class="code" href="structt_parameters_check__.html#a4d5905d00b7e8fd5ccd700154dc00d84">min_num_pixel_for_centroid</a>;
-<a name="l00686"></a>00686     <a class="code" href="_graph_disparity_8h.html#a2777de9888e4713b58132cce7a0934ab">MAX_ROW_DELTA</a> = param.<a class="code" href="structt_parameters_check__.html#a16c24cf1bfa6fba982832212da6766b1">max_row_delta</a>;
+<a name="l00683"></a>00683     <a class="code" href="_graph_disparity_8h.html#aa10312a1c20e7d79d233fc3595397522">MIN_NUM_PIXEL_PER_NODE_BORDER</a> = param.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61" title="Minimo numero di pixel per un nodo nella mappa di disparit&amp;agrave;.">min_num_pixel_for_node</a>;
+<a name="l00684"></a>00684     <a class="code" href="_graph_disparity_8h.html#ab13ff583240bba21a314cbe93c9c6054">MIN_NUM_PIXEL_PER_NODE</a> = param.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61" title="Minimo numero di pixel per un nodo nella mappa di disparit&amp;agrave;.">min_num_pixel_for_node</a>;
+<a name="l00685"></a>00685     <a class="code" href="_graph_disparity_8h.html#a38409888a9e55abdbbfbe94c36fea9f9">MIN_NUM_PIXEL_FOR_CENTROID_CHECK</a> = param.<a class="code" href="structt_parameters_check__.html#a4d5905d00b7e8fd5ccd700154dc00d84" title="Minimo numero di pixel di un nodo per cui calcolare il centroide.">min_num_pixel_for_centroid</a>;
+<a name="l00686"></a>00686     <a class="code" href="_graph_disparity_8h.html#a2777de9888e4713b58132cce7a0934ab">MAX_ROW_DELTA</a> = param.<a class="code" href="structt_parameters_check__.html#a16c24cf1bfa6fba982832212da6766b1" title="Massimo delta tra le righe (di inizio e di fine) di una banda di disparit&amp;agrave;.">max_row_delta</a>;
 <a name="l00687"></a>00687 }
 </pre></div></div>
 </div>
@@ -752,7 +752,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generato il Fri Dec 13 2013 13:26:14 per PCNProdTest da&#160;
+<hr class="footer"/><address class="footer"><small>Generato il Thu Dec 19 2013 10:56:56 per PCNProdTest da&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
