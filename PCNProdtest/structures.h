@@ -128,7 +128,7 @@ typedef struct tNode_{
 typedef struct tResultsCheckGraph_{
     std::string name;            //!< Nome del test
     bool response;               //!< Esito del test
-    std::vector<int> positions;  //!< Vector contenente le poszioni (?)
+    std::vector<int> positions;  //!< Vector contenente le posizioni (?)
 
     /*!
      * \brief tResultsCheckGraph_

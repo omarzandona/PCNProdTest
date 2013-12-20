@@ -1,38 +1,7 @@
 #include "utils.h"
 
 
-/*
- * Prende solo la parte interna dell'immagine
- */
-unsigned char* Utils::internalImage(unsigned char* img, const int& w, const int& h, int dim_w, int dim_h){
 
-  if ( dim_h >= h )
-    dim_h = h;
-  if ( dim_w >= w )
-    dim_w = w;
-
-  int shift_w = dim_w/2;
-  int shift_h = dim_h/2;
-  int center_w = w/2;
-  int center_h = h/2;
-  int new_w = shift_w*2;
-  int new_h = shift_h*2;
-  unsigned char* img_out = (unsigned char*) calloc(new_w*new_h, sizeof(unsigned char));
-
-  int start_w, start_h, end_w, end_h;
-  start_w = center_w - shift_w;
-  end_w = center_w + shift_w;
-  start_h = center_h - shift_h;
-  end_h = center_h + shift_h;
-
-  int k = 0;
-  for ( int i=start_h; i<end_h; ++i )
-    for( int j=start_w; j<end_w; ++j ){
-        img_out[k++] = img[i*w+j];
-      }
-
-  return img_out;
-}
 
 /*
 Crop Image
@@ -68,31 +37,15 @@ bool Utils::findIntInVect( std::vector<int> vect, const int& value ){
 
 
 QImage Utils::pixeltype2qimage( PixelType *img ){
-  //QPixmap pix;
-  //pix.loadFromData(buff, sizeOfBuff, "JPG");
-  //return QImage(img, NX, NY, QImage::Format_Indexed8);
 
   QImage image_result(img, NX, NY,QImage::Format_Indexed8);
-
-  /*QRgb col;
-    int gray;
-    int width = image_result.width();
-    int height = image_result.height();
-    for (int i = 0; i < width; ++i)
-    {
-        for (int j = 0; j < height; ++j)
-        {
-            qDebug() << image_result.pixel(i, j);
-            col = image_result.pixel(i, j);
-            gray = qGray(col);
-            image_result.setPixel(i, j, qRgb(gray, gray, gray));
-        }
-    }*/
 
   return image_result;
 }
 
 tModeImages Utils::getModeImgs( PixelType** datasetSx, PixelType** datasetDx, PixelType** datasetDsp ){
+
+
   tModeImages out;
   out.imgSx = Utils::getModeImg(datasetSx);
   out.imgDx = Utils::getModeImg(datasetDx);
@@ -101,21 +54,24 @@ tModeImages Utils::getModeImgs( PixelType** datasetSx, PixelType** datasetDx, Pi
 }
 
 PixelType* Utils::getModeImg( PixelType** dataset ){
+
   PixelType* out = (PixelType*) calloc( NN, sizeof(PixelType) );
   test_alloc( out );
   PixelType* temp_img = (PixelType*) calloc( NUM_FRAME_TO_PROCESS, sizeof(PixelType) );
   test_alloc( temp_img );
 
   for ( int j=0; j<NN; ++j ){
-      //qDebug() << "test1" << j;
+
       for ( int i=0; i<NUM_FRAME_TO_PROCESS; ++i )
         temp_img[i] = dataset[i][j];
-      //qDebug() << "test2" << j;
-      out[j] = Utils::myMax( Utils::myCalcHist(temp_img, NUM_FRAME_TO_PROCESS) );
-      //qDebug() << "test3" << j;
+
+
+      out[j] = Utils::myMax(Utils::myCalcHist(temp_img, NUM_FRAME_TO_PROCESS));
+
     }
 
-  free( temp_img );
+
+  free(temp_img);
   return out;
 }
 
@@ -127,8 +83,6 @@ int* Utils::myCalcHist(unsigned char* img, const int& size){
   for (int i = 0; i < size; ++i)
     if ( img[i] >= 0 && img[i] < N_BINS )
       hist[img[i]]++;
-    else
-      qDebug() << img[i];
 
   return hist;
 }
@@ -138,62 +92,13 @@ PixelType Utils::myMax( int* vect ){
   for ( int i = 0; i<N_BINS; ++i )
     if ( max < vect[i] )
       max = (PixelType) i;
+
   free( vect );
   return max;
 }
 
 
-double interpolate( double val, double y0, double x0, double y1, double x1 ) {
-  return (val-x0)*(y1-y0)/(x1-x0) + y0;
-}
-double blue( double grayscale ) {
-  if ( grayscale < 85 ) return interpolate( grayscale, 255, 0, 0.0, 85 );
-  else return 0.0;
-}
-double green( double grayscale ) {
-  if ( grayscale < 85 ) return 1.0;
-  else if ( grayscale <= 1.0 ) return interpolate( grayscale, 255, 85, 0.0, 255 );
-  else return 255; // unexpected grayscale value
-}
-double red( double grayscale ) {
-  if ( grayscale < 85 ) return interpolate( grayscale, 0.0, 0, 255, 85 );
-  else return 255;
-}
 
-QPixmap Utils::colorizeDepth( QImage img ){
-  PixelType* _img = img.bits();
-
-  int width = img.width();
-  int height = img.height();
-
-  QImage out(width, height, QImage::Format_RGB32 );
-  int value, R, G, B;
-  for (int i = 0; i < width; ++i)
-    for (int j = 0; j < height; ++j)
-      {
-        value = (int) _img[ j*width + i ];
-        if ( value == 16 )
-          {
-            R = 255;
-            B = 0;
-            G = 140;
-          }else{
-            if ( value == 0 )
-              R = G = B = 0;
-            else{
-                R = (int)abs(255-value) %256 ;//(int)abs(value*1.1) %255;
-                G = 0;//(int)abs(value*0.5) %255;
-                B = ((int)abs(value) % 255) ;//(int)abs(255-R) %255;
-              }
-          }
-
-        out.setPixel(i, j, qRgb(R, G, B));
-        //out.setPixel(i,j,qRgb(31, 31 , 49));
-      }
-
-
-  return QPixmap::fromImage(out);
-}
 
 unsigned char* Utils::rgb2gray(const QImage& image){
 
@@ -223,6 +128,7 @@ unsigned char* Utils::rgb2gray(const QImage& image){
           //  qDebug()<< res[j*width + i];
         }
     }
+  free(tmp);
   return res;
 }
 
@@ -344,8 +250,8 @@ int Utils::strcasecmp( char *s1,  char *s2, int index)
 {
    char* c1 = s1;
    char* c2 = s2;
-  int i = 0;
-  while( i < index && *c1 != '\0')
+   int i = 0;
+   while( i < index && *c1 != '\0')
     {
       if( *c1 == *c2)
         {

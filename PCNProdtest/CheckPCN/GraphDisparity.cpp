@@ -9,32 +9,14 @@ GraphDisparity::~GraphDisparity(void)
 }
 
 PixelType* GraphDisparity::printNodes(){
-/*
-  for ( int i=0; i<this->nodes.size(); ++i ){
-  printf("*****************\nNode %d\n", i);
-  printf("Value: %d\n", nodes[i].value);
-  printf("Label: %d\n", nodes[i].label);
-  printf("N pixel: %d\n", nodes[i].positions.size());
-  printf("Vicini (index, peso): ");
-  for ( int j=0; j<nodes[i].neighbors.size(); ++j )
-  printf("(%d, %d), ", nodes[i].neighbors.at(j).first, nodes[i].neighbors.at(j).second);
-  printf("\n");
-  //printf("N vicini: %d\n", nodes[i].neighbors.size());
-  printf("\n");
-  }		 
-*/
+
   PixelType *img_out = (PixelType *) calloc(CROP, sizeof(PixelType));
   for( int i=0; i<this->nodes.size(); ++i ){
     for( int j=0; j<this->nodes.at(i).positions.size(); ++j ){
-      //if ( i != 2 )
       img_out[nodes.at(i).positions.at(j)] = i*255/nodes.size();
-      //else
-      //img_out[nodes.at(i).positions.at(j)] = 255;
     }
   }
-  /*img_out[6330] = 255;
-  img_out[10744] = 255;
-  img_out[10380] = 255;*/
+
   return img_out;
 }
 
@@ -86,6 +68,7 @@ void GraphDisparity::calcNear(){
       }
     }
   }
+  free(img_flags);
 
 }
 
@@ -111,73 +94,7 @@ void GraphDisparity::getNeighborhood(const int& pos, vector<int>& positions, boo
 			}else
 				positions.at(i) = -1;
 		}
-  /*std::pair<int, int> coord = getCoordToPos( pos );
-  std::pair<int, int> coorda = getCoordToPos( a );
-  std::pair<int, int> coordb = getCoordToPos( b );
-  std::pair<int, int> coordc = getCoordToPos( c );
-  std::pair<int, int> coordd = getCoordToPos( d );
-  std::pair<int, int> coorde = getCoordToPos( e );
-  std::pair<int, int> coordf = getCoordToPos( f );
-  std::pair<int, int> coordg = getCoordToPos( g );
-  std::pair<int, int> coordh = getCoordToPos( h );
-  printf("***********************\n");
-  printf("(%d, %d)\n", coord.first, coord.second);
-  printf("(%d, %d)\n", coorda.first, coorda.second);
-  printf("(%d, %d)\n", coordb.first, coordb.second);
-  printf("(%d, %d)\n", coordc.first, coordc.second);
-  printf("(%d, %d)\n", coordd.first, coordd.second);
-  printf("(%d, %d)\n", coorde.first, coorde.second);
-  printf("(%d, %d)\n", coordf.first, coordf.second);
-  printf("(%d, %d)\n", coordg.first, coordg.second);
-  printf("(%d, %d)\n", coordh.first, coordh.second);*/
 
-  /*if ( a >=0 && a <CROP && isCoordNear(pos,a) && !img_flags[a]){
-    positions.at(0) = a;
-    img_flags[a] = true;
-  }else
-    positions.at(0) = -1;
-
-  if ( b >=0 && b <CROP && isCoordNear(pos,b) && !img_flags[b]){
-    positions.at(1) = b;
-    img_flags[b] = true;
-  }else
-    positions.at(1) = -1;
-
-  if ( c >=0 && c <CROP && isCoordNear(pos,c) && !img_flags[c]){
-    positions.at(2) = c;
-    img_flags[c] = true;
-  }else
-    positions.at(2) = -1;
-
-  if ( d >=0 && d <CROP && isCoordNear(pos,d) && !img_flags[d]){
-    positions.at(3) = d;
-    img_flags[d] = true;
-  }else
-    positions.at(3) = -1;
-
-  if ( e >=0 && e <CROP && isCoordNear(pos,e) && !img_flags[e]){
-    positions.at(4) = e;
-    img_flags[e] = true;
-  }else
-    positions.at(4) = -1;
-
-  if ( f >=0 && f <CROP && isCoordNear(pos,f) && !img_flags[f]){
-    positions.at(5) = f;
-    img_flags[f] = true;
-  }else
-    positions.at(5) = -1;
-
-  if ( g >=0 && g <CROP && isCoordNear(pos,g) && !img_flags[g]){
-    positions.at(6) = g;
-    img_flags[g] = true;
-  }else
-    positions.at(6) = -1;
-
-  if ( h >=0 && h <CROP && isCoordNear(pos,h) && !img_flags[h]){
-    positions.at(7) = h;
-    img_flags[h] = true;
-  }else
-    positions.at(7) = -1;*/
 }
 
 void GraphDisparity::updateNearPositions(const int& index, const int& near_pos){
@@ -230,8 +147,7 @@ bool GraphDisparity::isCoordNear(const int& first, const int& second){
 tResultsCheckGraph GraphDisparity::checkBorderDisparity(){
 	tResultsCheckGraph out;
 	out.name = "Check border disparity";
-  //if ( this->bordersEnd.size() == 0 || this->bordersFirst.size() == 0)
-   // return false;
+
 	int disparity = 0;
 	bool response = true;
   if ( this->bordersFirst.size() > 0)
@@ -505,7 +421,6 @@ tResultsCheckGraph GraphDisparity::checkNumDisparity()
     if (!justFound(nodes[i].value,disparity))
     {
       disparity.push_back(nodes[i].value);
-      //printf(" disparita[%d] : %d",i,nodes[i].value);
     }
   }
 
@@ -539,8 +454,8 @@ bool GraphDisparity::justFound(const int& dsp_value,vector<int> & disparity)
 
 tResultsCheckGraph GraphDisparity::checkShape()
 {
-tResultsCheckGraph out;
-out.name = "Check shape";
+  tResultsCheckGraph out;
+  out.name = "Check shape";
   bool ret = true;
   int num_nodes = this->nodes.size();
   for (int i = 0; i < num_nodes; ++i)
@@ -554,8 +469,6 @@ out.name = "Check shape";
       int x_l = W_CROP;
       int x_r = 0;
       findlimits(this->nodes.at(i),x_l,y_l_max,y_l_min,x_r,y_r_max,y_r_min);
-      //printf(" nodo %d, x_min : %d,y_l_min: %d,y_l_max : %d \n",nodes[i].value,x_l,y_l_min,y_l_max);
-      //printf(" nodo %d, x_max : %d,y_r_min: %d,y_r_max : %d \n",nodes[i].value,x_r ,y_r_min,y_r_max);
       // Controllo i limiti
       if (!isNotBorderNodes(i))
         ret = ret && ((isNodeBorderFirst(i) && abs(y_l_max-y_r_max) <= MAX_ROW_DELTA) || (isNodeBorderEnd(i) && abs(y_l_min-y_r_min) <= MAX_ROW_DELTA)) ? true : false;
@@ -615,6 +528,7 @@ vector<tResultsCheckGraph> GraphDisparity::check(PixelType* img, const int& w, c
   for(int i=0; i<size; ++i )
     addPixel(img[i], out_uc[i], i);
 
+  free(out_uc);
   return checkGraph();
 }
 
@@ -640,7 +554,7 @@ PixelType* GraphDisparity::printResults(vector<tResultsCheckGraph> res){
 			}
 		}
 	return image;
-	}
+}
 
 
 vector<tResultsCheckGraph> GraphDisparity::checkGraph()

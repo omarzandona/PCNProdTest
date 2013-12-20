@@ -36,7 +36,7 @@ public:
 	/****** Test Graph ******/
 	//!< Test Componenti connesse
 
-    static unsigned char* internalImage(unsigned char* img, const int& w, const int& h, int dim_w, int dim_h);
+
 	static unsigned char* CropImage(unsigned char* img, const int& new_w, const int& new_h);
 	static bool findIntInVect( std::vector<int> vect, const int& value );
 

@@ -24,7 +24,7 @@ public:
 
 
   PixelType* printNodes();
-	PixelType* printResults(vector<tResultsCheckGraph> res);
+  PixelType* printResults(vector<tResultsCheckGraph> res);
 
   vector<tResultsCheckGraph> check(PixelType* img, const int& w, const int& h);
 

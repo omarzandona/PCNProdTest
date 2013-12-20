@@ -135,10 +135,12 @@ void AcqThread::update(){
     // Salvo le immagini se è arrivato il comando
     mutex.lock();
     if ( startProc && datasetAllocated ){
+
         test_all( memcpy( datasetSx[n_imgs], ImageSX, NN ) );
         test_all( memcpy( datasetDx[n_imgs], ImageDX, NN ) );
         test_all( memcpy( datasetDsp[n_imgs], ImageDSP, NN ) );
         n_imgs++;
+
         emit imageNumberProgress( n_imgs );
         if ( n_imgs == NUM_FRAME_TO_PROCESS ){
 
@@ -151,10 +153,11 @@ void AcqThread::update(){
             mutex.lock();
             startProc = false;
         }
+
     }
     mutex.unlock();
 
-    // Visualizzza le immagini nella GUI con il segnale imageSX
+    // Visualizza le immagini nella GUI con il segnale imageSX
     emit imageSx( Utils::pixeltype2qimage(ImageSX) );
     emit imageDx( Utils::pixeltype2qimage(ImageDX) );
     emit imageDsp( Utils::pixeltype2qimage(ImageDSP), false );
@@ -185,8 +188,10 @@ void AcqThread::allocationDatasets(){
             test_all( datasetDsp[i] );
         }
         datasetAllocated = true;
+
     }
     mutex.unlock();
+
 }
 
 void AcqThread::deallocationDatasets(){
@@ -208,7 +213,6 @@ void AcqThread::deallocationDatasets(){
 }
 
 void AcqThread::startProcessing(){
-
     mutex.lock();
     startProc = true;
     mutex.unlock();

@@ -144,7 +144,8 @@ bool MainWindow::createSocketScheduler(){
   //u_long iMode = 0;   //0 bloccante, 1 non bloccante
   //ioctlsocket(sock_scheduler,FIONBIO,&iMode);
   struct timeval timeout;
-  timeout.tv_sec =  3;
+  timeout.tv_sec =  0;
+  timeout.tv_sec =  0;//6000000000;
   sock_scheduler =  INVALID_SOCKET;
   sock_scheduler = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
   if (sock_scheduler == SOCKET_ERROR)
@@ -161,6 +162,12 @@ bool MainWindow::createSocketScheduler(){
     }
 
   if (setsockopt(sock_scheduler, SOL_SOCKET, SO_RCVTIMEO, (char*) &timeout,sizeof(timeout)) == -1)
+    {
+      perror("setsockopt");
+      emit messageInfo("Exit (socketopt)" ,Qt::red,true);
+    }
+
+  if (setsockopt(sock_scheduler, SOL_SOCKET, SO_SNDTIMEO, (char*) &timeout,sizeof(timeout)) == -1)
     {
       perror("setsockopt");
       emit messageInfo("Exit (socketopt)" ,Qt::red,true);
@@ -442,7 +449,6 @@ void MainWindow::showAbout(){
  * \return true se la connessione ha buon fine, false altrimenti
  */
 bool MainWindow::setConnect(QString adressIP){
-
 
   if ( this->createSocket( adressIP ) )
     {
@@ -863,7 +869,7 @@ int MainWindow::createStructFileDat( short* ODCBuff, char* offset, int&  index_o
 /*!
  * \brief MainWindow::startViewSlot
  *  Fa partire la visualizzazione a video delle immagini di destra, sinistra e disparità
- * \param choose [in] Modalità di visualizzazione
+ * \param choose [in] Modalità di visualizzazione true-> start, false -> stop
  * \param fd     [in] File descriptor della socket
  */
 
@@ -878,6 +884,15 @@ void MainWindow::startViewSlot( const bool& choose, int fd ){
       this->ui->label_imgDSP->clear();
     }
 
+  if(!isConnect)
+    {
+      int res = QMessageBox::information(this,"PCN-ProdTest", "No connessions!", QMessageBox::Ok);
+      if ( res == QMessageBox::Ok )
+      {
+        SocketUtils::SendString(fd,((choose) ? ("FAILED: start view\0"):("FAILED: stop view\0")));
+        return;
+      }
+    }
   if ( choose  )
     if(startView == choose && isConnect )
       {
@@ -904,10 +919,15 @@ bool MainWindow::CheckDisparity(){
 
   GraphDisparity graph;	//!< Classe per il testing della disparit?
   graph.setParameters( _param.paramCheck );
-  vector< tResultsCheckGraph > testDisp = graph.check(Utils::CropImage(imagesMode.imgDsp, W_CROP, H_CROP), W_CROP, H_CROP);
+  unsigned char* img_to_check = Utils::CropImage(imagesMode.imgDsp, W_CROP, H_CROP);
+  vector< tResultsCheckGraph > testDisp = graph.check(img_to_check, W_CROP, H_CROP);
   bool ret(true);
   for( unsigned int i=0; i<testDisp.size(); ++i )
     ret = ret && testDisp.at(i).response;
+
+  free(img_to_check);
+  graph.~GraphDisparity(); //vedere se cambia uso risorse
+
   return ret;
 }
 
@@ -1274,15 +1294,17 @@ bool MainWindow::Communication(int fd,char *buffer)
     {
       char* serial_port = BuildSerialPortAddress(buffer,11);
       ret =  this->TestSerial(serial_port);
-      if(ret ){
+      if(ret )
+        {
           emit messageInfo("Test serial : <FONT COLOR=green> PASSED </FONT>");
           SocketUtils::SendString(fd,"PASSED: Test serial\0");
-        }else{
+        }
+      else
+        {
           emit messageInfo("Test serial : <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: Test serial\0");
-
-          free(serial_port);
         }
+       free(serial_port);
     }
   // Restore
   if(strcmp(buffer,"Restore\0")==0)
@@ -1634,6 +1656,7 @@ char* MainWindow::BuildSerialPortAddress(char* buffer,int start_index)
     serial_port[i] = buffer[start_index + 2 + i];
 
   serial_port[i] = '\0';  // fine stringa
+
 
   return  serial_port;
 
