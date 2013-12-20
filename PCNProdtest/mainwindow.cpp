@@ -471,11 +471,15 @@ bool MainWindow::setConnect(QString adressIP){
 bool MainWindow::setDisconnect(){
   if ( this->isConnect ){
 
-      SocketUtils::SendString(sock,"disconnect");
+      int bytes = SocketUtils::SendString(sock,"disconnect");
       shutdown(sock,2);
       Sleep(100);
-
-      if ( !(closesocket(imgfd) && closesocket(sock)) ){
+      if(bytes <= 0)
+        {
+          messageInfo("ERROR: Unable to disconnect to " + IP_ADRESS_PCN_connected , Qt::red);
+          return false;
+        }
+      if ( !(closesocket(imgfd) && closesocket(sock))){
           this->isConnect = false;
           messageInfo("Disconnect to " + IP_ADRESS_PCN_connected, Qt::blue);
           this->IP_ADRESS_PCN_connected = "";
@@ -486,6 +490,7 @@ bool MainWindow::setDisconnect(){
 
           return true;
         }else{
+
           messageInfo("ERROR: Unable to disconnect to " + IP_ADRESS_PCN_connected , Qt::red);
           return false;
         }
@@ -884,28 +889,30 @@ void MainWindow::startViewSlot( const bool& choose, int fd ){
       this->ui->label_imgDSP->clear();
     }
 
-  if(!isConnect)
+  int bytes = SocketUtils::SendString(sock,"testin0"); // Per sapere se ho ancora connessione
+  if ( bytes > 0)
     {
-      int res = QMessageBox::information(this,"PCN-ProdTest", "No connessions!", QMessageBox::Ok);
-      if ( res == QMessageBox::Ok )
-      {
-        SocketUtils::SendString(fd,((choose) ? ("FAILED: start view\0"):("FAILED: stop view\0")));
-        return;
-      }
+      unsigned char val;
+      SocketUtils::Recv(sock,&val,sizeof(val));
+      if ( choose  )
+        if(startView == choose && isConnect )
+          {
+            emit this->messageInfo("Start view");
+            SocketUtils::SendString(fd,"PASSED: start view\0");
+          }else
+          SocketUtils::SendString(fd,"FAILED: start view\0");
+      else
+        if(startView == choose && isConnect){
+            emit this->messageInfo("Stop view");
+            SocketUtils::SendString(fd,"PASSED: stop view\0");
+          }else
+          SocketUtils::SendString(fd,"FAILED: stop view\0");
     }
-  if ( choose  )
-    if(startView == choose && isConnect )
-      {
-        emit this->messageInfo("Start view");
-        SocketUtils::SendString(fd,"PASSED: start view\0");
-      }else
-      SocketUtils::SendString(fd,"FAILED: start view\0");
   else
-    if(startView == choose && isConnect){
-        emit this->messageInfo("Stop view");
-        SocketUtils::SendString(fd,"PASSED: stop view\0");
-      }else
-      SocketUtils::SendString(fd,"FAILED: stop view\0");
+    {
+      SocketUtils::SendString(fd,(choose) ? "FAILED: start view\0" : "FAILED: stop view\0");
+    }
+
 }
 /*!
  * \brief MainWindow::CheckDisparity
@@ -1221,26 +1228,42 @@ bool MainWindow::Communication(int fd,char *buffer)
       if(isConnect)
         {
           QString str = this->getIN0();
-          emit messageInfo("Get port IN 0...");
+          if( str ==  "-1")
+            {
+              emit messageInfo("Get port IN 0... <FONT COLOR=red> FAILED </FONT>");
+              SocketUtils::SendString(fd,"FAILED: Get_IN_0\0");
+              return ret;
+            }
+          emit messageInfo("Get port IN 0...<FONT COLOR=green> DONE </FONT>");
           SocketUtils::SendString(fd,(char*)str.toStdString().c_str());
-          ret = true;
-        }else{
-          emit messageInfo("Get port IN 0...");
-          SocketUtils::SendString(fd,"-1");}
-    }
+             ret = true;
+
+            }else{
+              emit messageInfo("Get port IN 0... <FONT COLOR=red> FAILED </FONT>");
+              SocketUtils::SendString(fd,"FAILED: Get_IN_0\0");
+            }
+      }
   // Get Digital In 1
   if(strcmp(buffer,"Get_IN_1\0")==0)
     {
       if(isConnect)
         {
           QString str = this->getIN1();
-          emit messageInfo("Get port IN 1...");
+          if( str ==  "-1")
+            {
+              emit messageInfo("Get port IN 1... <FONT COLOR=red> FAILED </FONT>");
+              SocketUtils::SendString(fd,"FAILED: Get_IN_1");
+              return ret;
+            }
+          emit messageInfo("Get port IN 1...<FONT COLOR=green> DONE </FONT>");
           SocketUtils::SendString(fd,(char*)str.toStdString().c_str());
-          ret = true;
-        }else{
-          emit messageInfo("Get port IN 1...");
-          SocketUtils::SendString(fd,"-1");}
-    }
+             ret = true;
+
+            }else{
+              emit messageInfo("Get port IN 1... <FONT COLOR=red> FAILED </FONT>");
+              SocketUtils::SendString(fd,"FAILED: Get_IN_1\0");
+            }
+      }
 
   // Set opto full control
   if(Utils::strcasecmp(buffer,"SetOptoFullControl",18)==0)
@@ -1304,7 +1327,7 @@ bool MainWindow::Communication(int fd,char *buffer)
           emit messageInfo("Test serial : <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: Test serial\0");
         }
-       free(serial_port);
+      free(serial_port);
     }
   // Restore
   if(strcmp(buffer,"Restore\0")==0)
@@ -1434,11 +1457,21 @@ void MainWindow::SaveReportSlot(){
  * \return str, valore del digital IN 0
  */
 QString  MainWindow::getIN0(){
+
   unsigned char val;
-  SocketUtils::SendString(sock,"testin0");
-  SocketUtils::Recv(sock,&val,sizeof(val));
-  QString str = QString::number((int)val,10);
-  return str;
+  int bytes = SocketUtils::SendString(sock,"testin0");
+  if ( bytes > 0 )
+    {
+      SocketUtils::Recv(sock,&val,sizeof(val));
+      QString str = QString::number((int)val,10);
+      return str;
+    }
+  else
+    {
+      QString str = QString::number((int)-1,10);
+      return str;
+    }
+
 }
 
 /*!
@@ -1448,12 +1481,21 @@ QString  MainWindow::getIN0(){
  */
 QString MainWindow::getIN1(){
   unsigned char val;
-  SocketUtils::SendString(sock,"testin1");
-  SocketUtils::Recv(sock,&val,sizeof(val));
+   int bytes = SocketUtils::SendString(sock,"testin1");
+  if ( bytes > 0 )
+    {
+      SocketUtils::Recv(sock,&val,sizeof(val));
+      QString str = QString::number((int)val,10);
+      return str;
+    }
+  else
+    {
+      QString str = QString::number((int)-1,10);
+      return str;
+    }
 
-  QString str = QString::number((int)val,10);
-  return str;
 }
+
 
 /*!
  * \brief MainWindow::setOpto
@@ -1465,9 +1507,12 @@ QString MainWindow::getIN1(){
  */
 bool MainWindow::setOpto(unsigned char value){
 
-  SocketUtils::SendString(sock,"set_opto");
+  int bytes = SocketUtils::SendString(sock,"set_opto");
   SocketUtils::Send(sock,(char*)value,sizeof(value));
-  return true;
+  if(bytes > 0)
+    return true;
+  else
+    return false;
 }
 
 /*!
@@ -1478,9 +1523,12 @@ bool MainWindow::setOpto(unsigned char value){
  */
 bool MainWindow::setOptoFullControl(unsigned char value){
 
-  SocketUtils::SendString(sock,"set_opto_full_control");
+  int bytes = SocketUtils::SendString(sock,"set_opto_full_control");
   SocketUtils::Send(sock,(char*)value,sizeof(value));
-  return true;
+  if(bytes > 0)
+    return true;
+  else
+    return false;
 }
 
 /*!
@@ -1492,9 +1540,9 @@ bool MainWindow::TestSerialLoop(){
 
   unsigned char val;
   SocketUtils::SendString(sock,"test_serial_port");
-  SocketUtils::Recv(sock,&val,sizeof(val));
+  int bytes = SocketUtils::Recv(sock,&val,sizeof(val));
 
-  if(val == 1)
+  if(val == 1 && bytes > 0)
     return true;
   else
     return false;
@@ -1539,8 +1587,11 @@ bool MainWindow::TestSerial(char* serial_port){
  * \return true
  */
 bool MainWindow::restore(){
-  SocketUtils::SendString(sock,"restore");
-  return true;
+  int bytes = SocketUtils::SendString(sock,"restore");
+  if ( bytes > 0)
+    return true;
+  else
+    return false;
 }
 
 /*!
