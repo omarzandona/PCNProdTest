@@ -452,6 +452,7 @@ bool MainWindow::setConnect(QString adressIP){
 
   if ( this->createSocket( adressIP ) )
     {
+
       //this->setPermanentWidget();
       emit this->addPermanentWidgets();
       IP_ADRESS_PCN_connected = adressIP ;
@@ -889,11 +890,11 @@ void MainWindow::startViewSlot( const bool& choose, int fd ){
       this->ui->label_imgDSP->clear();
     }
 
-  int bytes = SocketUtils::SendString(sock,"testin0"); // Per sapere se ho ancora connessione
+  SocketUtils::SendString(sock,"testin0"); // Per sapere se il PCN è stato spento
+  unsigned char val;
+  int bytes = SocketUtils::Recv(sock,&val,sizeof(val));
   if ( bytes > 0)
     {
-      unsigned char val;
-      SocketUtils::Recv(sock,&val,sizeof(val));
       if ( choose  )
         if(startView == choose && isConnect )
           {
@@ -1083,10 +1084,9 @@ void MainWindow::receiverParameters(tParameters param){
  * - CheckDisparity : Effettua il check sulla disparità
  * - CheckFocus : Effettua il check sul focus
  * - SaveReport : Salva il report del test su un file di testo
- * - Set_IN1/2  : Setta il valore del digital IN1/2
- * - Set_OUT2/2 : Setta il valore del digital OUT1/2
- * - Get_IN1/2  : Restituisce il valore del digital IN1/2
- * - Get_OUT1/2  : Restituisce il valore del digital OUT1/2
+ * - Get_IN0/1  : Restituisce il valore del digital IN1/2
+ * - SetOpto
+ * - SetOptoFullControl
  * - TestSerialLoop : Effettua il check della seriale ( nel caso di PCN USB con due seriali)
  * - TestSerial  : Testa la seriale tramite protocollo SNP tra PCN e PCNProdTest
  * - Restore    : Effettua il restore dei parametri del PCn ai valori di fabbrica
@@ -1164,11 +1164,15 @@ bool MainWindow::Communication(int fd,char *buffer)
   // CalcMode
   if(strcmp(buffer,"CalcMode\0")==0)
     {
-      if ( !isConnect )
-        {
+      unsigned char val;
+      SocketUtils::SendString(sock,"testin0");
+      int bytes = SocketUtils::Recv(sock,&val,sizeof(val));
+      if( bytes < 0 || !isConnect)
+         {
           SocketUtils::SendString(fd,"FAILED: Calc mode\0");
           emit messageInfo("Image acquisition failure: no connection!", Qt::red );
         }else{
+          // Guardo se ho connessione..con un comando
           fd_copy = fd;
           startAcquisition();
         }
@@ -1287,7 +1291,6 @@ bool MainWindow::Communication(int fd,char *buffer)
       if(isConnect)
         {
           unsigned char val = buffer[8];
-          //qDebug() << "valore SetOpto" << buffer[8];
           ret =  this->setOpto(val);
         }
       if(ret){
@@ -1302,7 +1305,7 @@ bool MainWindow::Communication(int fd,char *buffer)
   // Test serial Loop
   if(strcmp(buffer,"TestSerialLoop\0")==0)
     {
-      if(isConnect)
+      //if(isConnect)
         ret =  this->TestSerialLoop();
 
       if(ret ){
@@ -1361,12 +1364,6 @@ bool MainWindow::Communication(int fd,char *buffer)
  * \return  true se il report si è salvato in modo corretto, false altrimenti
  */
 bool MainWindow::SaveReport(){
-
-  //  if(!isConnect)
-  //    {
-  //      emit messageInfo( "Error: connection are missing or lost! No report has been created", Qt::red );
-  //      return false;
-  //  }
 
   QString dir = this->_param.paramGeneral.pathReport;
   if (!QFile(dir).exists())
@@ -1459,10 +1456,10 @@ void MainWindow::SaveReportSlot(){
 QString  MainWindow::getIN0(){
 
   unsigned char val;
-  int bytes = SocketUtils::SendString(sock,"testin0");
+  SocketUtils::SendString(sock,"testin0");
+  int bytes = SocketUtils::Recv(sock,&val,sizeof(val));
   if ( bytes > 0 )
     {
-      SocketUtils::Recv(sock,&val,sizeof(val));
       QString str = QString::number((int)val,10);
       return str;
     }
@@ -1480,11 +1477,11 @@ QString  MainWindow::getIN0(){
  * \return str, valore del digital IN 1
  */
 QString MainWindow::getIN1(){
-  unsigned char val;
-   int bytes = SocketUtils::SendString(sock,"testin1");
+   unsigned char val;
+   SocketUtils::SendString(sock,"testin1");
+   int bytes =SocketUtils::Recv(sock,&val,sizeof(val));
   if ( bytes > 0 )
     {
-      SocketUtils::Recv(sock,&val,sizeof(val));
       QString str = QString::number((int)val,10);
       return str;
     }
@@ -1493,7 +1490,6 @@ QString MainWindow::getIN1(){
       QString str = QString::number((int)-1,10);
       return str;
     }
-
 }
 
 
@@ -1507,8 +1503,8 @@ QString MainWindow::getIN1(){
  */
 bool MainWindow::setOpto(unsigned char value){
 
-  int bytes = SocketUtils::SendString(sock,"set_opto");
-  SocketUtils::Send(sock,(char*)value,sizeof(value));
+  SocketUtils::SendString(sock,"set_opto");
+  int bytes = SocketUtils::Send(sock,&value,sizeof(value)); // // bugfix : int bytes = SocketUtils::Send(sock,(char*)value,sizeof(value));
   if(bytes > 0)
     return true;
   else
@@ -1517,14 +1513,15 @@ bool MainWindow::setOpto(unsigned char value){
 
 /*!
  * \brief MainWindow::setOptoFullControl
- * Setta il parametro 200 ( periodo in ms del treno d'impulsi) se value vale 1, 4 (disabilita FPGA)  se value vale 0
+ * Setta 200 ( time in ms del treno d'impulsi) se value vale 1, 4 (disabilita FPGA)  se value vale 0
  * \param value [in] valore possibili, 0 o 1
  * \return true
  */
 bool MainWindow::setOptoFullControl(unsigned char value){
 
-  int bytes = SocketUtils::SendString(sock,"set_opto_full_control");
-  SocketUtils::Send(sock,(char*)value,sizeof(value));
+  SocketUtils::SendString(sock,"set_opto_full_control");
+  int bytes = SocketUtils::Send(sock,&value,sizeof(value)); // bugfix : int bytes = SocketUtils::Send(sock,(char*)value,sizeof(value));
+
   if(bytes > 0)
     return true;
   else
@@ -1545,7 +1542,14 @@ bool MainWindow::TestSerialLoop(){
   if(val == 1 && bytes > 0)
     return true;
   else
-    return false;
+     {
+      if ( bytes <= 0)
+        emit messageInfo("Test SerialPortLoop: no connection!", Qt::red);
+      else
+        emit messageInfo("Test SerialPortLoop: value returned wrong!", Qt::red);
+
+      return false;
+     }
 }
 
 /*!
