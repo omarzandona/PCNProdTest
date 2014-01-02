@@ -14,7 +14,7 @@
 
 #include <QDebug>
 
-#define _VERSION_PROGRAM_ "1.0" //!< Nome versione programma
+#define _VERSION_PROGRAM_ "1.1" //!< Nome versione programma
 #define _N_VERSION_PROGRAM_ 1   //!< Numero versione programma
 
 

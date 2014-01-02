@@ -1,3 +1,11 @@
+/*!
+ * \file connected.h
+ * \brief File di header per la definizione di define e funzioni
+ *
+ * \author  (eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
+ */
+
+
 #ifndef _CONNECTED_H
 #define _CONNECTED_H
 
