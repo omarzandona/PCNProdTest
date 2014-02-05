@@ -106,11 +106,14 @@ public slots:
   bool setOptoFullControl(unsigned char value);  //!< Setta un determinato valore a OUTTIME0/1 in base al valore value
 
   /** Test Seriale **/ // modifica 11/12/2013
-  bool TestSerial(char* serial_port);  //!< Test della porta seriale in caso di PCN ethernet (una sola seriale)
+  bool TestSerial();  //!< Test della porta seriale in caso di PCN ethernet (una sola seriale)
   bool TestSerialLoop();  //!< Test le porte seriali nel caso di PCN USB (ha due seriale)
 
   /** Restore PCN */
   bool restore();  //!< Comando per ripristinare il PCN alle condizioni di fabbrica
+
+  bool getFirmwareVersion(QString & version);
+  bool getImgserverVersion(QString & version);
 
   /** Add permanent Widget */
   void setPermanentWidget();  //!< Funzioni per la gestione dei Widget

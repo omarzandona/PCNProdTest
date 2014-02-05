@@ -96,7 +96,7 @@ int SocketUtils::RecvString( int fd, char * buf)
  */
 int SocketUtils::Recv(int fd, void *buf, int len){
     int sum = 0;
-    int bytes;
+    int bytes; // = 0;
     int bytesleft = len;
     char * buffer;
 

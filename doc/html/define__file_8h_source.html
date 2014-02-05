@@ -59,52 +59,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="preprocessor">#include &lt;QDebug&gt;</span>
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="define__file_8h.html#ad93a8174807061780e47a4673260b666">00017</a> <span class="preprocessor">#define _VERSION_PROGRAM_ &quot;1.0&quot; //!&lt; Nome versione programma</span>
-<a name="l00018"></a><a class="code" href="define__file_8h.html#a469fe4558e8f47d536d491d2afbb27fe">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define _N_VERSION_PROGRAM_ 1   //!&lt; Numero versione programma</span>
-<a name="l00019"></a>00019 <span class="preprocessor"></span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="define__file_8h.html#afd45c9fe18d44cdff24bc3e3cc0dc551">00021</a> <span class="preprocessor">#define _TITLE_WINDOW_ &quot;PCNProdTest&quot;  //!&lt; Titolo della finestra</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a><a class="code" href="define__file_8h.html#abb898771b9f6bd90f31e5052cd823817">00023</a> <span class="preprocessor">#define IP_ADRESS_PCN &quot;10.100.10.100&quot;  //!&lt; Indirizzo IP di base del PCN (USB)</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span>
-<a name="l00025"></a><a class="code" href="define__file_8h.html#aaa695591372841e2c5580e4ed0f3620f">00025</a> <span class="preprocessor">#define MAX_STR_LENGTH 256  //!&lt; Massima lunghezza del comando</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a><a class="code" href="define__file_8h.html#ac3146f1e9227301bb4aa518f4d336cee">00027</a> <span class="preprocessor">#define BUFFERSIZE 4+6*4+3*NN+4+4+4+6*2  //!&lt; Lunghezza del buffer contente le immagini</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="comment">// header+6*ID+ImageSX+ImageDX+ImageDSP+counter_in+counter_out+count_true_false+6*CRC</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">00030</a> <span class="preprocessor">#define PixelType unsigned char  //!&lt; Definizione tipo di pixel dell&#39;immagine (8bit)</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span>
-<a name="l00032"></a><a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177">00032</a> <span class="preprocessor">#define NUM_FRAME_TO_PROCESS 50   //!&lt; Numero di frame da acquisire e su cui calcolare la moda</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span>
-<a name="l00034"></a><a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1">00034</a> <span class="preprocessor">#define test_all(X) if ((void *)(X) == NULL) { QMessageBox::critical(NULL, &quot;PCNProdTest&quot;, &quot;ERROR: out of memory&quot;); return; } //!&lt; Macro per controllo allocazione dinamica</span>
-<a name="l00035"></a><a class="code" href="define__file_8h.html#aaf7b5f945a9b05fbe412930af18324a8">00035</a> <span class="preprocessor"></span><span class="preprocessor">#define test_alloc(X) do {if ((void *)(X) == NULL) fprintf(stderr, &quot;Out of memory in %s, (%s, line %d).\n&quot;, __FUNCTION__, __FILE__, __LINE__); } while (0)</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span>
-<a name="l00037"></a><a class="code" href="define__file_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">00037</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="define__file_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="Definizione tipi uint.">uint</a>;  
-<a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="define__file_8h.html#a401f1cca6f833dfa7601f22db5431067">00039</a> <span class="preprocessor">#define N_BINS 256  //!&lt; Numero di bin dell&#39;istogramma (non pi&amp;ugrave; usato)</span>
-<a name="l00040"></a>00040 <span class="preprocessor"></span>
-<a name="l00041"></a>00041 
-<a name="l00043"></a>00043 <span class="comment">/*#define MAX_ERR_MEAN 10           // percentage</span>
-<a name="l00044"></a>00044 <span class="comment">#define MAX_ERR_VAR 10            // percentage</span>
-<a name="l00045"></a>00045 <span class="comment">#define MAX_NUM_BLACK_PIXEL 100</span>
-<a name="l00046"></a>00046 <span class="comment">#define MAX_NUM_UNIFORM_PIXEL 5</span>
-<a name="l00047"></a>00047 <span class="comment">#define MAX_SAD 20000</span>
-<a name="l00048"></a>00048 <span class="comment">#define MIN_NCC 90                // percentage</span>
-<a name="l00049"></a>00049 <span class="comment">#define MAX_SSD 10                // percentage*/</span>
-<a name="l00050"></a><a class="code" href="define__file_8h.html#ab9dd2d5976ff530eed7ae20ef1bc3ae8">00050</a> <span class="preprocessor">#define MAX_MINKOWSKI_DISTANCE  0.2</span>
-<a name="l00051"></a><a class="code" href="define__file_8h.html#ae929073fe930ed6ad15777c687450159">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define NUM_DISP_FOUND 5</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span>
-<a name="l00054"></a>00054 <span class="comment">//#define H_CROP 104</span>
-<a name="l00055"></a>00055 <span class="comment">//#define W_CROP 136</span>
-<a name="l00056"></a>00056 <span class="comment">//#define CROP H_CROP*W_CROP</span>
-<a name="l00057"></a>00057 <span class="comment">//#define BORDER_X 12</span>
-<a name="l00058"></a>00058 <span class="comment">//#define BORDER_Y 8</span>
-<a name="l00059"></a>00059 <span class="comment">//#define NY 120</span>
-<a name="l00060"></a>00060 <span class="comment">//#define NX 160</span>
+<a name="l00017"></a><a class="code" href="define__file_8h.html#ad93a8174807061780e47a4673260b666">00017</a> <span class="preprocessor">#define _VERSION_PROGRAM_ &quot;1.1&quot; //!&lt; Nome versione programma</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="define__file_8h.html#afd45c9fe18d44cdff24bc3e3cc0dc551">00020</a> <span class="preprocessor">#define _TITLE_WINDOW_ &quot;PCNProdTest&quot;  //!&lt; Titolo della finestra</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00022"></a><a class="code" href="define__file_8h.html#abb898771b9f6bd90f31e5052cd823817">00022</a> <span class="preprocessor">#define IP_ADRESS_PCN &quot;10.100.10.100&quot;  //!&lt; Indirizzo IP di base del PCN (USB)</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a><a class="code" href="define__file_8h.html#aaa695591372841e2c5580e4ed0f3620f">00024</a> <span class="preprocessor">#define MAX_STR_LENGTH 256  //!&lt; Massima lunghezza del comando</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span>
+<a name="l00026"></a><a class="code" href="define__file_8h.html#ac3146f1e9227301bb4aa518f4d336cee">00026</a> <span class="preprocessor">#define BUFFERSIZE 4+6*4+3*NN+4+4+4+6*2  //!&lt; Lunghezza del buffer contente le immagini</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="comment">// header+6*ID+ImageSX+ImageDX+ImageDSP+counter_in+counter_out+count_true_false+6*CRC</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">00029</a> <span class="preprocessor">#define PixelType unsigned char  //!&lt; Definizione tipo di pixel dell&#39;immagine (8bit)</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span>
+<a name="l00031"></a><a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177">00031</a> <span class="preprocessor">#define NUM_FRAME_TO_PROCESS 50   //!&lt; Numero di frame da acquisire e su cui calcolare la moda</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00033"></a><a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1">00033</a> <span class="preprocessor">#define test_all(X) if ((void *)(X) == NULL) { QMessageBox::critical(NULL, &quot;PCNProdTest&quot;, &quot;ERROR: out of memory&quot;); return; } //!&lt; Macro per controllo allocazione dinamica</span>
+<a name="l00034"></a><a class="code" href="define__file_8h.html#aaf7b5f945a9b05fbe412930af18324a8">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define test_alloc(X) do {if ((void *)(X) == NULL) fprintf(stderr, &quot;Out of memory in %s, (%s, line %d).\n&quot;, __FUNCTION__, __FILE__, __LINE__); } while (0)</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a><a class="code" href="define__file_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">00036</a> <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="define__file_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14" title="Definizione tipi uint.">uint</a>;  
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="define__file_8h.html#a401f1cca6f833dfa7601f22db5431067">00038</a> <span class="preprocessor">#define N_BINS 256  //!&lt; Numero di bin dell&#39;istogramma (non pi&amp;ugrave; usato)</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040 
+<a name="l00042"></a>00042 <span class="comment">/*#define MAX_ERR_MEAN 10           // percentage</span>
+<a name="l00043"></a>00043 <span class="comment">#define MAX_ERR_VAR 10            // percentage</span>
+<a name="l00044"></a>00044 <span class="comment">#define MAX_NUM_BLACK_PIXEL 100</span>
+<a name="l00045"></a>00045 <span class="comment">#define MAX_NUM_UNIFORM_PIXEL 5</span>
+<a name="l00046"></a>00046 <span class="comment">#define MAX_SAD 20000</span>
+<a name="l00047"></a>00047 <span class="comment">#define MIN_NCC 90                // percentage</span>
+<a name="l00048"></a>00048 <span class="comment">#define MAX_SSD 10                // percentage*/</span>
+<a name="l00049"></a><a class="code" href="define__file_8h.html#ab9dd2d5976ff530eed7ae20ef1bc3ae8">00049</a> <span class="preprocessor">#define MAX_MINKOWSKI_DISTANCE  0.2</span>
+<a name="l00050"></a><a class="code" href="define__file_8h.html#ae929073fe930ed6ad15777c687450159">00050</a> <span class="preprocessor"></span><span class="preprocessor">#define NUM_DISP_FOUND 5</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00053"></a>00053 <span class="comment">//#define H_CROP 104</span>
+<a name="l00054"></a>00054 <span class="comment">//#define W_CROP 136</span>
+<a name="l00055"></a>00055 <span class="comment">//#define CROP H_CROP*W_CROP</span>
+<a name="l00056"></a>00056 <span class="comment">//#define BORDER_X 12</span>
+<a name="l00057"></a>00057 <span class="comment">//#define BORDER_Y 8</span>
+<a name="l00058"></a>00058 <span class="comment">//#define NY 120</span>
+<a name="l00059"></a>00059 <span class="comment">//#define NX 160</span>
+<a name="l00060"></a>00060 
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
+<a name="l00063"></a>00063 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -121,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generato il Thu Dec 19 2013 10:56:56 per PCNProdTest da&#160;
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

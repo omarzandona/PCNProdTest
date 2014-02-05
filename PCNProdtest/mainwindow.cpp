@@ -267,7 +267,9 @@ bool MainWindow::createSocketScheduler(){
                       this->ACQL->abortAcquisition();
                       this->ACQL->abort();
                       startView = false;
-                      setDisconnect();
+                      if (isConnect)
+                        setDisconnect();
+
                       this->ui->label_imgL->clear();
                       this->ui->label_imgR->clear();
                       this->ui->label_imgDSP->clear();
@@ -469,22 +471,17 @@ bool MainWindow::setConnect(QString adressIP){
  */
 bool MainWindow::setDisconnect(){
 
-  if ( this->isConnect ){
+
       int bytes = SocketUtils::SendString(sock,"disconnect");
       shutdown(sock,2);
       Sleep(100);
-      if(bytes <= 0)
-        {
-          messageInfo("ERROR: Unable to disconnect to " + IP_ADRESS_PCN_connected + ": no connection!", Qt::red);
-          ui->actionExit;
-          this->destroyed();
-          return false;
-        }
+
       if ( !(closesocket(imgfd) && closesocket(sock))){
           this->isConnect = false;
           messageInfo("Disconnect to " + IP_ADRESS_PCN_connected, Qt::blue);
           this->IP_ADRESS_PCN_connected = "";
           emit signalClearPermanentWidget();
+
           // Chiudo il thread di acquisizione
           ACQL->abort();
           while( ACQL->isRunning() );
@@ -496,8 +493,6 @@ bool MainWindow::setDisconnect(){
           return false;
         }
 
-    }else
-    return true;
 }
 
 /*!
@@ -832,18 +827,20 @@ bool MainWindow::LoadDat(QString dat_filename)
       //emit messageInfo("Write CMos Vref concluse");
     }
 
-  val = 1;
-  SocketUtils::SendString(sock,"start");
-  SocketUtils::Send(sock,&val,sizeof(val));
+  //val = 1;
+  //SocketUtils::SendString(sock,"start");
+  //SocketUtils::Send(sock,&val,sizeof(val));
 
   SocketUtils::SendString(sock,"restore");
   emit messageInfo("&nbsp;&nbsp; (5/7) Restore Factory Setting concluse");
-  SocketUtils::SendString(sock,"reset");
 
-  emit messageInfo("&nbsp;&nbsp; (6/7) Reset Counter concluse");
-  SocketUtils::SendString(sock,"rddelete");
-  emit messageInfo("&nbsp;&nbsp; (7/7) Remove records file concluse");
-  emit messageInfo("End write calibration params");
+    SocketUtils::SendString(sock,"reset");
+    emit messageInfo("&nbsp;&nbsp; (6/7) Reset Counter concluse");
+
+    SocketUtils::SendString(sock,"rddelete");
+    emit messageInfo("&nbsp;&nbsp; (7/7) Remove records file concluse");
+
+    emit messageInfo("End write calibration params");
 
   return true;
 
@@ -1085,7 +1082,9 @@ void MainWindow::receiverParameters(tParameters param){
  * - TestSerialLoop : Effettua il check della seriale ( nel caso di PCN USB con due seriali)
  * - TestSerial  : Testa la seriale tramite protocollo SNP tra PCN e PCNProdTest
  * - Restore    : Effettua il restore dei parametri del PCn ai valori di fabbrica
+ * - FirmwareVerion : Restituisce la versione del firmware FPGA correntemne
  * - Test       : Comando usato per debug
+ *
  *
  * \param fd        [in] File descriptor della socket
  * \param buffer    [in] Stringa contenente il comando e l'eventuale parametro inviato dallo scheduler
@@ -1104,7 +1103,8 @@ bool MainWindow::Communication(int fd,char *buffer)
       char address[16];
       memcpy(address,&buffer[10],16*sizeof(char));
       QString ip_address = QString(address);
-      ret = MainWindow::setConnect(ip_address);
+      if(!isConnect)
+        ret = MainWindow::setConnect(ip_address);
 
       if(ret)
         SocketUtils::SendString(fd,"PASSED: Connection\0");
@@ -1271,11 +1271,15 @@ bool MainWindow::Communication(int fd,char *buffer)
   // Set opto full control
   if(Utils::strcasecmp(buffer,"SetOptoFullControl",18)==0)
     {
-      if(isConnect)
-        {
-          unsigned char val = buffer[19];
-          ret =  this->setOptoFullControl(val);
-        }
+      QString Tmp_QString_Line(buffer);
+      QStringList Tmp_QStringList = Tmp_QString_Line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+      if(Tmp_QStringList.at(0) == "SetOptoFullControl"){
+        qint64 Parametro = Tmp_QStringList.at(1).toLongLong();
+
+       // qDebug() << Tmp_QString_Line << "Param: " << Parametro;
+          if(isConnect) {
+              ret =  this->setOptoFullControl((unsigned char)Parametro);
+          }
       if(ret){
           emit messageInfo("Set Opto Full Control: <FONT COLOR=green> DONE </FONT>");
           SocketUtils::SendString(fd,"PASSED: SetOptoFullControl\0");
@@ -1283,21 +1287,28 @@ bool MainWindow::Communication(int fd,char *buffer)
           emit messageInfo("Set Opto Full Control: <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: SetOptoFullControl\0");}
     }
+  }
   // Set Opto
   if(Utils::strcasecmp(buffer,"SetOpto ",8)==0)
-    {
-      if(isConnect)
-        {
-          unsigned char val = buffer[8];
-          ret =  this->setOpto(val);
-        }
-      if(ret){
-          emit messageInfo("Set Opto: <FONT COLOR=green> DONE </FONT>");
-          SocketUtils::SendString(fd,"PASSED: SetOpto\0");
-        }else{
-          emit messageInfo("Set Opto: <FONT COLOR=red> FAILED </FONT>");
-          SocketUtils::SendString(fd,"FAILED: SetOpto\0");}
-    }
+  {
+
+      QString Tmp_QString_Line(buffer);
+      QStringList Tmp_QStringList = Tmp_QString_Line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+      if(Tmp_QStringList.at(0) == "SetOpto"){
+        qint64 Parametro = Tmp_QStringList.at(1).toLongLong();
+
+          if(isConnect) {
+              ret =  this->setOpto((unsigned char)Parametro);
+          }
+
+          if(ret){
+              emit messageInfo("Set Opto: <FONT COLOR=green> DONE </FONT>");
+              SocketUtils::SendString(fd,"PASSED: SetOpto\0");
+          }else{
+              emit messageInfo("Set Opto: <FONT COLOR=red> FAILED </FONT>");
+              SocketUtils::SendString(fd,"FAILED: SetOpto\0");}
+      }
+  }
 
 
   // Test serial Loop
@@ -1314,10 +1325,11 @@ bool MainWindow::Communication(int fd,char *buffer)
           SocketUtils::SendString(fd,"FAILED: TestSerialLoop\0");}
     }
   // Test Serial
-  if(Utils::strcasecmp(buffer,"TestSerial ",11)==0)
+  if(strcmp(buffer,"TestSerial\0")==0)
     {
-      char* serial_port = BuildSerialPortAddress(buffer,11);
-      ret =  this->TestSerial(serial_port);
+      //if(isConnect)
+      ret =  this->TestSerial();
+
       if(ret )
         {
           emit messageInfo("Test serial : <FONT COLOR=green> PASSED </FONT>");
@@ -1328,7 +1340,7 @@ bool MainWindow::Communication(int fd,char *buffer)
           emit messageInfo("Test serial : <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: Test serial\0");
         }
-      free(serial_port);
+
     }
   // Restore
   if(strcmp(buffer,"Restore\0")==0)
@@ -1343,6 +1355,37 @@ bool MainWindow::Communication(int fd,char *buffer)
           emit messageInfo("Restore PCN <FONT COLOR=red> FAILED </FONT>");
           SocketUtils::SendString(fd,"FAILED: Restore\0");
         }
+    }
+
+  // Firmware Version eVS add 05/02/2014
+  if(strcmp(buffer,"GetFpgaFirmwareVersion\0")==0)
+    {
+      QString version;
+      if (isConnect)
+        ret = this->getFirmwareVersion(version);
+
+      SocketUtils::SendString(fd,(char*)version.toStdString().c_str());
+
+      if(ret)
+       emit messageInfo("Get fpga firmware version : <FONT COLOR=green> PASSED </FONT>");
+      else
+       emit messageInfo("Get fpga firmware version : <FONT COLOR=red> FAILED </FONT>");
+
+    }
+  // Imgserver Version eVS add 05/02/2014
+  if(strcmp(buffer,"GetImgServerVersion\0")==0)
+    {
+
+      QString version;
+      if (isConnect)
+        ret = this->getImgserverVersion(version);
+
+      SocketUtils::SendString(fd,(char*)version.toStdString().c_str());
+
+      if(ret)
+       emit messageInfo("Get imgserver version : <FONT COLOR=green> PASSED </FONT>");
+      else
+       emit messageInfo("Get imgserver version : <FONT COLOR=red> FAILED </FONT>");
     }
 
   // Test
@@ -1566,32 +1609,53 @@ bool MainWindow::TestSerialLoop(){
  * \param serial_port [in] Stringa che definisce il valore della porta seriale del PCN a cui il PCN è collegato.
  * \return  true se è il test è andato a buon fine, false altrimenti
  */
-bool MainWindow::TestSerial(char* serial_port){
+bool MainWindow::TestSerial(){
+
+  unsigned char val;
+
+  int bytes = SocketUtils::SendString(sock,"test_serial_port");
+  //int bytes = SocketUtils::Recv(sock,&val,sizeof(val));
+  if ( bytes > 0)
+    return true;
+  else
+  {
+   emit messageInfo("Test SerialPort: no connection!", Qt::red);
+   return false;
+  }
+}
+
+/*
+bool MainWindow::TestSerial(const char* serial_port){
 
   char serial_buffer[BUFFER_SIZE];
   char serial_port_1[BUFFER_SIZE];
   bool ret;
   strcpy(serial_port_1,serial_port);
   // TODO : verificare la corretta versione del kernel
-  /* Inizializza la comunicazione (controllare che i parametri siano corretti */
+  /* Inizializza la comunicazione (controllare che i parametri siano corretti
   serial_buffer[0] = '\0';
   QString tmp(serial_port);
-  if (SNP_initCommunication(serial_port, 115200, 8, NOPARITY, ONESTOPBIT) >= 0)
+
+  if (SNP_initCommunication((char*)serial_port, 115200, 8, NOPARITY, ONESTOPBIT) >= 0)
     {
       if (SNP_getKernelVersion(2, serial_buffer, BUFFER_SIZE) >= 0)
-        ret =  true;
+      {
+          ret =  true;
+      }
       else
         ret = false;
 
-      /* chiudi la comunicazione */
+      /* chiudi la comunicazione
       SNP_endCommunication();
     }
   else
-    ret =  false;
-
+   {
+      ret =  false;
+        qDebug() << "Connessione non stabilita";
+  }
   return ret;
 }
-
+*/
 /*!
  * \brief MainWindow::restore
  * Setta il PCN alle condizioni di fabbrica
@@ -1606,6 +1670,49 @@ bool MainWindow::restore(){
      emit messageInfo("Test restore: no connection!", Qt::red);
      return false;
     }
+}
+
+
+/*!
+ * \brief MainWindow::getFirmwareVersion
+ * Restituisce la versione del firmware FPGA installato sul PCN
+ * \param version [in|out] Stringa contenente la versione del firmware FPGA
+ * \return true se la connessione è attiva, false altrimenti
+ */
+// eVS add 05/02/2014
+bool MainWindow::getFirmwareVersion(QString & version){
+
+  char version_tmp[32];
+  bool ret = false;
+  SocketUtils::SendString(sock,"fw_version");
+  int bytes = SocketUtils::RecvString(sock,version_tmp);
+  if(bytes > 0)
+    {
+      version.append(version_tmp);
+      ret = true;
+     }
+
+  return ret;
+}
+
+/*!
+ * \brief MainWindow::getImgserverVersion
+ *  Restituisce la versione dell' imgserver installato sul PCN
+ * \param version [in|out] Stringa contenente la versione dell' imgserver correntemente installato sul PCN
+ * \return true se la connessione è attiva, false altrimenti
+ */
+// eVS add 05/02/2014
+bool MainWindow::getImgserverVersion(QString & version){
+  char version_tmp[32];
+  bool ret = false;
+  SocketUtils::SendString(sock,"version");
+  int bytes = SocketUtils::RecvString(sock,version_tmp);
+  if(bytes > 0)
+    {
+      version.append(version_tmp);
+      ret = true;
+     }
+  return ret;
 }
 
 /*!

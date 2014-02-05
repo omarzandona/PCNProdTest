@@ -118,187 +118,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <a name="l00067"></a><a class="code" href="check__pcn_8h.html#a110e2c1ccc176637b9fda1e2b7e016bb">00067</a> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="check__pcn_8h.html#a110e2c1ccc176637b9fda1e2b7e016bb">laplacian_kernel</a> [9]= { 0.1667,0.6667f,0.1667f,0.6667f,-3.3333f,0.6667f,0.1667,0.6667f,0.1667f};
 <a name="l00068"></a><a class="code" href="check__pcn_8h.html#a30f0a0ff664c7c5785398b18d05e8610">00068</a> <span class="preprocessor">#define LAP_RADIUS 3</span>
 <a name="l00069"></a>00069 <span class="preprocessor"></span>
-<a name="l00070"></a>00070 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a06ad5548339d04824e6bd57c8abcc9c9">patternRefGenerate</a>(<span class="keywordtype">int</span>* _levels = <a class="code" href="check__pcn_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);
+<a name="l00070"></a>00070 <span class="comment">/****** Calc Features ******/</span>
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="comment">/****** Calc Features ******/</span>
-<a name="l00074"></a>00074 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a70c63834cf9ec71e22623643abbed1ad" title="&amp;lt; Mean">meanImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00076"></a>00076 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a98cea3010f9626a9f7e3db94dbdc9981" title="Normalized cross-correlation.">varImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00078"></a>00078 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a6272c62712177347d33a97b462524cab" title="SSD.">nccImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* templ, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h );
-<a name="l00080"></a>00080 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a88d335d152d63fc756e0ff5327f26fcd" title="SAD.">ssdImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_1, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_2, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h );
-<a name="l00082"></a>00082 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#aa094e35a3b36d811e348253afe763df9" title="Num black pixels.">sadImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_1, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_2, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h );
-<a name="l00084"></a>00084 <span class="keywordtype">int</span> <a class="code" href="check__pcn_8cpp.html#a0a6c7f2a1e652bdc8fb90fd5b068ea2e" title="Num uniform pixels.">nBlackPixels</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00086"></a>00086 <span class="keywordtype">int</span> <a class="code" href="check__pcn_8cpp.html#a8c662744ca03031e669918712b6d724b" title="Compute distance between histogram.">nUniformPixels</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00088"></a>00088 <span class="keywordtype">float</span>* <a class="code" href="check__pcn_8cpp.html#ad305014bfc1284234957f46bcb182523">calcHist</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h, <span class="keywordtype">bool</span> norm = <span class="keyword">true</span>);
-<a name="l00089"></a>00089 <span class="keywordtype">float</span>* <a class="code" href="check__pcn_8cpp.html#af4d26a040ca489ac22ca29e411884654">calcHistCum</a>(<span class="keywordtype">float</span>* hist);
-<a name="l00090"></a>00090 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a25735607ba50507efd0cdfcf77bfefbb">calcMinkowski</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00091"></a>00091 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a9aeec8ea04a875865206dd22a0c81f7a">calcHistogramIntersect</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00092"></a>00092 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#aecaa144dd0370c15c996cc28ece0d1ce">calcCumulativeHistograms</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00093"></a>00093 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a70e221a9eb17a3179246f1f0367ff316">calcChiQuadro</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00094"></a>00094 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a0b3050f40c743f82dc8183b0bd72d89f">calcKolmogorov</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00095"></a>00095 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a6f2acf97497b3f34a3c253d09646a7d3">quadraticFromDistance</a>(<span class="keywordtype">float</span>* hist_1, <span class="keywordtype">float</span>* hist_2);
-<a name="l00096"></a>00096 <span class="keywordtype">void</span> <a class="code" href="check__pcn_8cpp.html#a3294c1cfc26a9cbef1f3c8385e30be22" title="check_histogram_distance">computeDistHist</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_1,
-<a name="l00097"></a>00097                      <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img_2,
-<a name="l00098"></a>00098                      <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00099"></a>00099                      <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h,
-<a name="l00100"></a>00100                      <span class="keywordtype">float</span>&amp; dis_1,
-<a name="l00101"></a>00101                      <span class="keywordtype">float</span>&amp; dis_2,
-<a name="l00102"></a>00102                      <span class="keywordtype">float</span>&amp; dis_3,
-<a name="l00103"></a>00103                      <span class="keywordtype">float</span>&amp; dis_4,
-<a name="l00104"></a>00104                      <span class="keywordtype">float</span>&amp; dis_5,
-<a name="l00105"></a>00105                      <span class="keywordtype">float</span>&amp; dis_6);
-<a name="l00107"></a>00107 <span class="keywordtype">int</span> <a class="code" href="check__pcn_8cpp.html#a75a199b64847aa201334ff2986921f6b" title="Val disp found.">numDispFound</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00109"></a>00109 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a18955354e2ff4ccd17b109289032d1a0" title="Rate features.">ValDispFound</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00111"></a>00111 <span class="comment">//int rateFeature(float* f_ref, float* f_test);</span>
-<a name="l00113"></a>00113 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="check__pcn_8h.html#a2edb6bcd9e0f5199c883c1854b66b9df" title="&amp;lt; Print values features">printFeatures</a>(<span class="keywordtype">float</span>* features);
-<a name="l00115"></a>00115 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#aad77d0b0e976fe69e404a1255323ff91" title="Crop Image.">check_disp</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* disp_found,<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; num_disp_found);
-<a name="l00117"></a>00117 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a86512bdca0a41ad223241a7b5e03d023" title="compute_laplacian">CropImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_h);
-<a name="l00119"></a>00119 <span class="comment">/*void compute_laplacian(unsigned char* &amp; img,</span>
-<a name="l00120"></a>00120 <span class="comment">                       unsigned char* &amp; hg,</span>
-<a name="l00121"></a>00121 <span class="comment">                       unsigned char* &amp; vg,</span>
-<a name="l00122"></a>00122 <span class="comment">                       const int&amp; w,</span>
-<a name="l00123"></a>00123 <span class="comment">                       const int&amp; h);</span>
-<a name="l00124"></a>00124 <span class="comment">*/</span>
-<a name="l00125"></a>00125 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a3f35e5a86aab14bd8425c2d1a3d66eef">compute_focus_measurement</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  img,
-<a name="l00126"></a>00126                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00127"></a>00127                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a31d0eb53d75bc571ddb459c4bc8b284f" title="Gradient.">compute_laplacian</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  img,
-<a name="l00130"></a>00130                                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00131"></a>00131                                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133 
-<a name="l00135"></a>00135 <span class="keywordtype">void</span> <a class="code" href="check__pcn_8cpp.html#a27d9d2195de33f7253fc9323bc11aeb6">Gradient</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* &amp;  i_img,
-<a name="l00136"></a>00136               <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_rows,
-<a name="l00137"></a>00137               <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_cols,
-<a name="l00138"></a>00138               <span class="keywordtype">double</span>* &amp;  o_img_hg,
-<a name="l00139"></a>00139               <span class="keywordtype">double</span>* &amp;  o_img_vg);
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a43f391d2d38fb46a4c5ce6846fadcf84">abs_gradient</a>(<span class="keywordtype">double</span>* &amp; img,
-<a name="l00142"></a>00142                             <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00143"></a>00143                             <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00144"></a>00144 
-<a name="l00145"></a>00145 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="check__pcn_8cpp.html#a6c62b85cbd58dfc14b0d1770870d6824">find_diff_gradient_peak</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img,
-<a name="l00146"></a>00146                                       <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pattern,
-<a name="l00147"></a>00147                                       <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00148"></a>00148                                       <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150 <span class="keywordtype">int</span> <a class="code" href="check__pcn_8cpp.html#ac1e2e77c11f4c8b27e14d9ddb753d621">find_coordinate_edge</a>(<span class="keywordtype">double</span>* &amp; img,
-<a name="l00151"></a>00151                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00152"></a>00152                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00153"></a>00153 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#adc34ddbcf54d153a6d8eb5c6f6470507">align_img</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img,
-<a name="l00154"></a>00154                          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern,
-<a name="l00155"></a>00155                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00156"></a>00156                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h,
-<a name="l00157"></a>00157                          <span class="keywordtype">int</span> &amp; index_start_img,
-<a name="l00158"></a>00158                          <span class="keywordtype">int</span> &amp; index_start_pattern
-<a name="l00159"></a>00159                          );
-<a name="l00160"></a>00160 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="check__pcn_8cpp.html#aae8aa2a893d68534c02ace15606aa7cb" title="conv2D">find_peaks</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img,
-<a name="l00161"></a>00161                          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pattern,
-<a name="l00162"></a>00162                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00163"></a>00163                          <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00164"></a>00164 
-<a name="l00166"></a>00166 <span class="keywordtype">double</span>* <a class="code" href="check__pcn_8cpp.html#a05724535a05015be364d7fec2b3b652a" title="depadding">conv2D</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* &amp;  i_img,
-<a name="l00167"></a>00167                <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_rows,
-<a name="l00168"></a>00168                <span class="keyword">const</span> <span class="keywordtype">int</span> &amp; i_cols,
-<a name="l00169"></a>00169                <span class="keyword">const</span> <span class="keywordtype">char</span> i_kernel[]);
-<a name="l00171"></a>00171 <span class="keywordtype">double</span>* <a class="code" href="check__pcn_8cpp.html#a0576e9aa1a2e20624e1212ebd257cc49" title="padding">depadding</a>(<span class="keywordtype">double</span>* &amp; i_pad_img,
-<a name="l00172"></a>00172                   <span class="keywordtype">int</span> &amp;  i_rows_pd,
-<a name="l00173"></a>00173                   <span class="keywordtype">int</span> &amp;  i_cols_pd,
-<a name="l00174"></a>00174                   <span class="keywordtype">int</span> &amp;  i_radius,
-<a name="l00175"></a>00175                   <span class="keyword">const</span> <span class="keywordtype">int</span> &amp; i_rows,
-<a name="l00176"></a>00176                   <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_cols);
-<a name="l00178"></a>00178 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#ad31ed95aae1337b6082181aa6c17b6ad" title="Magnitude.">padding</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> &amp; i_img,
-<a name="l00179"></a>00179                        <span class="keyword">const</span> <span class="keywordtype">int</span>  &amp; i_rows,
-<a name="l00180"></a>00180                        <span class="keyword">const</span> <span class="keywordtype">int</span>  &amp; i_cols,
-<a name="l00181"></a>00181                        <span class="keywordtype">int</span> <span class="keyword">const</span> &amp; i_radius,
-<a name="l00182"></a>00182                        <span class="keywordtype">int</span>  &amp; io_rows_pd,
-<a name="l00183"></a>00183                        <span class="keywordtype">int</span>  &amp; io_cols_pd);
-<a name="l00184"></a>00184 
-<a name="l00186"></a>00186 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#ae31d93c79c965a421adb6f0ee2124b0a" title="compute_img_diff">Magnitude</a>(<span class="keywordtype">double</span>* &amp; o_img_hg,
-<a name="l00187"></a>00187                          <span class="keywordtype">double</span>* &amp; o_img_vg,
-<a name="l00188"></a>00188                          <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_cols,
-<a name="l00189"></a>00189                          <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;  i_rows);
-<a name="l00191"></a>00191 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a52b05140bd8c0bd128d9c45caa919e3f" title="find_max_value">compute_img_diff</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_test,
-<a name="l00192"></a>00192                                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_ref,
-<a name="l00193"></a>00193                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00194"></a>00194                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="check__pcn_8cpp.html#a7bda39aea924682430928e40760cdc83" title="compute mse">find_max_value</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img,
-<a name="l00198"></a>00198                              <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00199"></a>00199                              <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00200"></a>00200 
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203 <span class="keywordtype">double</span> <a class="code" href="check__pcn_8cpp.html#a973e078d619bdfe2bb64fd877fac90cc" title="check histogram distance">compute_mse</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_test,
-<a name="l00204"></a>00204                    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_ref,
-<a name="l00205"></a>00205                    <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00206"></a>00206                    <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 
-<a name="l00210"></a>00210 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#ad67ccceea9a63ff453097389b249829e" title="Num disp found.">check_histogram_distance</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img,
-<a name="l00211"></a>00211                                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern,
-<a name="l00212"></a>00212                                <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00213"></a>00213                                <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h,
-<a name="l00214"></a>00214                                <span class="keywordtype">int</span> num_dist);
-<a name="l00215"></a>00215 
-<a name="l00217"></a>00217 std::vector&lt; std::pair&lt;QString,bool&gt; &gt; <a class="code" href="check__pcn_8cpp.html#a1ad03df51d9da5266c6cadb607a7025b" title="check_focus">CheckPCN</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dsp,
-<a name="l00218"></a>00218                                                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dx,
-<a name="l00219"></a>00219                                                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_sx,
-<a name="l00220"></a>00220                                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00221"></a>00221                                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00223"></a>00223 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#a2487431c884ebf0f8c37bd88ef66ac0b" title="check_odc">check_focus</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dx,
-<a name="l00224"></a>00224                  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_sx,
-<a name="l00225"></a>00225                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00226"></a>00226                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00228"></a>00228 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#a7849170a516ba878b4f23803bca71b59" title="check_fpn">check_odc</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dsp,<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_dsp, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00229"></a>00229 
-<a name="l00231"></a>00231 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#af58624ec1d507d7bf884c19f7ec0f7d1" title="check_impurity">check_fpn</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dsp,
-<a name="l00232"></a>00232                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dx,
-<a name="l00233"></a>00233                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_sx,
-<a name="l00234"></a>00234                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_dsp,
-<a name="l00235"></a>00235                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_dx,
-<a name="l00236"></a>00236                <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_sx,
-<a name="l00237"></a>00237                <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00238"></a>00238                <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00239"></a>00239 
-<a name="l00241"></a>00241 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#af07d62f6f2361209ce39351347325b2d" title="check_blackpixel">check_impurity</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dsp,
-<a name="l00242"></a>00242                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dx,
-<a name="l00243"></a>00243                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_sx,
-<a name="l00244"></a>00244                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_dsp,
-<a name="l00245"></a>00245                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_dx,
-<a name="l00246"></a>00246                     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; pattern_sx,
-<a name="l00247"></a>00247                     <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00248"></a>00248                     <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00250"></a>00250 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#a3784d697073a1a890c8a0262fd70e7dc" title="Setta i parametri per il check.">check_blackpixel</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dsp,
-<a name="l00251"></a>00251                       <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
-<a name="l00252"></a>00252                       <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
-<a name="l00253"></a>00253 
-<a name="l00255"></a>00255 <span class="keywordtype">void</span> <a class="code" href="check__pcn_8cpp.html#a0705db03c2d1f9b175764003c67227e6" title="Values for feature rate.">setParameters</a>( <a class="code" href="structt_parameters_check__.html">tParametersCheck</a> param );
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257 
-<a name="l00258"></a>00258 
-<a name="l00260"></a><a class="code" href="check__pcn_8h.html#ae31c8d35a7a30ef376541503c7061221">00260</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#ae31c8d35a7a30ef376541503c7061221">MAX_ERR_MEAN</a> = 10;           <span class="comment">// percentage</span>
-<a name="l00261"></a><a class="code" href="check__pcn_8h.html#a871a431a81e2f5f3c6822d432fd43b86">00261</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#a871a431a81e2f5f3c6822d432fd43b86">MAX_ERR_VAR</a> = 10;            <span class="comment">// percentage</span>
-<a name="l00262"></a><a class="code" href="check__pcn_8h.html#aa30e2bd354b1737b707aadd7419d9a54">00262</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#aa30e2bd354b1737b707aadd7419d9a54">MAX_NUM_BLACK_PIXEL</a> = 40;
-<a name="l00263"></a><a class="code" href="check__pcn_8h.html#ad2d20fb34a45b322eafd6e9f5d6f2aad">00263</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#ad2d20fb34a45b322eafd6e9f5d6f2aad">MAX_NUM_UNIFORM_PIXEL</a> = 10;
-<a name="l00264"></a><a class="code" href="check__pcn_8h.html#a83f6a93e3670607a65acfe21430f8796">00264</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#a83f6a93e3670607a65acfe21430f8796">MAX_SAD</a> = 250;
-<a name="l00265"></a><a class="code" href="check__pcn_8h.html#a72a837621d1f8321d35200309d171974">00265</a> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="check__pcn_8h.html#a72a837621d1f8321d35200309d171974">MIN_NCC</a> = 0.90f;               <span class="comment">// percentage</span>
-<a name="l00266"></a><a class="code" href="check__pcn_8h.html#aca1fd069270b7abbf8f438c877ca92b2">00266</a> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="check__pcn_8h.html#aca1fd069270b7abbf8f438c877ca92b2">MAX_SSD</a> = 0.30f;               <span class="comment">// percentage</span>
-<a name="l00267"></a><a class="code" href="check__pcn_8h.html#ab3e004987c48b6a67c0dfa30bd288599">00267</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#ab3e004987c48b6a67c0dfa30bd288599">MAX_PEAK_DIFF_IMAGE</a> = 35;
-<a name="l00268"></a><a class="code" href="check__pcn_8h.html#a4925ca5fdf0aee5f597fa703cd9c3e54">00268</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#a4925ca5fdf0aee5f597fa703cd9c3e54">MAX_MSE</a> = 55;
-<a name="l00269"></a>00269 
-<a name="l00270"></a><a class="code" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">00270</a> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a> = 30.0f;
-<a name="l00271"></a><a class="code" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8">00271</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8" title="Values for histogram distance.">MAX_PEAK_DIFF_VG</a> = 20;
-<a name="l00272"></a>00272 
-<a name="l00274"></a>00274 <span class="comment">//static int NUM_DIST_HISTO = 6;</span>
-<a name="l00275"></a>00275 <span class="comment">//#define MAX_MINKOWSKI_DISTANCE  0.2f</span>
-<a name="l00276"></a><a class="code" href="check__pcn_8h.html#a55d18390f27d84220656209b6d14734e">00276</a> <span class="preprocessor">#define MAX_HIST_INTERSECT_DISTANCE  0.2f</span>
-<a name="l00277"></a><a class="code" href="check__pcn_8h.html#a684ef563066d5baa5ac5f69a1d12e7e6">00277</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_CHIQUADRO_DISTANCE  0.2f</span>
-<a name="l00278"></a><a class="code" href="check__pcn_8h.html#a1104aa3ec33f94e976bb2a20eae19dca">00278</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_KOLMOGOROV_DISTANCE  0.2f</span>
-<a name="l00279"></a><a class="code" href="check__pcn_8h.html#a0a437f16a2a85b6cd23b13feeb3414f0">00279</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_COMULATIVE_DISTANCE  0.2f</span>
-<a name="l00280"></a><a class="code" href="check__pcn_8h.html#a01a33dafce3925585cafcc5985c150d7">00280</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_QFD_DISTANCE  0.2</span>
-<a name="l00281"></a>00281 <span class="preprocessor"></span>
-<a name="l00282"></a>00282 
-<a name="l00283"></a>00283 <span class="preprocessor">#endif</span>
+<a name="l00073"></a>00073 <span class="keywordtype">void</span> <a class="code" href="check__pcn_8h.html#a2edb6bcd9e0f5199c883c1854b66b9df" title="&amp;lt; Print values features">printFeatures</a>(<span class="keywordtype">float</span>* features);
+<a name="l00074"></a>00074 
+<a name="l00076"></a>00076 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8h.html#a86512bdca0a41ad223241a7b5e03d023">CropImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_h);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keywordtype">float</span> <a class="code" href="check__pcn_8cpp.html#a3f35e5a86aab14bd8425c2d1a3d66eef" title="compute_laplacian">compute_focus_measurement</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  img,
+<a name="l00080"></a>00080                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
+<a name="l00081"></a>00081                                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
+<a name="l00082"></a>00082 
+<a name="l00084"></a>00084 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="check__pcn_8cpp.html#a31d0eb53d75bc571ddb459c4bc8b284f" title="check_focus">compute_laplacian</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  img,
+<a name="l00085"></a>00085                                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
+<a name="l00086"></a>00086                                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00092"></a>00092 <span class="keywordtype">bool</span> <a class="code" href="check__pcn_8cpp.html#a2487431c884ebf0f8c37bd88ef66ac0b" title="Setta i parametri per il check.">check_focus</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_dx,
+<a name="l00093"></a>00093                  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*  &amp; img_sx,
+<a name="l00094"></a>00094                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; w,
+<a name="l00095"></a>00095                  <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; h);
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00099"></a>00099 <span class="keywordtype">void</span> <a class="code" href="check__pcn_8cpp.html#a0705db03c2d1f9b175764003c67227e6">setParameters</a>( <a class="code" href="structt_parameters_check__.html">tParametersCheck</a> param );
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00105"></a><a class="code" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">00105</a> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a> = 30.0f;
+<a name="l00106"></a><a class="code" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8">00106</a> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8">MAX_PEAK_DIFF_VG</a> = 20;
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -315,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generato il Thu Dec 19 2013 10:56:56 per PCNProdTest da&#160;
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

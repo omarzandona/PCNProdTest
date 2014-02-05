@@ -1,10 +1,3 @@
-/*!
- * \file check_pcn.h
- * \brief File di header per la definizione di define e funzioni
- *
- * \author Omar Zandonà (eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it)
- */
-
 #ifndef _CHECK_PCN_H_
 #define _CHECK_PCN_H_
 
@@ -38,17 +31,17 @@
 #endif
 
 // Limiti immagini
-#define BORDER_X 12  //!< Bordo nero (colonne) dimensione dell' immagine proveniente dal PCN dovuto alla correlazione
-#define BORDER_Y 8   //!< Bordo nero (righe) dimensione dell' immagine proveniente dal PCN dovuto alla correlazione
-#define BORDER_X_2 18 //!< Secondo bordo nero (colonne) dimensione dell' immagine proveniente dal PCN dovuto alla correlazione
+#define BORDER_X 12
+#define BORDER_Y 8
+#define BORDER_X_2 18
 
-#define NY 120 //!< Altezza immagine proveniente dal PCN
-#define NX 160 //!< Larghezza immagine proveniente dal PCN
-#define NN NX*NY //!< Dimensione dell' immagine proveniente dal PCN
+#define NY 120
+#define NX 160
+#define NN NX*NY
 
-#define H_CROP 104 //!< Altezza dell'imamgine tagliata// NY-2*BORDER_Y
-#define	W_CROP 130 //!< Larghezza dell'imamgine tagliata //NX-(BORDER_X+BORDER_X_2)
-#define CROP H_CROP*W_CROP  //!< Dimensione dell'immagine tagliata
+#define H_CROP 104// NY-2*BORDER_Y
+#define	W_CROP 130//NX-(BORDER_X+BORDER_X_2)
+#define CROP H_CROP*W_CROP
 
 
 #define N_BINS 256
@@ -65,41 +58,54 @@
 #define UNIFORM_VALUE 16
 // SOBEL KERNEL
 #define FACT_SOBEL_KERNEL 4.0f
-#define KERNEL_DIM 9  //!< Dimensione del filtro di sobel
-#define RADIUS 3 //!< Raggio del kernel
-const char KERNEL_H_SOBEL[KERNEL_DIM] = {1,0,-1,2,0,-2,1,0,-1}; //!< Filtro orizzontale
-const char KERNEL_V_SOBEL[KERNEL_DIM] = {1,2,1,0,0,0,-1,-2,-1}; //!< Filtro verticale
+#define RADIUS 3
+const char KERNEL_H_SOBEL[9] = {1,0,-1,2,0,-2,1,0,-1};
+const char KERNEL_V_SOBEL[9] = {1,2,1,0,0,0,-1,-2,-1};
 #define PI 3.14159265
 
 // LAPLACIAN KERNEL
-static double laplacian_kernel [KERNEL_DIM]= { 0.1667,0.6667f,0.1667f,0.6667f,-3.3333f,0.6667f,0.1667,0.6667f,0.1667f};
-#define LAP_RADIUS 3  //!< Raggio del kernel del laplaciano
+static double laplacian_kernel [9]= { 0.1667,0.6667f,0.1667f,0.6667f,-3.3333f,0.6667f,0.1667,0.6667f,0.1667f};
+#define LAP_RADIUS 3
 
 /****** Calc Features ******/
 
+//!< Print values features
+void printFeatures(float* features);
 
-void printFeatures(float* features);//!< Visualizza il valore delle feature
+//!< Crop Image
+unsigned char* CropImage(unsigned char* img, const int& new_w, const int& new_h);
 
-unsigned char* CropImage(unsigned char* img, const int& new_w, const int& new_h);//!< Taglia le immagini delle dimensioni specificate come parametro
 
 float compute_focus_measurement(unsigned char*  img,
                                 const int& w,
-                                const int& h);//!< Restituisce la misura del fuoco
+                                const int& h);
 
+//!< compute_laplacian
 unsigned char* compute_laplacian(unsigned char*  img,
                                  const int& w,
-                                 const int& h);//!< Calcola il laplacaiano dell'immagine passata come parametro
+                                 const int& h);
 
+
+
+
+//!< check_focus
 bool check_focus(unsigned char*  & img_dx,
                  unsigned char*  & img_sx,
                  const int& w,
-                 const int& h);//!< Effettua il check del focus
-
-void setParameters( tParametersCheck param );//!< Setta i parametri per il check
+                 const int& h);
 
 
-static float FOCUS_MEASURAMENT = 30.0f;  //!< Soglia del valore del fuoco
+//!< Setta i parametri per il check
+void setParameters( tParametersCheck param );
+
+
+
+
+
+static float FOCUS_MEASURAMENT = 30.0f;
 static int MAX_PEAK_DIFF_VG = 20;
+
+
 
 
 #endif
