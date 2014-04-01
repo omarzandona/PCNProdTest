@@ -1,1 +1,88 @@
-Hello world"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest: Pagina Principale</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li class="current"><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<h1>PCNProdTest Documentazione</h1>  </div>
+</div>
+<div class="contents">
+<h3 class="version">PCNProdTest ver. 1.0b </h3><p>Questo documento ipertestuale descrive il codice del software PCNProdTest.</p>
+<p>Questo applicativo nasce dall'esigenza di Eurotech di adottare in fase di produzione del PCN un protocollo di test adeguato. Per fare ciò si è deciso di non adottare più il precedente strumento di collaudo ( un antico Win_Client ad hoc) di creare un nuovo strumento che permetta, interfacciandosi sia con il PCN e con uno scheduler(fornito da Eurotech) che ne lancia i comandi ad collaudare il dispositivo. L'applicativo quindi gestisce tre comunicazioni socket, una svolgendo il ruolo di lato server con lo scheduler, e le altre due svolgendo il ruolo di client con il PCN (si comporta come un client comandi e immmagini)</p>
+<p>Per quanto riguarda il lato server qui descritto, possiamo riassumerne le caratteristiche andando ad illustrare brevemente il contenuto dei vari <a href="file:">file:</a></p>
+<ul>
+<li><a class="el" href="mainwindow_8cpp.html" title="Sorgente principale dell&#39;applicazione PCNProdTest.">mainwindow.cpp</a> : Sorgente principale, contiene e le funzioni per la gestione delle comunicazione socket e dell'interfaccia</li>
+<li><a class="el" href="acq__thread_8cpp.html" title="Crea e gestisce il thread di acquisizione delle immagini provenienti dal PCN.">acq_thread.cpp</a> : Definizione della classe per la gestione del thread di acquisione delle immagini proveniente dal PCN</li>
+<li><a class="el" href="main_8cpp.html" title="Crea l&#39;applicazione e lancia l&#39;interfaccia.">main.cpp</a> : Lancia il mainwindow</li>
+<li><a class="el" href="parameters__panel_8cpp.html">parameters_panel.cpp</a> : Gestisce la configurazione dei parametri per il test</li>
+<li><a class="el" href="socket__utils_8cpp.html">socket_utils.cpp</a> : contiene la definizioni delle funzioni per la comunicazione socket</li>
+<li><a class="el" href="utils_8cpp.html">utils.cpp</a> : Contiene funzioni di utilità di tipo generale</li>
+<li><a class="el" href="check__pcn_8cpp.html">check_pcn.cpp</a> : Contiene le definizione delle funzioni per il check della mappa di disparità e del fuoco delle immagini ottiche più altre funzioni non utilizzate ma create in fase di studio di fattibilità</li>
+<li><a class="el" href="_graph_disparity_8cpp.html">GraphDisparity.cpp</a> : Contiene la definizione della classe per il check della disparità</li>
+</ul>
+<p><b>Note per la consultazione</b><br/>
+ Per meglio consultare questa documentazione si tenga presente che:</p>
+<ul>
+<li>Si puo' sfruttare il motore di ricerca in alto a destra.</li>
+<li>I commenti dei singoli sottoprogrammi sono completati da due voci "Riferimenti/References" e "Referenziato
+      da/Referenced by": la prima corrisponde a un elenco di tutte le variabili, funzioni e costanti usate all'interno della funzione in esame; la seconda corrisponde a un elenco di altri sottoprogrammi che richiamano al loro interno il sottoprogramma in esame. Data la grande quantita' di variabili globali e la scarsa modularita' del codice, questi due elenchi risultano molto comodi per poter, per esempio, "ricostruire la storia" di una variabile o capire l'uso di un particolare sottoprogramma in base a dove viene chiamato.</li>
+</ul>
+<dl class="author"><dt><b>Autore:</b></dt><dd>Alessio Montagnini, Omar Zandonà(eVS - embedded Vision Systems s.r.l. www.embeddedvisionsystems.it) </dd></dl>
+<dl class="note"><dt><b>Nota:</b></dt><dd>Per info e dettagli contattare Omar Zandonà (<a href="mailto:omar.zandona@evsys.it">omar.zandona@evsys.it</a>) </dd></dl>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>
