@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente apc_defines.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>apc_defines.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="apc__defines_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00006"></a><a class="code" href="apc__defines_8h.html#a9f918755b601cf4bffca775992e6fb90">00006</a> <span class="preprocessor">#define NOMINMAX</span>
+<a name="l00007"></a><a class="code" href="apc__defines_8h.html#a614217d263be1fb1a5f76e2ff7be19a2">00007</a> <span class="preprocessor"></span><span class="preprocessor">#define PORT 5400  //!&lt; Porta della socket</span>
+<a name="l00008"></a><a class="code" href="apc__defines_8h.html#a7342deb9bd9ebf195e550e2d8e7c38b4">00008</a> <span class="preprocessor"></span><span class="preprocessor">#define UDP_PORT 5402  //!&lt; Porta UDP della socket</span>
+<a name="l00009"></a><a class="code" href="apc__defines_8h.html#aaa695591372841e2c5580e4ed0f3620f">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_STR_LENGTH 256  //!&lt; Massima lunghezza della stringa</span>
+<a name="l00010"></a><a class="code" href="apc__defines_8h.html#ae2a3d06b7f4a7c2e9fd4c779458f6f68">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define SCAN_ATTEMPTS  10000 //!&lt; Massimo numero di tentativi per la connessione</span>
+<a name="l00011"></a><a class="code" href="apc__defines_8h.html#a4a9d32ff035c82119003134767948ebf">00011</a> <span class="preprocessor"></span><span class="preprocessor">#define NX      160  //!&lt; Dimensione orizzontale dell&#39;immagine</span>
+<a name="l00012"></a><a class="code" href="apc__defines_8h.html#a652e87ecc9140879666ae9d6bf4ca893">00012</a> <span class="preprocessor"></span><span class="preprocessor">#define NY      120  //!&lt; Dimensione verticale dell&#39;immagine</span>
+<a name="l00013"></a><a class="code" href="apc__defines_8h.html#a170755e30c36be4904106b7bb279b1ec">00013</a> <span class="preprocessor"></span><span class="preprocessor">#define NN      NX*NY //!&lt; Numero di pixel dell&#39;immagine</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span>
+<a name="l00015"></a><a class="code" href="apc__defines_8h.html#a970a22b5d4f53c2af66601db5e361cdd">00015</a> <span class="preprocessor">#define MODE_START                      0x0000</span>
+<a name="l00016"></a><a class="code" href="apc__defines_8h.html#a29a7dfd4fec0d672f9690159d70abc0d">00016</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_STOP                       0x1000</span>
+<a name="l00017"></a><a class="code" href="apc__defines_8h.html#a29fd5432f775e820a775e8a0bd449044">00017</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_FPN                        0x0084</span>
+<a name="l00018"></a><a class="code" href="apc__defines_8h.html#a521315233f87d86ba3102b3869bed2ec">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_FPN_ODC                    0x1088</span>
+<a name="l00019"></a><a class="code" href="apc__defines_8h.html#a9eed60cb401c9305d2a2811f4b4f83e7">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_DISP_FPN_ODC               0x2001</span>
+<a name="l00020"></a><a class="code" href="apc__defines_8h.html#a619d3408f0f6df96a0ea99bd3f2efa94">00020</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_DISP_MEDIAN_FPN_ODC        0x3004</span>
+<a name="l00021"></a><a class="code" href="apc__defines_8h.html#a4509603e61ec031acbd5987fba98d50f">00021</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_DISP_MEDIAN_FPN_ODC_TRACK  0x4104</span>
+<a name="l00022"></a><a class="code" href="apc__defines_8h.html#a7cda209158afa4dc103316ae74d62bc7">00022</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_DISP_FPN_ODC_SOBEL         0x2002</span>
+<a name="l00023"></a><a class="code" href="apc__defines_8h.html#a09fe1da32539b2359914354107353a6e">00023</a> <span class="preprocessor"></span><span class="preprocessor">#define MODE_TABLE_SIZE                 6</span>
+<a name="l00024"></a>00024 <span class="preprocessor"></span>
+<a name="l00025"></a><a class="code" href="apc__defines_8h.html#a573c6a21141c17da9298fa7ca56d6c33">00025</a> <span class="preprocessor">#define B300    0x7</span>
+<a name="l00026"></a><a class="code" href="apc__defines_8h.html#a4a0fb8730fc62c93222bdcfead0685e7">00026</a> <span class="preprocessor"></span><span class="preprocessor">#define B600    0x8</span>
+<a name="l00027"></a><a class="code" href="apc__defines_8h.html#a36fdf3b468aa37c932c5feb0f3a9d7d7">00027</a> <span class="preprocessor"></span><span class="preprocessor">#define B1200   0x9</span>
+<a name="l00028"></a><a class="code" href="apc__defines_8h.html#af5bd4045b436cba08feb96e15994c04b">00028</a> <span class="preprocessor"></span><span class="preprocessor">#define B2400   0xb</span>
+<a name="l00029"></a><a class="code" href="apc__defines_8h.html#a3b0ce0abd5ad4af8d485c843c9bab66c">00029</a> <span class="preprocessor"></span><span class="preprocessor">#define B4800   0xc</span>
+<a name="l00030"></a><a class="code" href="apc__defines_8h.html#ad0539916b8412eb7ddfb9ae02aff0853">00030</a> <span class="preprocessor"></span><span class="preprocessor">#define B9600   0xd</span>
+<a name="l00031"></a><a class="code" href="apc__defines_8h.html#ae9baab0dacc8d414681e1cb5c354a058">00031</a> <span class="preprocessor"></span><span class="preprocessor">#define B19200  0xe</span>
+<a name="l00032"></a><a class="code" href="apc__defines_8h.html#ab282ae5b7fb59155ee42d1b6c9a80683">00032</a> <span class="preprocessor"></span><span class="preprocessor">#define B38400  0xf</span>
+<a name="l00033"></a><a class="code" href="apc__defines_8h.html#a4bde6a10c31adfe1959fb9724e13029a">00033</a> <span class="preprocessor"></span><span class="preprocessor">#define B57600  0x1001</span>
+<a name="l00034"></a><a class="code" href="apc__defines_8h.html#aef3a1340ea0fba1573691a9e74a43d11">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define B115200 0x1002</span>
+<a name="l00035"></a><a class="code" href="apc__defines_8h.html#aa0a8a3b09c593c7be5bfbbeb09f14d76">00035</a> <span class="preprocessor"></span><span class="preprocessor">#define B230400 0x1003</span>
+<a name="l00036"></a><a class="code" href="apc__defines_8h.html#a644a0912fa1e82fd24c0516b4723ee59">00036</a> <span class="preprocessor"></span><span class="preprocessor">#define B460800 0x1004</span>
+<a name="l00037"></a><a class="code" href="apc__defines_8h.html#ae2d3cdb046f933a4a6ccd5497516c2a5">00037</a> <span class="preprocessor"></span><span class="preprocessor">#define B921600 0x1007</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span>
+<a name="l00039"></a><a class="code" href="apc__defines_8h.html#a655c84af1b0034986ff56e12e84f983d">00039</a> <span class="preprocessor">#define NONE    0</span>
+<a name="l00040"></a><a class="code" href="apc__defines_8h.html#a0ecdd7deb868e0319b01e42a1d9db86a">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define EVEN    0x100</span>
+<a name="l00041"></a><a class="code" href="apc__defines_8h.html#a9fa4b8c9552dae40afdc18558bfd4893">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define ODD     0x200</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a><a class="code" href="apc__defines_8h.html#aed2d9610e0af73c4b7027755d2c1676b">00043</a> <span class="preprocessor">#define ONEBIT  0</span>
+<a name="l00044"></a><a class="code" href="apc__defines_8h.html#a838964cffa4adc5d99fab25f6647c774">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define TWOBITS 0x40</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span>
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="apc__defines_8h.html#a92de6c3a5fad380a69d67671987822b1">00047</a> <span class="preprocessor">#define CS7     0x20</span>
+<a name="l00048"></a><a class="code" href="apc__defines_8h.html#a083623175b34340b14359a57c5107232">00048</a> <span class="preprocessor"></span><span class="preprocessor">#define CS8     0x30</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>
+<a name="l00050"></a><a class="code" href="apc__defines_8h.html#aa83671c577a612f89d5dd54eb4174792">00050</a> <span class="preprocessor">#define NUM_STEP 16   //!&lt; Numero di disparità</span>
+<a name="l00051"></a><a class="code" href="apc__defines_8h.html#a94ac9e2510073927fb70cdd12fabf629">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define STEP0_225 12</span>
+<a name="l00052"></a><a class="code" href="apc__defines_8h.html#a620146715f651e8ab30bd20297aeec50">00052</a> <span class="preprocessor"></span><span class="preprocessor">#define STEP0_240 29</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

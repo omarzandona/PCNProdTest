@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente utils.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>utils.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="utils_8cpp.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="comment">/*</span>
+<a name="l00007"></a>00007 <span class="comment">Crop Image</span>
+<a name="l00008"></a>00008 <span class="comment">*/</span>
+<a name="l00009"></a><a class="code" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">00009</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208" title="&amp;lt; Test Componenti connesse">Utils::CropImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_w, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; new_h)
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011   <span class="keywordtype">int</span> sz_crop_image = new_w*new_h;
+<a name="l00012"></a>00012   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* crop_image = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)malloc(sz_crop_image*<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));
+<a name="l00013"></a>00013   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* ptr_crop_image;
+<a name="l00014"></a>00014   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* ptr_img;
+<a name="l00015"></a>00015   <span class="keywordtype">int</span> cr = 0;
+<a name="l00016"></a>00016   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> r = <a class="code" href="check__pcn_8h.html#a6c8f058845c4dcee9e90564caba33ffa">BORDER_Y</a>; r &lt; <a class="code" href="check__pcn_8h.html#a652e87ecc9140879666ae9d6bf4ca893">NY</a> - <a class="code" href="check__pcn_8h.html#a6c8f058845c4dcee9e90564caba33ffa">BORDER_Y</a>; ++r, ++cr)
+<a name="l00017"></a>00017     {
+<a name="l00018"></a>00018       ptr_img = &amp;img[r*<a class="code" href="check__pcn_8h.html#a4a9d32ff035c82119003134767948ebf">NX</a> + <a class="code" href="check__pcn_8h.html#a526a2b86d13bf26306d33d6de551d75b">BORDER_X</a>];
+<a name="l00019"></a>00019       ptr_crop_image = &amp;crop_image[cr*new_w];
+<a name="l00020"></a>00020       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = <a class="code" href="check__pcn_8h.html#a526a2b86d13bf26306d33d6de551d75b">BORDER_X</a>; c &lt; <a class="code" href="check__pcn_8h.html#a4a9d32ff035c82119003134767948ebf">NX</a> - <a class="code" href="check__pcn_8h.html#a23f8ea29a7e45314c7d01e7496c9e852">BORDER_X_2</a>; ++c, ++ptr_img, ++ptr_crop_image)
+<a name="l00021"></a>00021         {
+<a name="l00022"></a>00022           *ptr_crop_image = *ptr_img;
+<a name="l00023"></a>00023         }
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025     }
+<a name="l00026"></a>00026   <span class="keywordflow">return</span> crop_image;
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="class_utils.html#a30e964693bb93e16b751b88fc2d0d257">00029</a> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a30e964693bb93e16b751b88fc2d0d257">Utils::findIntInVect</a>( std::vector&lt;int&gt; vect, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; value ){
+<a name="l00030"></a>00030   <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;vect.size(); ++i ){
+<a name="l00031"></a>00031       <span class="keywordflow">if</span> ( vect.at(i) == value )
+<a name="l00032"></a>00032         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00033"></a>00033     }
+<a name="l00034"></a>00034   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00035"></a>00035 }
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">00039</a> QImage <a class="code" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage</a>( <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *img ){
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041   QImage image_result(img, <a class="code" href="check__pcn_8h.html#a4a9d32ff035c82119003134767948ebf">NX</a>, <a class="code" href="check__pcn_8h.html#a652e87ecc9140879666ae9d6bf4ca893">NY</a>,QImage::Format_Indexed8);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043   <span class="keywordflow">return</span> image_result;
+<a name="l00044"></a>00044 }
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="class_utils.html#af76b7c9f31b0e363df81754674af3769">00046</a> <a class="code" href="structt_mode_images__.html">tModeImages</a> <a class="code" href="class_utils.html#af76b7c9f31b0e363df81754674af3769">Utils::getModeImgs</a>( <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>** datasetSx, <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>** datasetDx, <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>** datasetDsp ){
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049   <a class="code" href="structt_mode_images__.html">tModeImages</a> out;
+<a name="l00050"></a>00050   out.<a class="code" href="structt_mode_images__.html#acb2503be6bf16d895702052122c02c61">imgSx</a> = <a class="code" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg</a>(datasetSx);
+<a name="l00051"></a>00051   out.<a class="code" href="structt_mode_images__.html#ab77fbe7c126e2126f5eed3171c59e8bf">imgDx</a> = <a class="code" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg</a>(datasetDx);
+<a name="l00052"></a>00052   out.<a class="code" href="structt_mode_images__.html#ac4de06e726b3612dfe3240a102e53188">imgDsp</a> = <a class="code" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg</a>(datasetDsp);
+<a name="l00053"></a>00053   <span class="keywordflow">return</span> out;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a><a class="code" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">00056</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* <a class="code" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg</a>( <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>** dataset ){
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* out = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc( <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>) );
+<a name="l00059"></a>00059   <a class="code" href="check__pcn_8h.html#aaf7b5f945a9b05fbe412930af18324a8">test_alloc</a>( out );
+<a name="l00060"></a>00060   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>* temp_img = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc( <a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>) );
+<a name="l00061"></a>00061   <a class="code" href="check__pcn_8h.html#aaf7b5f945a9b05fbe412930af18324a8">test_alloc</a>( temp_img );
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> j=0; j&lt;<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>; ++j ){
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065       <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>; ++i )
+<a name="l00066"></a>00066         temp_img[i] = dataset[i][j];
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069       out[j] = <a class="code" href="class_utils.html#aaa3379d9c09f3bbcbc53a52ad73d9bad">Utils::myMax</a>(<a class="code" href="class_utils.html#a0b8cfc44528935e6945642c4df2856a5">Utils::myCalcHist</a>(temp_img, NUM_FRAME_TO_PROCESS));
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071     }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074   free(temp_img);
+<a name="l00075"></a>00075   <span class="keywordflow">return</span> out;
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a><a class="code" href="class_utils.html#a0b8cfc44528935e6945642c4df2856a5">00079</a> <span class="keywordtype">int</span>* <a class="code" href="class_utils.html#a0b8cfc44528935e6945642c4df2856a5">Utils::myCalcHist</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; size){
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081   <span class="keywordtype">int</span>* hist = (<span class="keywordtype">int</span>*)calloc(<a class="code" href="check__pcn_8h.html#a401f1cca6f833dfa7601f22db5431067">N_BINS</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; ++i)
+<a name="l00084"></a>00084     <span class="keywordflow">if</span> ( img[i] &gt;= 0 &amp;&amp; img[i] &lt; <a class="code" href="check__pcn_8h.html#a401f1cca6f833dfa7601f22db5431067">N_BINS</a> )
+<a name="l00085"></a>00085       hist[img[i]]++;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087   <span class="keywordflow">return</span> hist;
+<a name="l00088"></a>00088 }
+<a name="l00089"></a>00089 
+<a name="l00090"></a><a class="code" href="class_utils.html#aaa3379d9c09f3bbcbc53a52ad73d9bad">00090</a> <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> <a class="code" href="class_utils.html#aaa3379d9c09f3bbcbc53a52ad73d9bad">Utils::myMax</a>( <span class="keywordtype">int</span>* vect ){
+<a name="l00091"></a>00091   <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> <a class="code" href="check__pcn_8h.html#affe776513b24d84b39af8ab0930fef7f">max</a> = 0;
+<a name="l00092"></a>00092   <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="check__pcn_8h.html#a401f1cca6f833dfa7601f22db5431067">N_BINS</a>; ++i )
+<a name="l00093"></a>00093     <span class="keywordflow">if</span> ( max &lt; vect[i] )
+<a name="l00094"></a>00094       max = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>) i;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096   free( vect );
+<a name="l00097"></a>00097   <span class="keywordflow">return</span> <a class="code" href="check__pcn_8h.html#affe776513b24d84b39af8ab0930fef7f">max</a>;
+<a name="l00098"></a>00098 }
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 
+<a name="l00103"></a><a class="code" href="class_utils.html#ab8a3fa4eeaa85bbea0bbcfa3348e52d8">00103</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* <a class="code" href="class_utils.html#ab8a3fa4eeaa85bbea0bbcfa3348e52d8">Utils::rgb2gray</a>(<span class="keyword">const</span> QImage&amp; image){
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105   QImage image_res(image);
+<a name="l00106"></a>00106   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* tmp = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) calloc(<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>,<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));
+<a name="l00107"></a>00107   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* res = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) calloc(<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>,<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));
+<a name="l00108"></a>00108   QRgb col;
+<a name="l00109"></a>00109   <span class="keywordtype">int</span> width = image.width();
+<a name="l00110"></a>00110   <span class="keywordtype">int</span> height = image.height();
+<a name="l00111"></a>00111   <span class="keywordtype">int</span> k = 0;
+<a name="l00112"></a>00112   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; height; ++j)
+<a name="l00113"></a>00113     {
+<a name="l00114"></a>00114       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; width; ++i)
+<a name="l00115"></a>00115         {
+<a name="l00116"></a>00116           col = image.pixel(i, j);
+<a name="l00117"></a>00117           tmp[k++] = qGray(col);
+<a name="l00118"></a>00118         }
+<a name="l00119"></a>00119     }
+<a name="l00120"></a>00120   k = 0;
+<a name="l00121"></a>00121   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; height; ++j)
+<a name="l00122"></a>00122     {
+<a name="l00123"></a>00123       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; width; ++i)
+<a name="l00124"></a>00124         {
+<a name="l00125"></a>00125           col = image.pixel(i, j);
+<a name="l00126"></a>00126           res[j*width + i] =  (<span class="keywordtype">unsigned</span> char) qGray(col);
+<a name="l00127"></a>00127           <span class="comment">//if ( j == 8)</span>
+<a name="l00128"></a>00128           <span class="comment">//  qDebug()&lt;&lt; res[j*width + i];</span>
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130     }
+<a name="l00131"></a>00131   free(tmp);
+<a name="l00132"></a>00132   <span class="keywordflow">return</span> res;
+<a name="l00133"></a>00133 }
+<a name="l00134"></a>00134 
+<a name="l00135"></a><a class="code" href="class_utils.html#abe7d6b4ab0966350a8b0cbd6348d5657">00135</a> <span class="keywordtype">void</span> <a class="code" href="class_utils.html#abe7d6b4ab0966350a8b0cbd6348d5657">Utils::saveImage</a>(  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* img, QString&amp; path)
+<a name="l00136"></a>00136 {
+<a name="l00137"></a>00137   QPixmap::fromImage(QImage(img,160,120,QImage::Format_Indexed8)).save(path, <span class="stringliteral">&quot;PNG&quot;</span>);
+<a name="l00138"></a>00138 }
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="class_utils.html#a1d88d9de5838584c392bbbe0720b4067">00140</a> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a1d88d9de5838584c392bbbe0720b4067">Utils::readXmlFile</a>( QIODevice&amp; device, QSettings::SettingsMap&amp; map )
+<a name="l00141"></a>00141 {
+<a name="l00142"></a>00142   QXmlStreamReader xmlReader( &amp;device );
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144   QString currentElementName;
+<a name="l00145"></a>00145   <span class="keywordflow">while</span>( !xmlReader.atEnd() )
+<a name="l00146"></a>00146     {
+<a name="l00147"></a>00147       xmlReader.readNext();
+<a name="l00148"></a>00148       <span class="keywordflow">while</span>( xmlReader.isStartElement() )
+<a name="l00149"></a>00149         {
+<a name="l00150"></a>00150           <span class="keywordflow">if</span>( xmlReader.name() == <span class="stringliteral">&quot;SettingsMap&quot;</span> )
+<a name="l00151"></a>00151             {
+<a name="l00152"></a>00152               xmlReader.readNext();
+<a name="l00153"></a>00153               <span class="keywordflow">continue</span>;
+<a name="l00154"></a>00154             }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156           <span class="keywordflow">if</span>( !currentElementName.isEmpty() )
+<a name="l00157"></a>00157             {
+<a name="l00158"></a>00158               currentElementName += <span class="stringliteral">&quot;/&quot;</span>;
+<a name="l00159"></a>00159             }
+<a name="l00160"></a>00160           currentElementName += xmlReader.name().toString();
+<a name="l00161"></a>00161           xmlReader.readNext();
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164       <span class="keywordflow">if</span>( xmlReader.isEndElement() )
+<a name="l00165"></a>00165         {
+<a name="l00166"></a>00166           <span class="keywordflow">continue</span>;
+<a name="l00167"></a>00167         }
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169       <span class="keywordflow">if</span>( xmlReader.isCharacters() &amp;&amp; !xmlReader.isWhitespace() )
+<a name="l00170"></a>00170         {
+<a name="l00171"></a>00171           QString key = currentElementName;
+<a name="l00172"></a>00172           QString value = xmlReader.text().toString();
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174           map[ key ] = value;
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176           currentElementName.clear();
+<a name="l00177"></a>00177         }
+<a name="l00178"></a>00178     }
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180   <span class="keywordflow">if</span>( xmlReader.hasError() )
+<a name="l00181"></a>00181     {
+<a name="l00182"></a>00182       <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00183"></a>00183     }
+<a name="l00184"></a>00184 
+<a name="l00185"></a>00185   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00186"></a>00186 }
+<a name="l00187"></a>00187 
+<a name="l00188"></a><a class="code" href="class_utils.html#a2a261c6ce8b219f60fad01c07f173afe">00188</a> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a2a261c6ce8b219f60fad01c07f173afe">Utils::writeXmlFile</a>( QIODevice&amp; device, <span class="keyword">const</span> QSettings::SettingsMap&amp; map )
+<a name="l00189"></a>00189 {
+<a name="l00190"></a>00190   QXmlStreamWriter xmlWriter( &amp;device );
+<a name="l00191"></a>00191   xmlWriter.setAutoFormatting( <span class="keyword">true</span> );
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193   xmlWriter.writeStartDocument();
+<a name="l00194"></a>00194   xmlWriter.writeStartElement( <span class="stringliteral">&quot;SettingsMap&quot;</span> );
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196   QSettings::SettingsMap::const_iterator mi = map.begin();
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198   <span class="keywordflow">for</span>( mi; mi != map.end(); ++mi )
+<a name="l00199"></a>00199     {
+<a name="l00200"></a>00200       std::vector&lt; std::string &gt; groups;
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202       QStringList groups_ = mi.key().split(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00203"></a>00203       <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i=0; i&lt;groups_.size(); ++i ){
+<a name="l00204"></a>00204           groups.push_back(groups_.at(i).toStdString().c_str());
+<a name="l00205"></a>00205         }
+<a name="l00206"></a>00206       <span class="keywordflow">foreach</span>( std::string groupName, groups )
+<a name="l00207"></a>00207         {
+<a name="l00208"></a>00208           xmlWriter.writeStartElement( groupName.c_str() );
+<a name="l00209"></a>00209         }
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211       xmlWriter.writeCharacters( mi.value().toString() );
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213       <span class="keywordflow">foreach</span>( std::string groupName, groups )
+<a name="l00214"></a>00214         {
+<a name="l00215"></a>00215           xmlWriter.writeEndElement();
+<a name="l00216"></a>00216         }
+<a name="l00217"></a>00217     }
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219   xmlWriter.writeEndElement();
+<a name="l00220"></a>00220   xmlWriter.writeEndDocument();
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00223"></a>00223 }
+<a name="l00224"></a>00224 
+<a name="l00225"></a><a class="code" href="class_utils.html#a1a461f92f4f5e09e010898817fc6eee7">00225</a> <span class="keywordtype">bool</span> <a class="code" href="class_utils.html#a1a461f92f4f5e09e010898817fc6eee7">Utils::removeDir</a>(<span class="keyword">const</span> QString &amp; dirName)
+<a name="l00226"></a>00226 {
+<a name="l00227"></a>00227   <span class="keywordtype">bool</span> result = <span class="keyword">true</span>;
+<a name="l00228"></a>00228   QDir dir(dirName);
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230   <span class="keywordflow">if</span> (dir.exists(dirName)) {
+<a name="l00231"></a>00231       Q_FOREACH(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden  | QDir::AllDirs | QDir::Files, QDir::DirsFirst)) {
+<a name="l00232"></a>00232           <span class="keywordflow">if</span> (info.isDir()) {
+<a name="l00233"></a>00233               result = <a class="code" href="class_utils.html#a1a461f92f4f5e09e010898817fc6eee7">removeDir</a>(info.absoluteFilePath());
+<a name="l00234"></a>00234             }
+<a name="l00235"></a>00235           <span class="keywordflow">else</span> {
+<a name="l00236"></a>00236               result = QFile::remove(info.absoluteFilePath());
+<a name="l00237"></a>00237             }
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239           <span class="keywordflow">if</span> (!result) {
+<a name="l00240"></a>00240               <span class="keywordflow">return</span> result;
+<a name="l00241"></a>00241             }
+<a name="l00242"></a>00242         }
+<a name="l00243"></a>00243       result = dir.rmdir(dirName);
+<a name="l00244"></a>00244     }
+<a name="l00245"></a>00245   <span class="keywordflow">return</span> result;
+<a name="l00246"></a>00246 }
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248 
+<a name="l00249"></a><a class="code" href="class_utils.html#a4a9522deb7b764c3c036f7580c6544c7">00249</a> <span class="keywordtype">int</span> <a class="code" href="class_utils.html#a4a9522deb7b764c3c036f7580c6544c7">Utils::strcasecmp</a>( <span class="keywordtype">char</span> *s1,  <span class="keywordtype">char</span> *s2, <span class="keywordtype">int</span> index)
+<a name="l00250"></a>00250 {
+<a name="l00251"></a>00251    <span class="keywordtype">char</span>* c1 = s1;
+<a name="l00252"></a>00252    <span class="keywordtype">char</span>* c2 = s2;
+<a name="l00253"></a>00253    <span class="keywordtype">int</span> i = 0;
+<a name="l00254"></a>00254    <span class="keywordflow">while</span>( i &lt; index &amp;&amp; *c1 != <span class="charliteral">&#39;\0&#39;</span>)
+<a name="l00255"></a>00255     {
+<a name="l00256"></a>00256       <span class="keywordflow">if</span>( *c1 == *c2)
+<a name="l00257"></a>00257         {
+<a name="l00258"></a>00258           ++c1;
+<a name="l00259"></a>00259           ++c2;
+<a name="l00260"></a>00260           ++i;
+<a name="l00261"></a>00261         }
+<a name="l00262"></a>00262       <span class="keywordflow">else</span>
+<a name="l00263"></a>00263         <span class="keywordflow">return</span> (*c2-*c1);
+<a name="l00264"></a>00264     }
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266   <span class="keywordflow">return</span> 0;
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 }
+<a name="l00269"></a>00269 
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

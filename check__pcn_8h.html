@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest: Riferimenti per il file check_pcn.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definizioni</a> &#124;
+<a href="#func-members">Funzioni</a> &#124;
+<a href="#var-members">Variabili</a>  </div>
+  <div class="headertitle">
+<h1>Riferimenti per il file check_pcn.h</h1>  </div>
+</div>
+<div class="contents">
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;math.h&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;qstring&gt;</code><br/>
+<code>#include &lt;QImage&gt;</code><br/>
+<code>#include &lt;QDebug&gt;</code><br/>
+<code>#include &lt;QPixmap&gt;</code><br/>
+<code>#include &lt;QCoreApplication&gt;</code><br/>
+<code>#include &quot;../utils.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="structures_8h_source.html">../Structures.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_graph_disparity_8h_source.html">GraphDisparity.h</a>&quot;</code><br/>
+<code>#include &quot;../Structures.h&quot;</code><br/>
+
+<p><a href="check__pcn_8h_source.html">Vai al codice sorgente di questo file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Definizioni</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#affe776513b24d84b39af8ab0930fef7f">max</a>(a, b)&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ac6afabdc09a49a433ee19d8a9486056d">min</a>(a, b)&#160;&#160;&#160;(((a) &lt; (b)) ? (a) : (b))</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#aaf7b5f945a9b05fbe412930af18324a8">test_alloc</a>(X)&#160;&#160;&#160;do {if ((void *)(X) == NULL) fprintf(stderr, &quot;Out of memory in %s, (%s, line %d).\n&quot;, __FUNCTION__, __FILE__, __LINE__); } while (0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>&#160;&#160;&#160;(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a526a2b86d13bf26306d33d6de551d75b">BORDER_X</a>&#160;&#160;&#160;12</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a6c8f058845c4dcee9e90564caba33ffa">BORDER_Y</a>&#160;&#160;&#160;8</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a23f8ea29a7e45314c7d01e7496c9e852">BORDER_X_2</a>&#160;&#160;&#160;18</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a652e87ecc9140879666ae9d6bf4ca893">NY</a>&#160;&#160;&#160;120</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a4a9d32ff035c82119003134767948ebf">NX</a>&#160;&#160;&#160;160</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>&#160;&#160;&#160;NX*NY</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a6f62b093cc83a493aa40f3ca1ae08f92">H_CROP</a>&#160;&#160;&#160;104</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#adcfa915f4dbb062e4bd872697b90beeb">W_CROP</a>&#160;&#160;&#160;130</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a546c8b526c7922340870ed55a07b8271">CROP</a>&#160;&#160;&#160;H_CROP*W_CROP</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a401f1cca6f833dfa7601f22db5431067">N_BINS</a>&#160;&#160;&#160;256</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a96e9e49ae27abf40102b4251291753b0">NUM_LEVEL_DISP</a>&#160;&#160;&#160;5</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#aa04dd72ebc6328bb83ab26ac3b4edd99">DISP_1</a>&#160;&#160;&#160;7</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#aa70761c9dee0725bf45d3de2d1942bc7">DISP_2</a>&#160;&#160;&#160;8</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ab796b724913a13728f0277a987b9aeeb">DISP_3</a>&#160;&#160;&#160;9</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ad3edc521b4a187f536a37a6b2bce7d37">DISP_4</a>&#160;&#160;&#160;10</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ad4ef40e01933ecf3503cbd1bc23d8058">DISP_5</a>&#160;&#160;&#160;11</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a78f9e97c6f99056e2436cd9e51618883">UNIFORM_VALUE</a>&#160;&#160;&#160;16</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a066a3c7c6f7a4b8ffb1d026754a1c637">FACT_SOBEL_KERNEL</a>&#160;&#160;&#160;4.0f</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#aa4f8ea40228c3c3a9a7143b1d1ad8956">RADIUS</a>&#160;&#160;&#160;3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>&#160;&#160;&#160;3.14159265</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a30f0a0ff664c7c5785398b18d05e8610">LAP_RADIUS</a>&#160;&#160;&#160;3</td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funzioni</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a2edb6bcd9e0f5199c883c1854b66b9df">printFeatures</a> (float *features)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Print values features  <a href="#a2edb6bcd9e0f5199c883c1854b66b9df"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a86512bdca0a41ad223241a7b5e03d023">CropImage</a> (unsigned char *img, const int &amp;new_w, const int &amp;new_h)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a3f35e5a86aab14bd8425c2d1a3d66eef">compute_focus_measurement</a> (unsigned char *img, const int &amp;w, const int &amp;h)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">compute_laplacian  <a href="#a3f35e5a86aab14bd8425c2d1a3d66eef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a31d0eb53d75bc571ddb459c4bc8b284f">compute_laplacian</a> (unsigned char *img, const int &amp;w, const int &amp;h)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">check_focus  <a href="#a31d0eb53d75bc571ddb459c4bc8b284f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a2487431c884ebf0f8c37bd88ef66ac0b">check_focus</a> (unsigned char *&amp;img_dx, unsigned char *&amp;img_sx, const int &amp;w, const int &amp;h)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setta i parametri per il check.  <a href="#a2487431c884ebf0f8c37bd88ef66ac0b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a0705db03c2d1f9b175764003c67227e6">setParameters</a> (<a class="el" href="structt_parameters_check__.html">tParametersCheck</a> param)</td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variabili</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ad9fb5036471c57de25626a70d30f8628">KERNEL_H_SOBEL</a> [9] = {1,0,-1,2,0,-2,1,0,-1}</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a8d871dccb5e6e84860d56969a6f34368">KERNEL_V_SOBEL</a> [9] = {1,2,1,0,0,0,-1,-2,-1}</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#a110e2c1ccc176637b9fda1e2b7e016bb">laplacian_kernel</a> [9] = { 0.1667,0.6667f,0.1667f,0.6667f,-3.3333f,0.6667f,0.1667,0.6667f,0.1667f}</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a> = 30.0f</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8">MAX_PEAK_DIFF_VG</a> = 20</td></tr>
+</table>
+<hr/><h2>Documentazione delle definizioni</h2>
+<a class="anchor" id="a526a2b86d13bf26306d33d6de551d75b"></a><!-- doxytag: member="check_pcn.h::BORDER_X" ref="a526a2b86d13bf26306d33d6de551d75b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BORDER_X&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00034">34</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">Utils::CropImage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23f8ea29a7e45314c7d01e7496c9e852"></a><!-- doxytag: member="check_pcn.h::BORDER_X_2" ref="a23f8ea29a7e45314c7d01e7496c9e852" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BORDER_X_2&#160;&#160;&#160;18</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00036">36</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">Utils::CropImage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c8f058845c4dcee9e90564caba33ffa"></a><!-- doxytag: member="check_pcn.h::BORDER_Y" ref="a6c8f058845c4dcee9e90564caba33ffa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BORDER_Y&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00035">35</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">Utils::CropImage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a546c8b526c7922340870ed55a07b8271"></a><!-- doxytag: member="check_pcn.h::CROP" ref="a546c8b526c7922340870ed55a07b8271" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CROP&#160;&#160;&#160;H_CROP*W_CROP</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00044">44</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_graph_disparity.html#a2b8756667fbaf0e37a4da49e21aef723">GraphDisparity::addPixel()</a>, <a class="el" href="class_graph_disparity.html#ae4ab7268eb11b9fbe9945b200300fd9c">GraphDisparity::getNeighborhood()</a>, <a class="el" href="class_graph_disparity.html#a5671ca6e2d6e6425eb03998feb57d378">GraphDisparity::printNodes()</a>, e <a class="el" href="class_graph_disparity.html#a062883569c4999e0f248cab98f5669b6">GraphDisparity::printResults()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad72dbcf6d0153db1b8d8a58001feed83"></a><!-- doxytag: member="check_pcn.h::DEBUG" ref="ad72dbcf6d0153db1b8d8a58001feed83" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00004">4</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa04dd72ebc6328bb83ab26ac3b4edd99"></a><!-- doxytag: member="check_pcn.h::DISP_1" ref="aa04dd72ebc6328bb83ab26ac3b4edd99" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISP_1&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00051">51</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa70761c9dee0725bf45d3de2d1942bc7"></a><!-- doxytag: member="check_pcn.h::DISP_2" ref="aa70761c9dee0725bf45d3de2d1942bc7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISP_2&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00052">52</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab796b724913a13728f0277a987b9aeeb"></a><!-- doxytag: member="check_pcn.h::DISP_3" ref="ab796b724913a13728f0277a987b9aeeb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISP_3&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00053">53</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3edc521b4a187f536a37a6b2bce7d37"></a><!-- doxytag: member="check_pcn.h::DISP_4" ref="ad3edc521b4a187f536a37a6b2bce7d37" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISP_4&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00054">54</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4ef40e01933ecf3503cbd1bc23d8058"></a><!-- doxytag: member="check_pcn.h::DISP_5" ref="ad4ef40e01933ecf3503cbd1bc23d8058" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISP_5&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00055">55</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a066a3c7c6f7a4b8ffb1d026754a1c637"></a><!-- doxytag: member="check_pcn.h::FACT_SOBEL_KERNEL" ref="a066a3c7c6f7a4b8ffb1d026754a1c637" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FACT_SOBEL_KERNEL&#160;&#160;&#160;4.0f</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00060">60</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f62b093cc83a493aa40f3ca1ae08f92"></a><!-- doxytag: member="check_pcn.h::H_CROP" ref="a6f62b093cc83a493aa40f3ca1ae08f92" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_CROP&#160;&#160;&#160;104</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00042">42</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_graph_disparity.html#a69998966b0dd2cca4f2114322c11b83e">GraphDisparity::calcNear()</a>, <a class="el" href="class_main_window.html#aed7e93afb8937668fb26d92d1eed4a2a">MainWindow::CheckDisparity()</a>, <a class="el" href="class_graph_disparity.html#a03695cf9929314dc920f501ff6f1a2c0">GraphDisparity::checkInternalBlob()</a>, <a class="el" href="class_graph_disparity.html#a35a1924780938551bc46d860a4e79d3f">GraphDisparity::checkShape()</a>, e <a class="el" href="class_graph_disparity.html#a944e4bbeb225d5b4a2cd72d3f0c7e202">GraphDisparity::nodePruning()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30f0a0ff664c7c5785398b18d05e8610"></a><!-- doxytag: member="check_pcn.h::LAP_RADIUS" ref="a30f0a0ff664c7c5785398b18d05e8610" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LAP_RADIUS&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00068">68</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="check__pcn_8h.html#a31d0eb53d75bc571ddb459c4bc8b284f">compute_laplacian()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="affe776513b24d84b39af8ab0930fef7f"></a><!-- doxytag: member="check_pcn.h::max" ref="affe776513b24d84b39af8ab0930fef7f" args="(a, b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define max</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00020">20</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_graph_disparity.html#a7947af599dc5cd72a8d390eccf8a98c1">GraphDisparity::findlimits()</a>, e <a class="el" href="class_utils.html#aaa3379d9c09f3bbcbc53a52ad73d9bad">Utils::myMax()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac6afabdc09a49a433ee19d8a9486056d"></a><!-- doxytag: member="check_pcn.h::min" ref="ac6afabdc09a49a433ee19d8a9486056d" args="(a, b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define min</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a) &lt; (b)) ? (a) : (b))</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00024">24</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_graph_disparity.html#a7947af599dc5cd72a8d390eccf8a98c1">GraphDisparity::findlimits()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a401f1cca6f833dfa7601f22db5431067"></a><!-- doxytag: member="check_pcn.h::N_BINS" ref="a401f1cca6f833dfa7601f22db5431067" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N_BINS&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00047">47</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_utils.html#a0b8cfc44528935e6945642c4df2856a5">Utils::myCalcHist()</a>, e <a class="el" href="class_utils.html#aaa3379d9c09f3bbcbc53a52ad73d9bad">Utils::myMax()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a170755e30c36be4904106b7bb279b1ec"></a><!-- doxytag: member="check_pcn.h::NN" ref="a170755e30c36be4904106b7bb279b1ec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NN&#160;&#160;&#160;NX*NY</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00040">40</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">AcqThread::allocationDatasets()</a>, <a class="el" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg()</a>, <a class="el" href="class_main_window.html#af1f2a47c4d2cdb1efbc9b6585aece5e9">MainWindow::LoadDat()</a>, <a class="el" href="class_utils.html#ab8a3fa4eeaa85bbea0bbcfa3348e52d8">Utils::rgb2gray()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">AcqThread::update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a070d2ce7b6bb7e5c05602aa8c308d0c4"></a><!-- doxytag: member="check_pcn.h::NULL" ref="a070d2ce7b6bb7e5c05602aa8c308d0c4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NULL&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00030">30</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a65c4331f45e176a4c7f49a0fbe2d6de3">MainWindow::createSocketScheduler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96e9e49ae27abf40102b4251291753b0"></a><!-- doxytag: member="check_pcn.h::NUM_LEVEL_DISP" ref="a96e9e49ae27abf40102b4251291753b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUM_LEVEL_DISP&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00050">50</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a9d32ff035c82119003134767948ebf"></a><!-- doxytag: member="check_pcn.h::NX" ref="a4a9d32ff035c82119003134767948ebf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NX&#160;&#160;&#160;160</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00039">39</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a9ece0d4114d9feb34658ae4f09b1b88c">MainWindow::CheckFocus()</a>, <a class="el" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">Utils::CropImage()</a>, <a class="el" href="class_main_window.html#af1f2a47c4d2cdb1efbc9b6585aece5e9">MainWindow::LoadDat()</a>, e <a class="el" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a652e87ecc9140879666ae9d6bf4ca893"></a><!-- doxytag: member="check_pcn.h::NY" ref="a652e87ecc9140879666ae9d6bf4ca893" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NY&#160;&#160;&#160;120</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00038">38</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a9ece0d4114d9feb34658ae4f09b1b88c">MainWindow::CheckFocus()</a>, <a class="el" href="class_utils.html#a7bb79d6ba87038002eb90405fd246208">Utils::CropImage()</a>, <a class="el" href="class_main_window.html#af1f2a47c4d2cdb1efbc9b6585aece5e9">MainWindow::LoadDat()</a>, e <a class="el" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a598a3330b3c21701223ee0ca14316eca"></a><!-- doxytag: member="check_pcn.h::PI" ref="a598a3330b3c21701223ee0ca14316eca" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PI&#160;&#160;&#160;3.14159265</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00064">64</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4f8ea40228c3c3a9a7143b1d1ad8956"></a><!-- doxytag: member="check_pcn.h::RADIUS" ref="aa4f8ea40228c3c3a9a7143b1d1ad8956" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIUS&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00061">61</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf7b5f945a9b05fbe412930af18324a8"></a><!-- doxytag: member="check_pcn.h::test_alloc" ref="aaf7b5f945a9b05fbe412930af18324a8" args="(X)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define test_alloc</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X&#160;)</td>
+          <td>&#160;&#160;&#160;do {if ((void *)(X) == NULL) fprintf(stderr, &quot;Out of memory in %s, (%s, line %d).\n&quot;, __FUNCTION__, __FILE__, __LINE__); } while (0)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00027">27</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_utils.html#a8dd7580405d75d84db76480d4ffcad7d">Utils::getModeImg()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78f9e97c6f99056e2436cd9e51618883"></a><!-- doxytag: member="check_pcn.h::UNIFORM_VALUE" ref="a78f9e97c6f99056e2436cd9e51618883" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNIFORM_VALUE&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00058">58</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcfa915f4dbb062e4bd872697b90beeb"></a><!-- doxytag: member="check_pcn.h::W_CROP" ref="adcfa915f4dbb062e4bd872697b90beeb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define W_CROP&#160;&#160;&#160;130</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00043">43</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_graph_disparity.html#a69998966b0dd2cca4f2114322c11b83e">GraphDisparity::calcNear()</a>, <a class="el" href="class_graph_disparity.html#a8b12ad43edd389d529d60b4f5516d2f7">GraphDisparity::checkCentroid()</a>, <a class="el" href="class_main_window.html#aed7e93afb8937668fb26d92d1eed4a2a">MainWindow::CheckDisparity()</a>, <a class="el" href="class_graph_disparity.html#a35a1924780938551bc46d860a4e79d3f">GraphDisparity::checkShape()</a>, <a class="el" href="class_graph_disparity.html#a043ae67a84d016867f0f560ef318ac75">GraphDisparity::getCoordToPos()</a>, <a class="el" href="class_graph_disparity.html#ae4ab7268eb11b9fbe9945b200300fd9c">GraphDisparity::getNeighborhood()</a>, e <a class="el" href="class_graph_disparity.html#a944e4bbeb225d5b4a2cd72d3f0c7e202">GraphDisparity::nodePruning()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentazione delle funzioni</h2>
+<a class="anchor" id="a2487431c884ebf0f8c37bd88ef66ac0b"></a><!-- doxytag: member="check_pcn.h::check_focus" ref="a2487431c884ebf0f8c37bd88ef66ac0b" args="(unsigned char *&amp;img_dx, unsigned char *&amp;img_sx, const int &amp;w, const int &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_focus </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&amp;&#160;</td>
+          <td class="paramname"> <em>img_dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&amp;&#160;</td>
+          <td class="paramname"> <em>img_sx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setta i parametri per il check. </p>
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8cpp_source.html#l00064">64</a> del file <a class="el" href="check__pcn_8cpp_source.html">check_pcn.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="check__pcn_8cpp.html#a3f35e5a86aab14bd8425c2d1a3d66eef">compute_focus_measurement()</a>, e <a class="el" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a9ece0d4114d9feb34658ae4f09b1b88c">MainWindow::CheckFocus()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f35e5a86aab14bd8425c2d1a3d66eef"></a><!-- doxytag: member="check_pcn.h::compute_focus_measurement" ref="a3f35e5a86aab14bd8425c2d1a3d66eef" args="(unsigned char *img, const int &amp;w, const int &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float compute_focus_measurement </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"> <em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>compute_laplacian </p>
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8cpp_source.html#l00010">10</a> del file <a class="el" href="check__pcn_8cpp_source.html">check_pcn.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="check__pcn_8cpp.html#a31d0eb53d75bc571ddb459c4bc8b284f">compute_laplacian()</a>.</p>
+
+<p>Referenziato da <a class="el" href="check__pcn_8h.html#a2487431c884ebf0f8c37bd88ef66ac0b">check_focus()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31d0eb53d75bc571ddb459c4bc8b284f"></a><!-- doxytag: member="check_pcn.h::compute_laplacian" ref="a31d0eb53d75bc571ddb459c4bc8b284f" args="(unsigned char *img, const int &amp;w, const int &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* compute_laplacian </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"> <em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>check_focus </p>
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8cpp_source.html#l00032">32</a> del file <a class="el" href="check__pcn_8cpp_source.html">check_pcn.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="check__pcn_8h.html#a30f0a0ff664c7c5785398b18d05e8610">LAP_RADIUS</a>, e <a class="el" href="check__pcn_8h.html#a110e2c1ccc176637b9fda1e2b7e016bb">laplacian_kernel</a>.</p>
+
+<p>Referenziato da <a class="el" href="check__pcn_8h.html#a3f35e5a86aab14bd8425c2d1a3d66eef">compute_focus_measurement()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86512bdca0a41ad223241a7b5e03d023"></a><!-- doxytag: member="check_pcn.h::CropImage" ref="a86512bdca0a41ad223241a7b5e03d023" args="(unsigned char *img, const int &amp;new_w, const int &amp;new_h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* CropImage </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"> <em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>new_w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"> <em>new_h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenziato da <a class="el" href="class_main_window.html#aed7e93afb8937668fb26d92d1eed4a2a">MainWindow::CheckDisparity()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2edb6bcd9e0f5199c883c1854b66b9df"></a><!-- doxytag: member="check_pcn.h::printFeatures" ref="a2edb6bcd9e0f5199c883c1854b66b9df" args="(float *features)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printFeatures </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"> <em>features</em>&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>&lt; Print values features </p>
+<p>Crop Image </p>
+
+</div>
+</div>
+<a class="anchor" id="a0705db03c2d1f9b175764003c67227e6"></a><!-- doxytag: member="check_pcn.h::setParameters" ref="a0705db03c2d1f9b175764003c67227e6" args="(tParametersCheck param)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt_parameters_check__.html">tParametersCheck</a>&#160;</td>
+          <td class="paramname"> <em>param</em>&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8cpp_source.html#l00078">78</a> del file <a class="el" href="check__pcn_8cpp_source.html">check_pcn.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="structt_parameters_check__.html#a619baab983392cf032c9dab2047c3b79">tParametersCheck_::FOCUS_MEASURAMENT</a>, e <a class="el" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow::MainWindow()</a>, e <a class="el" href="class_main_window.html#a086a12e75f15b9d9aacdff008d6bc1ab">MainWindow::receiverParameters()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentazione delle variabili</h2>
+<a class="anchor" id="ad91e8ad38f88467066cb2cc02ea1eef5"></a><!-- doxytag: member="check_pcn.h::FOCUS_MEASURAMENT" ref="ad91e8ad38f88467066cb2cc02ea1eef5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="check__pcn_8h.html#ad91e8ad38f88467066cb2cc02ea1eef5">FOCUS_MEASURAMENT</a> = 30.0f<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00105">105</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="check__pcn_8h.html#a2487431c884ebf0f8c37bd88ef66ac0b">check_focus()</a>, e <a class="el" href="check__pcn_8h.html#a0705db03c2d1f9b175764003c67227e6">setParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9fb5036471c57de25626a70d30f8628"></a><!-- doxytag: member="check_pcn.h::KERNEL_H_SOBEL" ref="ad9fb5036471c57de25626a70d30f8628" args="[9]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char <a class="el" href="check__pcn_8h.html#ad9fb5036471c57de25626a70d30f8628">KERNEL_H_SOBEL</a>[9] = {1,0,-1,2,0,-2,1,0,-1}</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00062">62</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d871dccb5e6e84860d56969a6f34368"></a><!-- doxytag: member="check_pcn.h::KERNEL_V_SOBEL" ref="a8d871dccb5e6e84860d56969a6f34368" args="[9]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char <a class="el" href="check__pcn_8h.html#a8d871dccb5e6e84860d56969a6f34368">KERNEL_V_SOBEL</a>[9] = {1,2,1,0,0,0,-1,-2,-1}</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00063">63</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a110e2c1ccc176637b9fda1e2b7e016bb"></a><!-- doxytag: member="check_pcn.h::laplacian_kernel" ref="a110e2c1ccc176637b9fda1e2b7e016bb" args="[9]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="check__pcn_8h.html#a110e2c1ccc176637b9fda1e2b7e016bb">laplacian_kernel</a>[9] = { 0.1667,0.6667f,0.1667f,0.6667f,-3.3333f,0.6667f,0.1667,0.6667f,0.1667f}<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00067">67</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="check__pcn_8h.html#a31d0eb53d75bc571ddb459c4bc8b284f">compute_laplacian()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb62b1e1c7165886a157b0169bdd8ae8"></a><!-- doxytag: member="check_pcn.h::MAX_PEAK_DIFF_VG" ref="adb62b1e1c7165886a157b0169bdd8ae8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="check__pcn_8h.html#adb62b1e1c7165886a157b0169bdd8ae8">MAX_PEAK_DIFF_VG</a> = 20<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definizione alla linea <a class="el" href="check__pcn_8h_source.html#l00106">106</a> del file <a class="el" href="check__pcn_8h_source.html">check_pcn.h</a>.</p>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:50 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

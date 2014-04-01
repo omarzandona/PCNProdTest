@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente parameters_panel.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>parameters_panel.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="parameters__panel_8cpp.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="parameters__panel_8h.html">parameters_panel.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;ui_parameters_panel.h&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="class_parameters_panel.html#a640b33de21e87b0639840b3c0f200666">00004</a> <a class="code" href="class_parameters_panel.html#a640b33de21e87b0639840b3c0f200666">ParametersPanel::ParametersPanel</a>(QWidget *parent) :
+<a name="l00005"></a>00005     <a class="code" href="class_q_dialog.html">QDialog</a>(parent),
+<a name="l00006"></a>00006     ui(new Ui::<a class="code" href="class_parameters_panel.html">ParametersPanel</a>)
+<a name="l00007"></a>00007 {
+<a name="l00008"></a>00008     <a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;setupUi(<span class="keyword">this</span>);
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010     connect( this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;buttonBox, SIGNAL(clicked(QAbstractButton*)), <span class="keyword">this</span>, SLOT(<a class="code" href="class_parameters_panel.html#a8aa3e4328f57be15c01467e821f63b9e">setDefault</a>(QAbstractButton*)) );
+<a name="l00011"></a>00011     connect( this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;pushButtonCalibrationPath, SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_parameters_panel.html#a95a48737386513db67729295fa0d831f">changeCalibrationPath</a>()));
+<a name="l00012"></a>00012     connect( this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;pushButtonReportPath, SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_parameters_panel.html#ae3a5a79c39f1551e05046dd9375afd41">changeReportPath</a>()));
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="class_parameters_panel.html#a32e7b7877ad3004f7a6855a0d3963d1f">00015</a> <a class="code" href="class_parameters_panel.html#a32e7b7877ad3004f7a6855a0d3963d1f">ParametersPanel::~ParametersPanel</a>()
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <span class="keyword">delete</span> <a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>;
+<a name="l00018"></a>00018 }
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="class_parameters_panel.html#a3382f3078fe83f2629cf1277a5b45fc6">00020</a> <span class="keywordtype">void</span> <a class="code" href="class_parameters_panel.html#a3382f3078fe83f2629cf1277a5b45fc6">ParametersPanel::setParameters</a>( <a class="code" href="structt_parameters__.html">tParameters</a> param ){
+<a name="l00021"></a>00021     <span class="comment">// General</span>
+<a name="l00022"></a>00022     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditCalibrationPath-&gt;setText( param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#a6c4570179639cb20d5762941aedb4cfb" title="Path dei file di calibrazione.">pathCalibrationDat</a> );
+<a name="l00023"></a>00023     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditReportPath-&gt;setText( param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#afbfab6605bfa80bc76b9d2e2721e8968" title="Path in cui verr&amp;agrave; salvato il file di report.">pathReport</a> );
+<a name="l00024"></a>00024     <span class="comment">//this-&gt;ui-&gt;lineEditSerialTest-&gt;setText( param.paramGeneral.serialString );</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <span class="comment">// Advanced</span>
+<a name="l00027"></a>00027     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;doubleSpinBoxFocus-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a619baab983392cf032c9dab2047c3b79" title="Soglia per la misura del fuoco.">FOCUS_MEASURAMENT</a> );
+<a name="l00028"></a>00028     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMinNumPixelCentroid-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a4d5905d00b7e8fd5ccd700154dc00d84" title="Minimo numero di pixel di un nodo per cui calcolare il centroide.">min_num_pixel_for_centroid</a> );
+<a name="l00029"></a>00029     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxNumPixelForNode-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61" title="Minimo numero di pixel per un nodo nella mappa di disparit&amp;agrave;.">min_num_pixel_for_node</a>);
+<a name="l00030"></a>00030     this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMaxRowDelta-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a16c24cf1bfa6fba982832212da6766b1" title="Massimo delta tra le righe (di inizio e di fine) di una banda di disparit&amp;agrave;.">max_row_delta</a> );
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="class_parameters_panel.html#a8aa3e4328f57be15c01467e821f63b9e">00033</a> <span class="keywordtype">void</span> <a class="code" href="class_parameters_panel.html#a8aa3e4328f57be15c01467e821f63b9e">ParametersPanel::setDefault</a>(QAbstractButton* button){
+<a name="l00034"></a>00034     <a class="code" href="structt_parameters__.html">tParameters</a> param;
+<a name="l00035"></a>00035     QDialogButtonBox::StandardButton stdButton = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;buttonBox-&gt;standardButton(button);
+<a name="l00036"></a>00036     <span class="keywordflow">switch</span> (stdButton) {
+<a name="l00037"></a>00037     <span class="keywordflow">case</span> QDialogButtonBox::Save:
+<a name="l00038"></a>00038         <span class="comment">// General</span>
+<a name="l00039"></a>00039         param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#a6c4570179639cb20d5762941aedb4cfb" title="Path dei file di calibrazione.">pathCalibrationDat</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditCalibrationPath-&gt;text();
+<a name="l00040"></a>00040         param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#afbfab6605bfa80bc76b9d2e2721e8968" title="Path in cui verr&amp;agrave; salvato il file di report.">pathReport</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditReportPath-&gt;text();
+<a name="l00041"></a>00041         <span class="comment">//param.paramGeneral.serialString = this-&gt;ui-&gt;lineEditSerialTest-&gt;text();</span>
+<a name="l00042"></a>00042         <span class="comment">// Advanced</span>
+<a name="l00043"></a>00043         param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a619baab983392cf032c9dab2047c3b79" title="Soglia per la misura del fuoco.">FOCUS_MEASURAMENT</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;doubleSpinBoxFocus-&gt;value();
+<a name="l00044"></a>00044         param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a4d5905d00b7e8fd5ccd700154dc00d84" title="Minimo numero di pixel di un nodo per cui calcolare il centroide.">min_num_pixel_for_centroid</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMinNumPixelCentroid-&gt;value();
+<a name="l00045"></a>00045         param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61" title="Minimo numero di pixel per un nodo nella mappa di disparit&amp;agrave;.">min_num_pixel_for_node</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxNumPixelForNode-&gt;value();
+<a name="l00046"></a>00046         param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a16c24cf1bfa6fba982832212da6766b1" title="Massimo delta tra le righe (di inizio e di fine) di una banda di disparit&amp;agrave;.">max_row_delta</a> = this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMaxRowDelta-&gt;value();
+<a name="l00047"></a>00047         emit <a class="code" href="class_parameters_panel.html#af1b166b9063bc31e9c1df6f62fe62997">sendParameters</a>( param );
+<a name="l00048"></a>00048         <span class="keywordflow">break</span>;
+<a name="l00049"></a>00049     <span class="keywordflow">case</span> QDialogButtonBox::RestoreDefaults:
+<a name="l00050"></a>00050         <span class="comment">// General</span>
+<a name="l00051"></a>00051         <span class="keywordflow">if</span> ( this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;tabWidget-&gt;currentIndex() == 0 ){
+<a name="l00052"></a>00052             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditCalibrationPath-&gt;setText( param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#a6c4570179639cb20d5762941aedb4cfb" title="Path dei file di calibrazione.">pathCalibrationDat</a> );
+<a name="l00053"></a>00053             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditReportPath-&gt;setText( param.<a class="code" href="structt_parameters__.html#a9c34b36fdfbece7328bc0aa7ad23a388" title="Struttura relativa ai parametri generali dell&amp;#39;interfaccia.">paramGeneral</a>.<a class="code" href="structt_parameters_general__.html#afbfab6605bfa80bc76b9d2e2721e8968" title="Path in cui verr&amp;agrave; salvato il file di report.">pathReport</a> );
+<a name="l00054"></a>00054         }<span class="keywordflow">else</span>{
+<a name="l00055"></a>00055             <span class="comment">//this-&gt;ui-&gt;lineEditSerialTest-&gt;setText( param.paramGeneral.serialString );</span>
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057             <span class="comment">// Advanced</span>
+<a name="l00058"></a>00058             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;doubleSpinBoxFocus-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a619baab983392cf032c9dab2047c3b79" title="Soglia per la misura del fuoco.">FOCUS_MEASURAMENT</a> );
+<a name="l00059"></a>00059             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMinNumPixelCentroid-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a4d5905d00b7e8fd5ccd700154dc00d84" title="Minimo numero di pixel di un nodo per cui calcolare il centroide.">min_num_pixel_for_centroid</a> );
+<a name="l00060"></a>00060             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxNumPixelForNode-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#aa30246904387b11956edd708ce8eee61" title="Minimo numero di pixel per un nodo nella mappa di disparit&amp;agrave;.">min_num_pixel_for_node</a>);
+<a name="l00061"></a>00061             this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;spinBoxMaxRowDelta-&gt;setValue( param.<a class="code" href="structt_parameters__.html#a8afe2b1cede344acbad181154b2222c5" title="Struttura relatica ai parametri relativi al check della disparit&amp;agrave;.">paramCheck</a>.<a class="code" href="structt_parameters_check__.html#a16c24cf1bfa6fba982832212da6766b1" title="Massimo delta tra le righe (di inizio e di fine) di una banda di disparit&amp;agrave;.">max_row_delta</a> );
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063         <span class="keywordflow">break</span>;
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065 }
+<a name="l00066"></a>00066 
+<a name="l00067"></a><a class="code" href="class_parameters_panel.html#a95a48737386513db67729295fa0d831f">00067</a> <span class="keywordtype">void</span> <a class="code" href="class_parameters_panel.html#a95a48737386513db67729295fa0d831f">ParametersPanel::changeCalibrationPath</a>(){
+<a name="l00068"></a>00068     QString path = QFileDialog::getExistingDirectory(<span class="keyword">this</span>, <span class="stringliteral">&quot;Select the folder to calibration path&quot;</span>, this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditCalibrationPath-&gt;text());
+<a name="l00069"></a>00069     <span class="keywordflow">if</span> ( !path.isEmpty() )
+<a name="l00070"></a>00070         this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditCalibrationPath-&gt;setText( path );
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a><a class="code" href="class_parameters_panel.html#ae3a5a79c39f1551e05046dd9375afd41">00073</a> <span class="keywordtype">void</span> <a class="code" href="class_parameters_panel.html#ae3a5a79c39f1551e05046dd9375afd41">ParametersPanel::changeReportPath</a>(){
+<a name="l00074"></a>00074     QString path = QFileDialog::getExistingDirectory(<span class="keyword">this</span>, <span class="stringliteral">&quot;Select the folder to report path&quot;</span>, this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditReportPath-&gt;text());
+<a name="l00075"></a>00075     <span class="keywordflow">if</span> ( !path.isEmpty() )
+<a name="l00076"></a>00076         this-&gt;<a class="code" href="class_parameters_panel.html#a0cde69de97e8b670d138e265075dc9dd">ui</a>-&gt;lineEditReportPath-&gt;setText( path );
+<a name="l00077"></a>00077 }
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

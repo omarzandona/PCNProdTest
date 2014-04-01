@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente SNP.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>SNP.h</h1>  </div>
+</div>
+<div class="contents">
+<a href="_s_n_p_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SNP_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SNP_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;windows.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;assert.h&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00010"></a>00010 <span class="preprocessor">#endif</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#ifdef SNP_EXPORTS</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define SNP_API _declspec(dllexport)</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00015"></a><a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">00015</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_API _declspec(dllimport)</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span>
+<a name="l00018"></a><a class="code" href="_s_n_p_8h.html#a203aab631513679ed4a16fb0834d3855">00018</a> <span class="preprocessor">#define TEXTSIZE           257</span>
+<a name="l00019"></a><a class="code" href="_s_n_p_8h.html#ac286e1243ab6be2c950c277e5e1377f9">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define BROADCAST          0xFF</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span>
+<a name="l00021"></a><a class="code" href="_s_n_p_8h.html#a564a70fcbc4cbb30327b342278603805">00021</a> <span class="preprocessor">#define SNP_KERNEL_VERSION     1</span>
+<a name="l00022"></a><a class="code" href="_s_n_p_8h.html#af43bb9713b4adda12e35b51b39bc7eb6">00022</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_OS_VERSION         2</span>
+<a name="l00023"></a><a class="code" href="_s_n_p_8h.html#af63ebf86f9261ea60eaa67093439a7e0">00023</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_FW_VERSION         3</span>
+<a name="l00024"></a><a class="code" href="_s_n_p_8h.html#ae9c18b05ad9ef3bedc85dc8685139b13">00024</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SW_VERSION         4</span>
+<a name="l00025"></a><a class="code" href="_s_n_p_8h.html#af460daf9218208d0ce875826b70dd1ca">00025</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_ENABLE_PC          5</span>
+<a name="l00026"></a><a class="code" href="_s_n_p_8h.html#ace6b29a086c94cad44f3b2a37f556fdb">00026</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_DISABLE_PC         6</span>
+<a name="l00027"></a><a class="code" href="_s_n_p_8h.html#ab1143064cf2848ca4367225b918e5bfc">00027</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_GET_CNT_VAL        7</span>
+<a name="l00028"></a><a class="code" href="_s_n_p_8h.html#ae9867bc6aaca76cef6542556966ed435">00028</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_RESET_CNT          8</span>
+<a name="l00029"></a><a class="code" href="_s_n_p_8h.html#a23f60b7ca8642366868780413d00b086">00029</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_GET_TIME           9</span>
+<a name="l00030"></a><a class="code" href="_s_n_p_8h.html#a9d0bbadbcd18ab7e6372b52f36fe1dd0">00030</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_TIME           10</span>
+<a name="l00031"></a><a class="code" href="_s_n_p_8h.html#a4036cef67b8adf783d3a6fd43be86d4a">00031</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_ENABLE_DIA_CTR     11</span>
+<a name="l00032"></a><a class="code" href="_s_n_p_8h.html#aefcfbdad050da37a39d424131dcc1ccf">00032</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_DISABLE_DIA_CTR    12</span>
+<a name="l00033"></a><a class="code" href="_s_n_p_8h.html#ac853ce92bd9bdfbd27339c4cc597d769">00033</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_GET_DIA_STATUS     13</span>
+<a name="l00034"></a><a class="code" href="_s_n_p_8h.html#ab74feb6eca9158c1f798b6f33d3d9ee2">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_IP_ADDRESS     14</span>
+<a name="l00035"></a><a class="code" href="_s_n_p_8h.html#a21062a52ebf8f60e37d36bb3c9d80cae">00035</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_POLLING            15</span>
+<a name="l00036"></a><a class="code" href="_s_n_p_8h.html#a391a7e1ea53318fbb88b59088092a46d">00036</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_LED            16</span>
+<a name="l00037"></a><a class="code" href="_s_n_p_8h.html#aee44bd9f0002a8b9c96d05bec93f6e93">00037</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_ENABLE_AUTOLED     17</span>
+<a name="l00038"></a><a class="code" href="_s_n_p_8h.html#a2ceb8ee0b48aa97234babb68870e964f">00038</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_DISABLE_AUTOLED    18</span>
+<a name="l00039"></a><a class="code" href="_s_n_p_8h.html#a62f79875b47ba83a343fdf11629f58e7">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_INPUT0         19</span>
+<a name="l00040"></a><a class="code" href="_s_n_p_8h.html#a285398e3709ee6f018c06be3473d6f6a">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_INPUT1         20</span>
+<a name="l00041"></a><a class="code" href="_s_n_p_8h.html#ac6f201b24c4b8899e301bc3bf397e350">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_OUTPUT0        21</span>
+<a name="l00042"></a><a class="code" href="_s_n_p_8h.html#a1436307980a0970b1514f0af2251be74">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_OUTPUT1        22</span>
+<a name="l00043"></a><a class="code" href="_s_n_p_8h.html#a04316bf7129e2f5fa3c0e92706045fb6">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_GET_DOORSTATUS     23</span>
+<a name="l00044"></a><a class="code" href="_s_n_p_8h.html#ae0bbc5f01a70a8dd15c52e35d937cc68">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_INST_HEIGHT    24</span>
+<a name="l00045"></a><a class="code" href="_s_n_p_8h.html#a58166cfb864bce987d32e293e6793644">00045</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_SET_DOORSTATUS     25</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 <a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">SNP_API</a> <span class="keywordtype">int</span> <a class="code" href="_s_n_p_8h.html#a72d9fb1d724c195e7d7122db1feb1ceb">SNP_initCommunication</a>(<span class="keywordtype">char</span> *port, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> BaudRate, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ByteSize, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> Parity, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> StopBits);
+<a name="l00048"></a>00048 <a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">SNP_API</a> <span class="keywordtype">void</span> <a class="code" href="_s_n_p_8h.html#ae2af114c7f2bbc3462b73635106354e1">SNP_endCommunication</a>();
+<a name="l00049"></a>00049 <a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">SNP_API</a> <span class="keywordtype">int</span> <a class="code" href="_s_n_p_8h.html#ac5588e5d2da77ec33992ef776d37f4d9">SNP_command</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> dest, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> command, <span class="keywordtype">char</span> *pInBuf, <span class="keywordtype">char</span> *pOutBuf, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> OutBufLen);
+<a name="l00050"></a>00050 <a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">SNP_API</a> <span class="keywordtype">void</span> <a class="code" href="_s_n_p_8h.html#ae355354cbe827e4ebd1b03d9d8efe656">SNP_getLastError</a>(<span class="keywordtype">char</span> *pOutError, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> outErrorLen);
+<a name="l00051"></a>00051 <a class="code" href="_s_n_p_8h.html#ac24c1dfc54a6862c2f6c71aa575cd23e">SNP_API</a> <span class="keywordtype">void</span> <a class="code" href="_s_n_p_8h.html#abdf7031f0d5be47af1f2c12b6c39d222">SNP_setTimeout</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeOut);
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="_s_n_p_8h.html#a23bfd95a49c6c06524afafb9fd026be5">00053</a> <span class="preprocessor">#define SNP_getKernelVersion(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_KERNEL_VERSION, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00054"></a><a class="code" href="_s_n_p_8h.html#a40569346c3eafa60f3eebbbb2ecdb78a">00054</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getOSVersion(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_OS_VERSION, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00055"></a><a class="code" href="_s_n_p_8h.html#af12cdc674b75b325ce00976b5b88b190">00055</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getFWVersion(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_FW_VERSION, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00056"></a><a class="code" href="_s_n_p_8h.html#adc129c0f5dda0c671946da27bfc4c0b6">00056</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getSWVersion(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_SW_VERSION, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00057"></a><a class="code" href="_s_n_p_8h.html#aa54818233d332c0f3c01381fceafd1ac">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_enablePCN(dest) SNP_command(dest, SNP_ENABLE_PC, NULL, NULL, 0)</span>
+<a name="l00058"></a><a class="code" href="_s_n_p_8h.html#a4ab940cc53d1741dc4c35887746fe412">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_disablePCN(dest) SNP_command(dest, SNP_DISABLE_PC, NULL, NULL, 0)</span>
+<a name="l00059"></a><a class="code" href="_s_n_p_8h.html#aec56afba159adb3bfa354ee3c838e962">00059</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getCounters(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_GET_CNT_VAL, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00060"></a><a class="code" href="_s_n_p_8h.html#a9c3aeae2c5f9a509cffde4e06c5e12ec">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_resetCounters(dest) SNP_command(dest, SNP_RESET_CNT, NULL, NULL, 0)</span>
+<a name="l00061"></a><a class="code" href="_s_n_p_8h.html#a9f1b3c77ade2c945680602d3dc41603b">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getDateTime(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_GET_TIME, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00062"></a><a class="code" href="_s_n_p_8h.html#a291e5b35af9a703fc13ff2b2c310e4fe">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setDateTime(dest, pInBuf) SNP_command(dest, SNP_SET_TIME, pInBuf, NULL, 0)</span>
+<a name="l00063"></a><a class="code" href="_s_n_p_8h.html#ab8b76e452c77b702e0a097c52732a9af">00063</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_enableDiagnosticCtr(dest) SNP_command(dest, SNP_ENABLE_DIA_CTR, NULL, NULL, 0)</span>
+<a name="l00064"></a><a class="code" href="_s_n_p_8h.html#a430ef86f79905e34a55712c9b5221f1f">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_disableDiagnosticCtr(dest) SNP_command(dest, SNP_DISABLE_DIA_CTR, NULL, NULL, 0)</span>
+<a name="l00065"></a><a class="code" href="_s_n_p_8h.html#a81d9a7c153a922fa2f68fefaf013714d">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getDiagnosticStatus(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_GET_DIA_STATUS, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00066"></a><a class="code" href="_s_n_p_8h.html#abcb8e424de1966243b7c55e4318e2962">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setIPAddress(dest, pInBuf) SNP_command(dest, SNP_SET_IP_ADDRESS, pInBuf, NULL, 0)</span>
+<a name="l00067"></a><a class="code" href="_s_n_p_8h.html#af3d139d292bac845b83c4b4752434516">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_polling(dest) SNP_command(dest, SNP_POLLING, NULL, NULL, 0)</span>
+<a name="l00068"></a><a class="code" href="_s_n_p_8h.html#ad41f64f8abddfe01a5dc12938f692766">00068</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setLed(dest, pInBuf) SNP_command(dest, SNP_SET_LED, pInBuf, NULL, 0)</span>
+<a name="l00069"></a><a class="code" href="_s_n_p_8h.html#aec4867f06e401b34c0925c318c0b45d8">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_enableAutoled(dest) SNP_command(dest, SNP_ENABLE_AUTOLED, NULL, NULL, 0)</span>
+<a name="l00070"></a><a class="code" href="_s_n_p_8h.html#a077a113c077de95c1e727f587a587cb2">00070</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_disableAutoled(dest) SNP_command(dest, SNP_DISABLE_AUTOLED, NULL, NULL, 0)</span>
+<a name="l00071"></a><a class="code" href="_s_n_p_8h.html#aa89379a73932b7f486eec6bbcdc40b3c">00071</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setInput0(dest, pInBuf) SNP_command(dest, SNP_SET_INPUT0, pInBuf, NULL, 0)</span>
+<a name="l00072"></a><a class="code" href="_s_n_p_8h.html#a225fec6a2d0818130598c48db96e7890">00072</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setInput1(dest, pInBuf) SNP_command(dest, SNP_SET_INPUT1, pInBuf, NULL, 0)</span>
+<a name="l00073"></a><a class="code" href="_s_n_p_8h.html#a4a5e61c4c024405268a393b4c51edcbf">00073</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setOutput0(dest, pInBuf) SNP_command(dest, SNP_SET_OUTPUT0, pInBuf, NULL, 0)</span>
+<a name="l00074"></a><a class="code" href="_s_n_p_8h.html#ae264d0c5af34d361d34915688fbb23ea">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_setOutput1(dest, pInBuf) SNP_command(dest, SNP_SET_OUTPUT1, pInBuf, NULL, 0)</span>
+<a name="l00075"></a><a class="code" href="_s_n_p_8h.html#a31ea102bb8c1c8e156f5f0372996d697">00075</a> <span class="preprocessor"></span><span class="preprocessor">#define SNP_getDoorStatus(dest, pOutBuf, OutBufLen) SNP_command(dest, SNP_GET_DOORSTATUS, NULL, pOutBuf, OutBufLen)</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="comment">//#define SNP_setInstHeight(dest, pInBuf) SNP_command(dest, SNP_SET_INST_HEIGHT, pInBuf, NULL, 0) // Disponibile solo con la versione 2.3.11.2 dellp&#39;imgserver</span>
+<a name="l00077"></a><a class="code" href="_s_n_p_8h.html#a61a84cf5d8e1b0b65ebe295abfc0d504">00077</a> <span class="preprocessor">#define SNP_setDoorStatus(dest, pInBuf) SNP_command(dest, SNP_SET_DOORSTATUS, pInBuf, NULL, 0)</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>}
+<a name="l00080"></a>00080 <span class="preprocessor">#endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>
+<a name="l00082"></a>00082 <span class="preprocessor">#endif </span><span class="comment">/* SNP_H */</span>
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest: Riferimenti per la classe AcqThread</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classi</span></a></li>
+      <li><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Elenco&#160;dei&#160;tipi&#160;composti</span></a></li>
+      <li><a href="hierarchy.html"><span>Gerarchia&#160;delle&#160;classi</span></a></li>
+      <li><a href="functions.html"><span>Membri&#160;dei&#160;composti</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Slot pubblici</a> &#124;
+<a href="#signals">Signal</a> &#124;
+<a href="#pub-methods">Membri pubblici</a> &#124;
+<a href="#pro-methods">Membri protetti</a> &#124;
+<a href="#pri-methods">Membri privati</a> &#124;
+<a href="#pri-attribs">Attributi privati</a>  </div>
+  <div class="headertitle">
+<h1>Riferimenti per la classe AcqThread</h1>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="AcqThread" --><!-- doxytag: inherits="QThread" -->
+<p><code>#include &lt;<a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>&gt;</code></p>
+
+<p><a href="class_acq_thread-members.html">Elenco di tutti i membri.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-slots"></a>
+Slot pubblici</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters</a> (<a class="el" href="structt_acq_thread_parameters.html">tAcqThreadParam</a> param)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting dei parametri prima del <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249" title="Implementa la fase di esecuzione del thread.">run()</a>  <a href="#a42f78b5f9af4930336b8497f8b88528f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a986625cc7edc1c895a23f1cae76913c5">abort</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Annulla l'acquizione.  <a href="#a986625cc7edc1c895a23f1cae76913c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#ac9ae68105179313ee632b0bf841982ca">startProcessing</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizia il processing.  <a href="#ac9ae68105179313ee632b0bf841982ca"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2">abortAcquisition</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferma l'acquisizione.  <a href="#a6ea689f1d04580eb51acf38c9d6f01e2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodifica i dati e li invio come immagini al metodo mainWindow.  <a href="#aac6c10df14884e3b8da8eb9eeaa5392c"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="signals"></a>
+Signal</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a8600b4d6f8e5d8901c0dc25b14fc3879">imageSx</a> (const QImage &amp;image)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Segnale per la visualizzazione dell'immagine di sinistra.  <a href="#a8600b4d6f8e5d8901c0dc25b14fc3879"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#add5d0a60d1e58d73b4400ca79a527a5f">imageDx</a> (const QImage &amp;image)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Segnale per la visualizzazione dell'immagine di destra.  <a href="#add5d0a60d1e58d73b4400ca79a527a5f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a8f78331adb7df26d83eb56040429846b">imageDsp</a> (const QImage &amp;image, bool external)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Segnale per la visualizzazione dell'immagine di disparit&agrave;.  <a href="#a8f78331adb7df26d83eb56040429846b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a16d157e3c32587d44b664a3fa8928d5d">imageNumberProgress</a> (int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a9824cdaba6473cfdc440386cd85d87c9">imagesMode</a> (<a class="el" href="structt_mode_images__.html">tModeImages</a> imgsToSend)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Segnale per calcolo della moda.  <a href="#a9824cdaba6473cfdc440386cd85d87c9"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Membri pubblici</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore vuoto della classe.  <a href="#a940e2cb45ead62ddad62618777fc4da4"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Membri protetti</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementa la fase di esecuzione del thread.  <a href="#aa167456ee9cc355ad5176f4bc5b2c249"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Membri privati</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloca il datasets per l'acquizione delle immagini.  <a href="#a517424f5ac9ef8efc48b33f2054be55d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dealloca il dataset se precedentemente allocato.  <a href="#a499f9d5e3c282ad41ad20cdd8c2ab0a3"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributi privati</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SOCKET *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3">imgfd</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">File descriptor della socket di ricezione immagini.  <a href="#aba562d83b108156c4fd453163d095ad3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct sockaddr_in *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775">my_addr_data</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Struttura necessarie per la definizione della socket.  <a href="#a5725af7d1fa6b24443962f111b844775"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct sockaddr_in *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b">serv_addr_data</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Struttura necessarie per la definizione della socket.  <a href="#af6c41ce6d2a45be3675358906ef0451b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct sockaddr_in *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433">serv_addr</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Struttura necessarie per la definizione della socket.  <a href="#a9e4754a640d01351f2e3d59febfa5433"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9">buffer</a> [BUFFERSIZE]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer di dimensione  per contenere il file proveniente dal PCN.  <a href="#a05215005b5c7a23981a08a054d0ee5c9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073">ImageSX</a> [NN]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer che contiene l'immagine di sinistra.  <a href="#af874f6d05d3e1e1a8350b49d4421a073"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08">ImageDX</a> [NN]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer che contiene l'immagine di destra.  <a href="#ab3efb96aa27fa3e7d9a7c74306c5db08"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04">ImageDSP</a> [NN]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer che contiene l'immagine di disparti&agrave;.  <a href="#a36cd74b80be79c7e82c3b2d4acbbac04"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex per gestione fermata.  <a href="#a5ffcf3f77cd4522714395e7f8ac7725d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">stop</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica lo stop per l'acqizione delle immagini.  <a href="#a17b96584b45791aa3f49bc85d585dfd9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Per far partire acquisizione e processing.  <a href="#a216070ca5d686544e5a5f78f7dca851c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">datasetAllocated</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se i datasets sono stati allocati oppure no.  <a href="#a467fe0866ec2505329222de40090457c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad">n_imgs</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica quanti campioni ho preso.  <a href="#a99ae30247b91b4ff1baf5046cca3cdad"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">datasetSx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">N immagini di sinistra da processare (buffer per calcolo delle mode)  <a href="#a72fd952f18e515afc1f171b366ca04ce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">datasetDx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">N immagini di destra da processare (buffer per calcolo delle mode)  <a href="#a9c42942f41c166aff3f71188c5caf4bf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PixelType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">datasetDsp</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">N immagini di disparit&agrave; da processare (buffer per calcolo delle mode)  <a href="#a508ce2be71896fcc12715fb7662c3528"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Descrizione dettagliata</h2>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00024">24</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+<hr/><h2>Documentazione dei costruttori e dei distruttori</h2>
+<a class="anchor" id="a940e2cb45ead62ddad62618777fc4da4"></a><!-- doxytag: member="AcqThread::AcqThread" ref="a940e2cb45ead62ddad62618777fc4da4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AcqThread::AcqThread </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Costruttore vuoto della classe. </p>
+<p><a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4" title="Costruttore vuoto della classe.">AcqThread::AcqThread</a> Costruttore della classe <a class="el" href="class_acq_thread.html">AcqThread</a>: Inizializza la struttura dati e le variabili per la socket e per l'allocazione dei dataset. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00017">17</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">datasetAllocated</a>, <a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">datasetDsp</a>, <a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">datasetDx</a>, <a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">datasetSx</a>, <a class="el" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3">imgfd</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775">my_addr_data</a>, <a class="el" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad">n_imgs</a>, <a class="el" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433">serv_addr</a>, <a class="el" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b">serv_addr_data</a>, <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a>, e <a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">stop</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentazione delle funzioni membro</h2>
+<a class="anchor" id="a986625cc7edc1c895a23f1cae76913c5"></a><!-- doxytag: member="AcqThread::abort" ref="a986625cc7edc1c895a23f1cae76913c5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::abort </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Annulla l'acquizione. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00221">221</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, e <a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">stop</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a65c4331f45e176a4c7f49a0fbe2d6de3">MainWindow::createSocketScheduler()</a>, e <a class="el" href="class_main_window.html#a199db3bf2e33e49c68b94f65461f3376">MainWindow::setDisconnect()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ea689f1d04580eb51acf38c9d6f01e2"></a><!-- doxytag: member="AcqThread::abortAcquisition" ref="a6ea689f1d04580eb51acf38c9d6f01e2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::abortAcquisition </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Ferma l'acquisizione. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00228">228</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, e <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a65c4331f45e176a4c7f49a0fbe2d6de3">MainWindow::createSocketScheduler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a517424f5ac9ef8efc48b33f2054be55d"></a><!-- doxytag: member="AcqThread::allocationDatasets" ref="a517424f5ac9ef8efc48b33f2054be55d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::allocationDatasets </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Alloca il datasets per l'acquizione delle immagini. </p>
+<p><a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d" title="Alloca il datasets per l&#39;acquizione delle immagini.">AcqThread::allocationDatasets</a> Alloca il dataset per le immagini di sinistra, destra e di disparità. Le immagini salvate verrano utilizzate per il calcolo della moda. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00171">171</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">datasetAllocated</a>, <a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">datasetDsp</a>, <a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">datasetDx</a>, <a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">datasetSx</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <a class="el" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177">NUM_FRAME_TO_PROCESS</a>, <a class="el" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>, <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a>, e <a class="el" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1">test_all</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a499f9d5e3c282ad41ad20cdd8c2ab0a3"></a><!-- doxytag: member="AcqThread::deallocationDatasets" ref="a499f9d5e3c282ad41ad20cdd8c2ab0a3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::deallocationDatasets </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dealloca il dataset se precedentemente allocato. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00197">197</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">datasetAllocated</a>, <a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">datasetDsp</a>, <a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">datasetDx</a>, <a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">datasetSx</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad">n_imgs</a>, e <a class="el" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177">NUM_FRAME_TO_PROCESS</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2">abortAcquisition()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f78331adb7df26d83eb56040429846b"></a><!-- doxytag: member="AcqThread::imageDsp" ref="a8f78331adb7df26d83eb56040429846b" args="(const QImage &amp;image, bool external)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::imageDsp </td>
+          <td>(</td>
+          <td class="paramtype">const QImage &amp;&#160;</td>
+          <td class="paramname"> <em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"> <em>external</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Segnale per la visualizzazione dell'immagine di disparit&agrave;. </p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add5d0a60d1e58d73b4400ca79a527a5f"></a><!-- doxytag: member="AcqThread::imageDx" ref="add5d0a60d1e58d73b4400ca79a527a5f" args="(const QImage &amp;image)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::imageDx </td>
+          <td>(</td>
+          <td class="paramtype">const QImage &amp;&#160;</td>
+          <td class="paramname"> <em>image</em>&#160;)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Segnale per la visualizzazione dell'immagine di destra. </p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16d157e3c32587d44b664a3fa8928d5d"></a><!-- doxytag: member="AcqThread::imageNumberProgress" ref="a16d157e3c32587d44b664a3fa8928d5d" args="(int i)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::imageNumberProgress </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"> <em>i</em>&#160;)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9824cdaba6473cfdc440386cd85d87c9"></a><!-- doxytag: member="AcqThread::imagesMode" ref="a9824cdaba6473cfdc440386cd85d87c9" args="(tModeImages imgsToSend)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::imagesMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt_mode_images__.html">tModeImages</a>&#160;</td>
+          <td class="paramname"> <em>imgsToSend</em>&#160;)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Segnale per calcolo della moda. </p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8600b4d6f8e5d8901c0dc25b14fc3879"></a><!-- doxytag: member="AcqThread::imageSx" ref="a8600b4d6f8e5d8901c0dc25b14fc3879" args="(const QImage &amp;image)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::imageSx </td>
+          <td>(</td>
+          <td class="paramtype">const QImage &amp;&#160;</td>
+          <td class="paramname"> <em>image</em>&#160;)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Segnale per la visualizzazione dell'immagine di sinistra. </p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa167456ee9cc355ad5176f4bc5b2c249"></a><!-- doxytag: member="AcqThread::run" ref="aa167456ee9cc355ad5176f4bc5b2c249" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::run </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implementa la fase di esecuzione del thread. </p>
+<p><a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249" title="Implementa la fase di esecuzione del thread.">AcqThread::run</a> Attivata in caso di richiesta di visualizzazione delle immagini da parte dello scheduler fino al comando di stop dello stesso. Se riceve dati dalla socket alloca il dataset per l'acquisione e richiama la funzione.</p>
+<dl class="see"><dt><b>Vedi anche:</b></dt><dd><a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c" title="Decodifica i dati e li invio come immagini al metodo mainWindow.">update()</a> per l'aggiornamento delle strutture dati che contengo le immagini </dd></dl>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00059">59</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9">buffer</a>, <a class="el" href="define__file_8h.html#ac3146f1e9227301bb4aa518f4d336cee">BUFFERSIZE</a>, <a class="el" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3">imgfd</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433">serv_addr</a>, <a class="el" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b">serv_addr_data</a>, <a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">stop</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42f78b5f9af4930336b8497f8b88528f"></a><!-- doxytag: member="AcqThread::setParameters" ref="a42f78b5f9af4930336b8497f8b88528f" args="(tAcqThreadParam param)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::setParameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt_acq_thread_parameters.html">tAcqThreadParam</a>&#160;</td>
+          <td class="paramname"> <em>param</em>&#160;)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Setting dei parametri prima del <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249" title="Implementa la fase di esecuzione del thread.">run()</a> </p>
+<p><a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f" title="Setting dei parametri prima del run()">AcqThread::setParameters</a> Setta i parametri della socket per l'acquisizione delle immagini.</p>
+<dl><dt><b>Parametri:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>[in] Struttura contenente i parametri di configurazione della socket </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00043">43</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="structt_acq_thread_parameters.html#af05ed5e280ade3beb62f095d590b44ee">tAcqThreadParameters::imgfd</a>, <a class="el" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3">imgfd</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="structt_acq_thread_parameters.html#aa4eda0668da66bdc4f1eb886759347a6">tAcqThreadParameters::my_addr_data</a>, <a class="el" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775">my_addr_data</a>, <a class="el" href="structt_acq_thread_parameters.html#a41578bf202b15bfaf5c2be93cc2a8af8">tAcqThreadParameters::serv_addr</a>, <a class="el" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433">serv_addr</a>, <a class="el" href="structt_acq_thread_parameters.html#a2970edf907f97260c7b6c0fecf2b6b7c">tAcqThreadParameters::serv_addr_data</a>, <a class="el" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b">serv_addr_data</a>, e <a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">stop</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#ae3ae1206ce6ebb997999cb28e497f0b2">MainWindow::createSocket()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9ae68105179313ee632b0bf841982ca"></a><!-- doxytag: member="AcqThread::startProcessing" ref="ac9ae68105179313ee632b0bf841982ca" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::startProcessing </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Inizia il processing. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00215">215</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, e <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_main_window.html#a06285a8a93ed081aacf7c734f8bb72de">MainWindow::startAcquisition()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac6c10df14884e3b8da8eb9eeaa5392c"></a><!-- doxytag: member="AcqThread::update" ref="aac6c10df14884e3b8da8eb9eeaa5392c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AcqThread::update </td>
+          <td>(</td>
+          <td class="paramname">&#160;)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Decodifica i dati e li invio come immagini al metodo mainWindow. </p>
+<p><a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c" title="Decodifica i dati e li invio come immagini al metodo mainWindow.">AcqThread::update</a> Decodifica il buffer ricevuto dal PCN e aggiorna le strutture dati delle immagini ImageSX, ImageDX e ImageDSP. Visualizza successivamente le immagini nella GUI. Se il processing è partito salva nella struttura dati allocato le immagini e al raggiungimento di <a class="el" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a> inizia il processing (calcolo della moda). </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8cpp_source.html#l00090">90</a> del file <a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a>.</p>
+
+<p>Riferimenti <a class="el" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9">buffer</a>, <a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">datasetAllocated</a>, <a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">datasetDsp</a>, <a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">datasetDx</a>, <a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">datasetSx</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, <a class="el" href="class_utils.html#af76b7c9f31b0e363df81754674af3769">Utils::getModeImgs()</a>, <a class="el" href="class_acq_thread.html#a8f78331adb7df26d83eb56040429846b">imageDsp()</a>, <a class="el" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04">ImageDSP</a>, <a class="el" href="class_acq_thread.html#add5d0a60d1e58d73b4400ca79a527a5f">imageDx()</a>, <a class="el" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08">ImageDX</a>, <a class="el" href="class_acq_thread.html#a16d157e3c32587d44b664a3fa8928d5d">imageNumberProgress()</a>, <a class="el" href="class_acq_thread.html#a9824cdaba6473cfdc440386cd85d87c9">imagesMode()</a>, <a class="el" href="class_acq_thread.html#a8600b4d6f8e5d8901c0dc25b14fc3879">imageSx()</a>, <a class="el" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073">ImageSX</a>, <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">mutex</a>, <a class="el" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad">n_imgs</a>, <a class="el" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <a class="el" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177">NUM_FRAME_TO_PROCESS</a>, <a class="el" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31">PixelType</a>, <a class="el" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage()</a>, <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">startProc</a>, e <a class="el" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1">test_all</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentazione dei dati membri</h2>
+<a class="anchor" id="a05215005b5c7a23981a08a054d0ee5c9"></a><!-- doxytag: member="AcqThread::buffer" ref="a05215005b5c7a23981a08a054d0ee5c9" args="[BUFFERSIZE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType <a class="el" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9">AcqThread::buffer</a>[BUFFERSIZE]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Buffer di dimensione  per contenere il file proveniente dal PCN. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00059">59</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a467fe0866ec2505329222de40090457c"></a><!-- doxytag: member="AcqThread::datasetAllocated" ref="a467fe0866ec2505329222de40090457c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c">AcqThread::datasetAllocated</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indica se i datasets sono stati allocati oppure no. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00071">71</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a508ce2be71896fcc12715fb7662c3528"></a><!-- doxytag: member="AcqThread::datasetDsp" ref="a508ce2be71896fcc12715fb7662c3528" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType** <a class="el" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528">AcqThread::datasetDsp</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>N immagini di disparit&agrave; da processare (buffer per calcolo delle mode) </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00075">75</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c42942f41c166aff3f71188c5caf4bf"></a><!-- doxytag: member="AcqThread::datasetDx" ref="a9c42942f41c166aff3f71188c5caf4bf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType** <a class="el" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf">AcqThread::datasetDx</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>N immagini di destra da processare (buffer per calcolo delle mode) </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00074">74</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a72fd952f18e515afc1f171b366ca04ce"></a><!-- doxytag: member="AcqThread::datasetSx" ref="a72fd952f18e515afc1f171b366ca04ce" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType** <a class="el" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce">AcqThread::datasetSx</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>N immagini di sinistra da processare (buffer per calcolo delle mode) </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00073">73</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36cd74b80be79c7e82c3b2d4acbbac04"></a><!-- doxytag: member="AcqThread::ImageDSP" ref="a36cd74b80be79c7e82c3b2d4acbbac04" args="[NN]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType <a class="el" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04">AcqThread::ImageDSP</a>[NN]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Buffer che contiene l'immagine di disparti&agrave;. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00062">62</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3efb96aa27fa3e7d9a7c74306c5db08"></a><!-- doxytag: member="AcqThread::ImageDX" ref="ab3efb96aa27fa3e7d9a7c74306c5db08" args="[NN]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType <a class="el" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08">AcqThread::ImageDX</a>[NN]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Buffer che contiene l'immagine di destra. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00061">61</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af874f6d05d3e1e1a8350b49d4421a073"></a><!-- doxytag: member="AcqThread::ImageSX" ref="af874f6d05d3e1e1a8350b49d4421a073" args="[NN]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PixelType <a class="el" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073">AcqThread::ImageSX</a>[NN]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Buffer che contiene l'immagine di sinistra. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00060">60</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba562d83b108156c4fd453163d095ad3"></a><!-- doxytag: member="AcqThread::imgfd" ref="aba562d83b108156c4fd453163d095ad3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SOCKET* <a class="el" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3">AcqThread::imgfd</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>File descriptor della socket di ricezione immagini. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00053">53</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, e <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ffcf3f77cd4522714395e7f8ac7725d"></a><!-- doxytag: member="AcqThread::mutex" ref="a5ffcf3f77cd4522714395e7f8ac7725d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMutex <a class="el" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d">AcqThread::mutex</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Mutex per gestione fermata. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00063">63</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a986625cc7edc1c895a23f1cae76913c5">abort()</a>, <a class="el" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2">abortAcquisition()</a>, <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>, <a class="el" href="class_acq_thread.html#ac9ae68105179313ee632b0bf841982ca">startProcessing()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5725af7d1fa6b24443962f111b844775"></a><!-- doxytag: member="AcqThread::my_addr_data" ref="a5725af7d1fa6b24443962f111b844775" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in* <a class="el" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775">AcqThread::my_addr_data</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Struttura necessarie per la definizione della socket. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00054">54</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, e <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99ae30247b91b4ff1baf5046cca3cdad"></a><!-- doxytag: member="AcqThread::n_imgs" ref="a99ae30247b91b4ff1baf5046cca3cdad" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad">AcqThread::n_imgs</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indica quanti campioni ho preso. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00072">72</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">deallocationDatasets()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e4754a640d01351f2e3d59febfa5433"></a><!-- doxytag: member="AcqThread::serv_addr" ref="a9e4754a640d01351f2e3d59febfa5433" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in* <a class="el" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433">AcqThread::serv_addr</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Struttura necessarie per la definizione della socket. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00056">56</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, e <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6c41ce6d2a45be3675358906ef0451b"></a><!-- doxytag: member="AcqThread::serv_addr_data" ref="af6c41ce6d2a45be3675358906ef0451b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in* <a class="el" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b">AcqThread::serv_addr_data</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Struttura necessarie per la definizione della socket. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00055">55</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, e <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a216070ca5d686544e5a5f78f7dca851c"></a><!-- doxytag: member="AcqThread::startProc" ref="a216070ca5d686544e5a5f78f7dca851c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c">AcqThread::startProc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Per far partire acquisizione e processing. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00070">70</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2">abortAcquisition()</a>, <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">allocationDatasets()</a>, <a class="el" href="class_acq_thread.html#ac9ae68105179313ee632b0bf841982ca">startProcessing()</a>, e <a class="el" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a17b96584b45791aa3f49bc85d585dfd9"></a><!-- doxytag: member="AcqThread::stop" ref="a17b96584b45791aa3f49bc85d585dfd9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9">AcqThread::stop</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indica lo stop per l'acqizione delle immagini. </p>
+
+<p>Definizione alla linea <a class="el" href="acq__thread_8h_source.html#l00064">64</a> del file <a class="el" href="acq__thread_8h_source.html">acq_thread.h</a>.</p>
+
+<p>Referenziato da <a class="el" href="class_acq_thread.html#a986625cc7edc1c895a23f1cae76913c5">abort()</a>, <a class="el" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">AcqThread()</a>, <a class="el" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">run()</a>, e <a class="el" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">setParameters()</a>.</p>
+
+</div>
+</div>
+<hr/>La documentazione per questa classe è stata generata a partire dai seguenti file:<ul>
+<li><a class="el" href="acq__thread_8h_source.html">acq_thread.h</a></li>
+<li><a class="el" href="acq__thread_8cpp_source.html">acq_thread.cpp</a></li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:50 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>

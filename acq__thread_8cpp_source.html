@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>PCNProdTest:  File sorgente acq_thread.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Generato da Doxygen 1.7.2 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagina&#160;Principale</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace</span></a></li>
+      <li><a href="annotated.html"><span>Classi</span></a></li>
+      <li class="current"><a href="files.html"><span>File</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Cerca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Elenco&#160;dei&#160;file</span></a></li>
+      <li><a href="globals.html"><span>Membri&#160;dei&#160;file</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>acq_thread.cpp</h1>  </div>
+</div>
+<div class="contents">
+<a href="acq__thread_8cpp.html">Vai alla documentazione di questo file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="acq__thread_8h.html">acq_thread.h</a>&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00017"></a><a class="code" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4">00017</a> <a class="code" href="class_acq_thread.html#a940e2cb45ead62ddad62618777fc4da4" title="Costruttore vuoto della classe.">AcqThread::AcqThread</a>()
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     qRegisterMetaType&lt;tModeImages&gt;(<span class="stringliteral">&quot;tModeImages&quot;</span>);
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021     this-&gt;<a class="code" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3" title="File descriptor della socket di ricezione immagini.">imgfd</a> = 0;
+<a name="l00022"></a>00022     this-&gt;<a class="code" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775" title="Struttura necessarie per la definizione della socket.">my_addr_data</a> = 0;
+<a name="l00023"></a>00023     this-&gt;<a class="code" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b" title="Struttura necessarie per la definizione della socket.">serv_addr_data</a> = 0;
+<a name="l00024"></a>00024     this-&gt;<a class="code" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433" title="Struttura necessarie per la definizione della socket.">serv_addr</a> = 0;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00027"></a>00027     <a class="code" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9" title="Indica lo stop per l&amp;#39;acqizione delle immagini.">stop</a> = <span class="keyword">false</span>;
+<a name="l00028"></a>00028     <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> = <span class="keyword">false</span>;
+<a name="l00029"></a>00029     this-&gt;<a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a> = 0;
+<a name="l00030"></a>00030     this-&gt;<a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a> = 0;
+<a name="l00031"></a>00031     this-&gt;<a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a> = 0;
+<a name="l00032"></a>00032     this-&gt;<a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> = <span class="keyword">false</span>;
+<a name="l00033"></a>00033     <a class="code" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad" title="Indica quanti campioni ho preso.">n_imgs</a> = 0;
+<a name="l00034"></a>00034     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 
+<a name="l00043"></a><a class="code" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f">00043</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#a42f78b5f9af4930336b8497f8b88528f" title="Setting dei parametri prima del run()">AcqThread::setParameters</a>( <a class="code" href="structt_acq_thread_parameters.html">tAcqThreadParam</a> param ){
+<a name="l00044"></a>00044     this-&gt;<a class="code" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3" title="File descriptor della socket di ricezione immagini.">imgfd</a> = param.<a class="code" href="structt_acq_thread_parameters.html#af05ed5e280ade3beb62f095d590b44ee" title="File descriptor della socket.">imgfd</a>;
+<a name="l00045"></a>00045     this-&gt;<a class="code" href="class_acq_thread.html#a5725af7d1fa6b24443962f111b844775" title="Struttura necessarie per la definizione della socket.">my_addr_data</a> = param.<a class="code" href="structt_acq_thread_parameters.html#aa4eda0668da66bdc4f1eb886759347a6" title="Struttura per la gestione degli indirizzi per la socket (lato client)">my_addr_data</a>;
+<a name="l00046"></a>00046     this-&gt;<a class="code" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b" title="Struttura necessarie per la definizione della socket.">serv_addr_data</a> = param.<a class="code" href="structt_acq_thread_parameters.html#a2970edf907f97260c7b6c0fecf2b6b7c" title="Struttura per la gestione degli indirizzi per la socket (lato server)">serv_addr_data</a>;
+<a name="l00047"></a>00047     this-&gt;<a class="code" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433" title="Struttura necessarie per la definizione della socket.">serv_addr</a> = param.<a class="code" href="structt_acq_thread_parameters.html#a41578bf202b15bfaf5c2be93cc2a8af8" title="Struttura per la gestione degli indirizzi per la socket (lato server)">serv_addr</a>;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00050"></a>00050     <a class="code" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9" title="Indica lo stop per l&amp;#39;acqizione delle immagini.">stop</a> = <span class="keyword">false</span>;
+<a name="l00051"></a>00051     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00052"></a>00052 }
+<a name="l00059"></a><a class="code" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249">00059</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#aa167456ee9cc355ad5176f4bc5b2c249" title="Implementa la fase di esecuzione del thread.">AcqThread::run</a>(){
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061     <span class="keywordtype">int</span> bytes;
+<a name="l00062"></a>00062     <span class="keywordtype">int</span> addr_len = <span class="keyword">sizeof</span>(<span class="keyword">struct </span>sockaddr);
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00065"></a>00065     <span class="keywordflow">while</span>(!<a class="code" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9" title="Indica lo stop per l&amp;#39;acqizione delle immagini.">stop</a>)
+<a name="l00066"></a>00066     {
+<a name="l00067"></a>00067         <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00068"></a>00068         memset(<a class="code" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9" title="Buffer di dimensione  per contenere il file proveniente dal PCN.">buffer</a>,0,<a class="code" href="define__file_8h.html#ac3146f1e9227301bb4aa518f4d336cee" title="Lunghezza del buffer contente le immagini.">BUFFERSIZE</a>);
+<a name="l00069"></a>00069         bytes = recvfrom(*<a class="code" href="class_acq_thread.html#aba562d83b108156c4fd453163d095ad3" title="File descriptor della socket di ricezione immagini.">imgfd</a>,(<span class="keywordtype">char</span> *)<a class="code" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9" title="Buffer di dimensione  per contenere il file proveniente dal PCN.">buffer</a>,<a class="code" href="define__file_8h.html#ac3146f1e9227301bb4aa518f4d336cee" title="Lunghezza del buffer contente le immagini.">BUFFERSIZE</a>,0,(<span class="keyword">struct</span> sockaddr *) <a class="code" href="class_acq_thread.html#af6c41ce6d2a45be3675358906ef0451b" title="Struttura necessarie per la definizione della socket.">serv_addr_data</a>,&amp;addr_len);
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071         <span class="keywordflow">if</span>((serv_addr_data-&gt;sin_addr.s_addr == <a class="code" href="class_acq_thread.html#a9e4754a640d01351f2e3d59febfa5433" title="Struttura necessarie per la definizione della socket.">serv_addr</a>-&gt;sin_addr.s_addr) &amp;&amp; (bytes &gt; 0))
+<a name="l00072"></a>00072         {
+<a name="l00073"></a>00073             this-&gt;<a class="code" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d" title="Alloca il datasets per l&amp;#39;acquizione delle immagini.">allocationDatasets</a>();
+<a name="l00074"></a>00074             this-&gt;<a class="code" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c" title="Decodifica i dati e li invio come immagini al metodo mainWindow.">update</a>();
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00078"></a>00078     }
+<a name="l00079"></a>00079     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00080"></a>00080 }
+<a name="l00081"></a>00081 
+<a name="l00090"></a><a class="code" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c">00090</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#aac6c10df14884e3b8da8eb9eeaa5392c" title="Decodifica i dati e li invio come immagini al metodo mainWindow.">AcqThread::update</a>(){
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> header,ID;
+<a name="l00094"></a>00094     <a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a> *ptr;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096     ptr = <a class="code" href="class_acq_thread.html#a05215005b5c7a23981a08a054d0ee5c9" title="Buffer di dimensione  per contenere il file proveniente dal PCN.">buffer</a>;
+<a name="l00097"></a>00097     header = *ptr;
+<a name="l00098"></a>00098     ptr += 4;
+<a name="l00099"></a>00099     <span class="comment">// Immagine di sinistra</span>
+<a name="l00100"></a>00100     memset(<a class="code" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073" title="Buffer che contiene l&amp;#39;immagine di sinistra.">ImageSX</a>,0,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00101"></a>00101     <span class="keywordflow">if</span>(header &amp; 0x01)
+<a name="l00102"></a>00102     {
+<a name="l00103"></a>00103         ID = *ptr;
+<a name="l00104"></a>00104         ptr += 4;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106         <span class="keywordflow">if</span>(ID == 0x01)
+<a name="l00107"></a>00107             memcpy(<a class="code" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073" title="Buffer che contiene l&amp;#39;immagine di sinistra.">ImageSX</a>,ptr,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109         ptr += <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>;
+<a name="l00110"></a>00110     }
+<a name="l00111"></a>00111     <span class="comment">// Immagine di destra</span>
+<a name="l00112"></a>00112     memset(<a class="code" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08" title="Buffer che contiene l&amp;#39;immagine di destra.">ImageDX</a>,0,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00113"></a>00113     <span class="keywordflow">if</span>(header &amp; 0x02)
+<a name="l00114"></a>00114     {
+<a name="l00115"></a>00115         ID = *ptr;
+<a name="l00116"></a>00116         ptr += 4;
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="keywordflow">if</span>(ID == 0x02)
+<a name="l00119"></a>00119             memcpy(<a class="code" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08" title="Buffer che contiene l&amp;#39;immagine di destra.">ImageDX</a>,ptr,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121         ptr += <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>;
+<a name="l00122"></a>00122     }
+<a name="l00123"></a>00123     <span class="comment">// Immagine di disparità</span>
+<a name="l00124"></a>00124     memset(<a class="code" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04" title="Buffer che contiene l&amp;#39;immagine di disparti&amp;agrave;.">ImageDSP</a>,0,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00125"></a>00125     <span class="keywordflow">if</span>(header &amp; 0x04)
+<a name="l00126"></a>00126     {
+<a name="l00127"></a>00127         ID = *ptr;
+<a name="l00128"></a>00128         ptr += 4;
+<a name="l00129"></a>00129         <span class="keywordflow">if</span>(ID == 0x04)
+<a name="l00130"></a>00130             memcpy(<a class="code" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04" title="Buffer che contiene l&amp;#39;immagine di disparti&amp;agrave;.">ImageDSP</a>,ptr,<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>);
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132         ptr += <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>;
+<a name="l00133"></a>00133     }
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135     <span class="comment">// Salvo le immagini se è arrivato il comando</span>
+<a name="l00136"></a>00136     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00137"></a>00137     <span class="keywordflow">if</span> ( <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> &amp;&amp; <a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> ){
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( memcpy( <a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>[<a class="code" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad" title="Indica quanti campioni ho preso.">n_imgs</a>], <a class="code" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073" title="Buffer che contiene l&amp;#39;immagine di sinistra.">ImageSX</a>, <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a> ) );
+<a name="l00140"></a>00140         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( memcpy( <a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>[n_imgs], <a class="code" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08" title="Buffer che contiene l&amp;#39;immagine di destra.">ImageDX</a>, <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a> ) );
+<a name="l00141"></a>00141         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( memcpy( <a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>[n_imgs], <a class="code" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04" title="Buffer che contiene l&amp;#39;immagine di disparti&amp;agrave;.">ImageDSP</a>, <a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a> ) );
+<a name="l00142"></a>00142         n_imgs++;
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144         emit <a class="code" href="class_acq_thread.html#a16d157e3c32587d44b664a3fa8928d5d">imageNumberProgress</a>( n_imgs );
+<a name="l00145"></a>00145         <span class="keywordflow">if</span> ( n_imgs == <a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a> ){
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147             <span class="comment">//futureThread = QtConcurrent::run( this, &amp;AcqThread::calcModeThread);</span>
+<a name="l00148"></a>00148             emit <a class="code" href="class_acq_thread.html#a9824cdaba6473cfdc440386cd85d87c9" title="Segnale per calcolo della moda.">imagesMode</a>( <a class="code" href="class_utils.html#af76b7c9f31b0e363df81754674af3769">Utils::getModeImgs</a>(<a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>, <a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>, <a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>) );
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150             <span class="comment">// Dealloco i datasets e fermo la memorizzazione</span>
+<a name="l00151"></a>00151             <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00152"></a>00152             this-&gt;<a class="code" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3" title="Dealloca il dataset se precedentemente allocato.">deallocationDatasets</a>();
+<a name="l00153"></a>00153             <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00154"></a>00154             <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> = <span class="keyword">false</span>;
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157     }
+<a name="l00158"></a>00158     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160     <span class="comment">// Visualizza le immagini nella GUI con il segnale imageSX</span>
+<a name="l00161"></a>00161     emit <a class="code" href="class_acq_thread.html#a8600b4d6f8e5d8901c0dc25b14fc3879" title="Segnale per la visualizzazione dell&amp;#39;immagine di sinistra.">imageSx</a>( <a class="code" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage</a>(<a class="code" href="class_acq_thread.html#af874f6d05d3e1e1a8350b49d4421a073" title="Buffer che contiene l&amp;#39;immagine di sinistra.">ImageSX</a>) );
+<a name="l00162"></a>00162     emit <a class="code" href="class_acq_thread.html#add5d0a60d1e58d73b4400ca79a527a5f" title="Segnale per la visualizzazione dell&amp;#39;immagine di destra.">imageDx</a>( <a class="code" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage</a>(<a class="code" href="class_acq_thread.html#ab3efb96aa27fa3e7d9a7c74306c5db08" title="Buffer che contiene l&amp;#39;immagine di destra.">ImageDX</a>) );
+<a name="l00163"></a>00163     emit <a class="code" href="class_acq_thread.html#a8f78331adb7df26d83eb56040429846b" title="Segnale per la visualizzazione dell&amp;#39;immagine di disparit&amp;agrave;.">imageDsp</a>( <a class="code" href="class_utils.html#a731595fad8a405cd928577e84cdc2f94">Utils::pixeltype2qimage</a>(<a class="code" href="class_acq_thread.html#a36cd74b80be79c7e82c3b2d4acbbac04" title="Buffer che contiene l&amp;#39;immagine di disparti&amp;agrave;.">ImageDSP</a>), <span class="keyword">false</span> );
+<a name="l00164"></a>00164 }
+<a name="l00171"></a><a class="code" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d">00171</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#a517424f5ac9ef8efc48b33f2054be55d" title="Alloca il datasets per l&amp;#39;acquizione delle immagini.">AcqThread::allocationDatasets</a>(){
+<a name="l00172"></a>00172     <span class="comment">// Inizializzazione variabili per processing</span>
+<a name="l00173"></a>00173     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00174"></a>00174     <span class="keywordflow">if</span> ( <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> &amp;&amp; !<a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> ){
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176         this-&gt;<a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a> = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>**) calloc(<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) );
+<a name="l00177"></a>00177         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a> );
+<a name="l00178"></a>00178         this-&gt;<a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a> = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>**) calloc(<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) );
+<a name="l00179"></a>00179         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a> );
+<a name="l00180"></a>00180         this-&gt;<a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a> = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>**) calloc(<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) );
+<a name="l00181"></a>00181         <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a> );
+<a name="l00182"></a>00182         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>; ++i ){
+<a name="l00183"></a>00183             <a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>[i] = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc(<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
+<a name="l00184"></a>00184             <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>[i] );
+<a name="l00185"></a>00185             <a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>[i] = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc(<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
+<a name="l00186"></a>00186             <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>[i] );
+<a name="l00187"></a>00187             <a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>[i] = (<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>*) calloc(<a class="code" href="check__pcn_8h.html#a170755e30c36be4904106b7bb279b1ec">NN</a>, <span class="keyword">sizeof</span>(<a class="code" href="define__file_8h.html#ac7c53f4a0146b1ed42d6b1788783dc31" title="Definizione tipo di pixel dell&amp;#39;immagine (8bit)">PixelType</a>));
+<a name="l00188"></a>00188             <a class="code" href="define__file_8h.html#a9b48982881781218c57b89a4416200d1" title="Macro per controllo allocazione dinamica.">test_all</a>( <a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>[i] );
+<a name="l00189"></a>00189         }
+<a name="l00190"></a>00190         <a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> = <span class="keyword">true</span>;
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192     }
+<a name="l00193"></a>00193     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195 }
+<a name="l00196"></a>00196 
+<a name="l00197"></a><a class="code" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3">00197</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3" title="Dealloca il dataset se precedentemente allocato.">AcqThread::deallocationDatasets</a>(){
+<a name="l00198"></a>00198     <span class="comment">// Inizializzazione variabili per processing</span>
+<a name="l00199"></a>00199     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00200"></a>00200     <span class="keywordflow">if</span> ( <a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> ){
+<a name="l00201"></a>00201         <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="define__file_8h.html#a2d6c4a9c4deb2e8ea8da5e02f1cd4177" title="Numero di frame da acquisire e su cui calcolare la moda.">NUM_FRAME_TO_PROCESS</a>; ++i ){
+<a name="l00202"></a>00202             free(<a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>[i]);
+<a name="l00203"></a>00203             free(<a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>[i]);
+<a name="l00204"></a>00204             free(<a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>[i]);
+<a name="l00205"></a>00205         }
+<a name="l00206"></a>00206         free(<a class="code" href="class_acq_thread.html#a72fd952f18e515afc1f171b366ca04ce" title="N immagini di sinistra da processare (buffer per calcolo delle mode)">datasetSx</a>);
+<a name="l00207"></a>00207         free(<a class="code" href="class_acq_thread.html#a9c42942f41c166aff3f71188c5caf4bf" title="N immagini di destra da processare (buffer per calcolo delle mode)">datasetDx</a>);
+<a name="l00208"></a>00208         free(<a class="code" href="class_acq_thread.html#a508ce2be71896fcc12715fb7662c3528" title="N immagini di disparit&amp;agrave; da processare (buffer per calcolo delle mode)">datasetDsp</a>);
+<a name="l00209"></a>00209         <a class="code" href="class_acq_thread.html#a99ae30247b91b4ff1baf5046cca3cdad" title="Indica quanti campioni ho preso.">n_imgs</a> = 0;
+<a name="l00210"></a>00210         <a class="code" href="class_acq_thread.html#a467fe0866ec2505329222de40090457c" title="Indica se i datasets sono stati allocati oppure no.">datasetAllocated</a> = <span class="keyword">false</span>;
+<a name="l00211"></a>00211     }
+<a name="l00212"></a>00212     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00213"></a>00213 }
+<a name="l00214"></a>00214 
+<a name="l00215"></a><a class="code" href="class_acq_thread.html#ac9ae68105179313ee632b0bf841982ca">00215</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#ac9ae68105179313ee632b0bf841982ca" title="Inizia il processing.">AcqThread::startProcessing</a>(){
+<a name="l00216"></a>00216     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00217"></a>00217     <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> = <span class="keyword">true</span>;
+<a name="l00218"></a>00218     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00219"></a>00219 }
+<a name="l00220"></a>00220 
+<a name="l00221"></a><a class="code" href="class_acq_thread.html#a986625cc7edc1c895a23f1cae76913c5">00221</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#a986625cc7edc1c895a23f1cae76913c5" title="Annulla l&amp;#39;acquizione.">AcqThread::abort</a>(){
+<a name="l00222"></a>00222     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00223"></a>00223     <a class="code" href="class_acq_thread.html#a17b96584b45791aa3f49bc85d585dfd9" title="Indica lo stop per l&amp;#39;acqizione delle immagini.">stop</a> = <span class="keyword">true</span>;
+<a name="l00224"></a>00224     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00225"></a>00225 }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 
+<a name="l00228"></a><a class="code" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2">00228</a> <span class="keywordtype">void</span> <a class="code" href="class_acq_thread.html#a6ea689f1d04580eb51acf38c9d6f01e2" title="Ferma l&amp;#39;acquisizione.">AcqThread::abortAcquisition</a>(){
+<a name="l00229"></a>00229     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.lock();
+<a name="l00230"></a>00230     <a class="code" href="class_acq_thread.html#a216070ca5d686544e5a5f78f7dca851c" title="Per far partire acquisizione e processing.">startProc</a> = <span class="keyword">false</span>;
+<a name="l00231"></a>00231     <a class="code" href="class_acq_thread.html#a5ffcf3f77cd4522714395e7f8ac7725d" title="Mutex per gestione fermata.">mutex</a>.unlock();
+<a name="l00232"></a>00232     <a class="code" href="class_acq_thread.html#a499f9d5e3c282ad41ad20cdd8c2ab0a3" title="Dealloca il dataset se precedentemente allocato.">deallocationDatasets</a>();
+<a name="l00233"></a>00233 }
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tutto</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classi</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespace</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>File</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funzioni</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variabili</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ridefinizioni di tipo (typedef)</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definizioni</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Generato il Wed Feb 5 2014 16:25:49 per PCNProdTest da&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
+</body>
+</html>
